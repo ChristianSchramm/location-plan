@@ -1,0 +1,56 @@
+
+{% block navigation %}
+{% set routeParam = 'baum' %}
+
+<ul class="nav navbar-nav">
+
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+  <li>
+    <a href="" title="Raumübersicht" >Raumübersicht</a>
+  </li>
+
+  <li>
+    <a href="" title="Eventübersicht" >Eventübersicht</a>
+  </li>
+{% endif %}
+</ul>
+
+<ul class="nav navbar-nav navbar-right">
+
+  {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+  <li>
+    <form class="navbar-form" action="{{ path('login_check') }}" method="post">
+      <div class="form-group">
+        <input name="_username" type="text" class="form-control" placeholder="Email">
+      </div>
+      <div class="form-group">
+        <input name="_password" type="password" class="form-control" placeholder="Password">
+      </div>
+      <button class="btn btn-success" type="submit">Login</button>
+    </form>
+  </li>
+
+  {% else %}
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ app.user.username }}</a>
+    <ul class="dropdown-menu">
+      <li class="dropdown-header">User Control Panel</li>
+      <li><a href="">Nutzerdaten</a></li>
+      <li><a href="">Passwort</a></li>
+          {% if is_granted('ROLE_ADMIN') %}
+      <li class="divider"></li>
+      <li class="dropdown-header">Admin Control Panel</li>
+      <li><a href="">Produkte</a></li>
+      <li><a href="">Kategorien</a></li>
+      <li><a href="">User</a></li>
+        {% endif %}
+      <li class="divider"></li>
+      <li><a href="{{ path('logout') }}">Logout</a></li>
+    </ul>
+  </li>
+  {% endif %}
+  
+
+
+</ul>
+{% endblock %}
