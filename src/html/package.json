@@ -1,0 +1,17 @@
+{
+  "name": "location-plan",
+  "version": "1.0.0",
+  "author": "Christian Schramm",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChristianSchramm/location-plan.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-smushit": "~1.1.2",
+    "grunt-contrib-compass": "~0.3.0",
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-csscss": "~0.5.0",
+    "grunt-uncss": "~0.2.0"
+  }
+}
