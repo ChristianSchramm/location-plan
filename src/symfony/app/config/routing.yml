@@ -1,0 +1,5 @@
+location_plan:
+    resource: "@LocationPlanBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
