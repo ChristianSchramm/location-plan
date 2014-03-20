@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Asset
  *
- * @ORM\Table()
+ * @ORM\Table("assets")
  * @ORM\Entity(repositoryClass="Location\PlanBundle\Entity\AssetRepository")
  */
 class Asset
@@ -23,6 +23,13 @@ class Asset
 
 
     /**
+     * @ORM\ManyToMany(targetEntity="Event", inversedBy="assets")
+     * @ORM\JoinTable(name="asset_events")
+     */
+    private $events;
+
+
+    /**
      * Get id
      *
      * @return integer 
@@ -30,5 +37,45 @@ class Asset
     public function getId()
     {
         return $this->id;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->events = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add events
+     *
+     * @param \Location\PlanBundle\Entity\Event $events
+     * @return Asset
+     */
+    public function addEvent(\Location\PlanBundle\Entity\Event $events)
+    {
+        $this->events[] = $events;
+    
+        return $this;
+    }
+
+    /**
+     * Remove events
+     *
+     * @param \Location\PlanBundle\Entity\Event $events
+     */
+    public function removeEvent(\Location\PlanBundle\Entity\Event $events)
+    {
+        $this->events->removeElement($events);
+    }
+
+    /**
+     * Get events
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEvents()
+    {
+        return $this->events;
     }
 }

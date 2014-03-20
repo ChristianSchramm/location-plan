@@ -3,11 +3,12 @@
 namespace Location\PlanBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Room
  *
- * @ORM\Table()
+ * @ORM\Table("rooms")
  * @ORM\Entity(repositoryClass="Location\PlanBundle\Entity\RoomRepository")
  */
 class Room
@@ -35,7 +36,21 @@ class Room
      */
     private $number;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Event", inversedBy="rooms")
+     * @ORM\JoinTable(name="room_events")
+     */
+    private $events;
 
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->events = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -79,7 +94,7 @@ class Room
     {
         $this->number = $number;
     
-        return $number;
+        return $this;
     }
 
     /**
@@ -90,5 +105,38 @@ class Room
     public function getNumber()
     {
         return $this->number;
+    }
+
+    /**
+     * Add events
+     *
+     * @param \Location\PlanBundle\Entity\Event $events
+     * @return Room
+     */
+    public function addEvent(\Location\PlanBundle\Entity\Event $events)
+    {
+        $this->events[] = $events;
+    
+        return $this;
+    }
+
+    /**
+     * Remove events
+     *
+     * @param \Location\PlanBundle\Entity\Event $events
+     */
+    public function removeEvent(\Location\PlanBundle\Entity\Event $events)
+    {
+        $this->events->removeElement($events);
+    }
+
+    /**
+     * Get events
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEvents()
+    {
+        return $this->events;
     }
 }
