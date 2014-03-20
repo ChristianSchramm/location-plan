@@ -28,6 +28,13 @@ class Room
      */
     private $name;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="number", type="string", length=255)
+     */
+    private $number;
+
 
     /**
      * Get id
@@ -60,5 +67,28 @@ class Room
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set number
+     *
+     * @param string $number
+     * @return Room
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+    
+        return $number;
+    }
+
+    /**
+     * Get number
+     *
+     * @return string 
+     */
+    public function getNumber()
+    {
+        return $this->number;
     }
 }
