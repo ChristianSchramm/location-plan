@@ -67,9 +67,9 @@ class Event
     private $coleader;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Room", mappedBy="events")
+     * @ORM\ManyToOne(targetEntity="Room", inversedBy="events")
      */
-    private $rooms;
+    private $room;
 
 
     /**
@@ -82,7 +82,6 @@ class Event
      */
     public function __construct()
     {
-        $this->rooms = new \Doctrine\Common\Collections\ArrayCollection();
         $this->assets = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
@@ -235,36 +234,26 @@ class Event
     }
 
     /**
-     * Add rooms
+     * Set room
      *
-     * @param \Location\PlanBundle\Entity\Room $rooms
+     * @param \Location\PlanBundle\Entity\Room $room
      * @return Event
      */
-    public function addRoom(\Location\PlanBundle\Entity\Room $rooms)
+    public function setRoom(\Location\PlanBundle\Entity\Room $room = null)
     {
-        $this->rooms[] = $rooms;
+        $this->room = $room;
     
         return $this;
     }
 
     /**
-     * Remove rooms
+     * Get room
      *
-     * @param \Location\PlanBundle\Entity\Room $rooms
+     * @return \Location\PlanBundle\Entity\Room 
      */
-    public function removeRoom(\Location\PlanBundle\Entity\Room $rooms)
+    public function getRoom()
     {
-        $this->rooms->removeElement($rooms);
-    }
-
-    /**
-     * Get rooms
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getRooms()
-    {
-        return $this->rooms;
+        return $this->room;
     }
 
     /**

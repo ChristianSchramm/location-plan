@@ -37,8 +37,7 @@ class Room
     private $number;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Event", inversedBy="rooms")
-     * @ORM\JoinTable(name="room_events")
+     * @ORM\OneToMany(targetEntity="Event", mappedBy="room")
      */
     private $events;
 
