@@ -3,6 +3,8 @@ namespace Location\PlanBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+
+
 /**
  * Event
  *
@@ -261,5 +263,20 @@ class Event {
      */
     public function getAssets() {
         return $this->assets;
+    }
+
+
+
+    public function jsonSerialize()
+    {
+        return array(
+            'name' => $this->name,
+            'description' => $this->description,
+            'from' => $this->from->format("d.m.Y H:i:s"),
+            'until' => $this->until->format("d.m.Y H:i:s"),
+            'leader' => $this->leader,
+            'coleader' => $this->coleader,
+            'room' => $this->room->getName(),
+        );
     }
 }

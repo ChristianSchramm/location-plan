@@ -11,6 +11,8 @@ class EventController extends Controller {
      * @Template()
      */
     public function indexAction() {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $events = $em->getRepository('LocationPlanBundle:Event')->findAllOrderedByFrom();
+        return array('events' => $events);
     }
 }

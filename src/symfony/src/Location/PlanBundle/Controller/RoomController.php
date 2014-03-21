@@ -11,6 +11,8 @@ class RoomController extends Controller {
      * @Template()
      */
     public function indexAction() {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $rooms = $em->getRepository('LocationPlanBundle:Room')->findAllOrderedByNumber();
+        return array('rooms' => $rooms);
     }
 }

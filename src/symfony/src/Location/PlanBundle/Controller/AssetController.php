@@ -11,6 +11,8 @@ class AssetController extends Controller {
      * @Template()
      */
     public function indexAction() {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $assets = $em->getRepository('LocationPlanBundle:Asset')->findAll();
+        return array('assets' => $assets);
     }
 }
