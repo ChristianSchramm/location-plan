@@ -7,8 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class RoomController extends Controller {
       /**
-     * @Route("/admin/rooms", name="room")
-     * @Route("")
+     * @Route("/admin/rooms", name="admin_room")
      * @Template()
      */
     public function indexAction() {

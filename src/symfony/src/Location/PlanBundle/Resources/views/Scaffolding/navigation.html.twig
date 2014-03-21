@@ -37,12 +37,12 @@
       <li class="dropdown-header">User Control Panel</li>
       <li><a href="">Nutzerdaten</a></li>
       <li><a href="">Passwort</a></li>
-          {% if is_granted('ROLE_ADMIN') %}
+          {% if is_granted('ROLE_USER') %}
       <li class="divider"></li>
       <li class="dropdown-header">Admin Control Panel</li>
-      <li><a href="">Produkte</a></li>
-      <li><a href="">Kategorien</a></li>
-      <li><a href="">User</a></li>
+      <li><a href="{{ path('admin_room') }}">Räume</a></li>
+      <li><a href="{{ path('admin_event') }}">Events</a></li>
+      <li><a href="{{ path('admin_asset') }}">Assets</a></li>
         {% endif %}
       <li class="divider"></li>
       <li><a href="{{ path('logout') }}">Logout</a></li>
