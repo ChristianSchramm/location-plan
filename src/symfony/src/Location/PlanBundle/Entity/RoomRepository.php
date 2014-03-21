@@ -12,4 +12,12 @@ use Doctrine\ORM\EntityRepository;
  */
 class RoomRepository extends EntityRepository
 {
+    public function findAllOrderedByNumber()
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT r FROM LocationPlanBundle:Room r ORDER BY r.number ASC'
+            )
+            ->getResult();
+    }
 }

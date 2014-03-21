@@ -21,7 +21,7 @@
       <tbody>
       {% for room in rooms %}
         <tr>
-          <td>1</td>
+          <td>{{ loop.index }}</td>
           <td>{{ room.name }}</td>
           <td>{{ room.number }}</td>
           <td>{{ room.description }}</td>

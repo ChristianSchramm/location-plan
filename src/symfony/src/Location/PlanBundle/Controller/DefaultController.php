@@ -20,7 +20,7 @@ class DefaultController extends Controller {
      */
     public function eventAction() {
         $em = $this->getDoctrine()->getManager();
-        $events = $em->getRepository('LocationPlanBundle:Event')->findAll();
+        $events = $em->getRepository('LocationPlanBundle:Event')->findAllOrderedByFrom();
         return array('events' => $events);
     }
     /**
@@ -29,7 +29,7 @@ class DefaultController extends Controller {
      */
     public function roomAction() {
         $em = $this->getDoctrine()->getManager();
-        $rooms = $em->getRepository('LocationPlanBundle:Room')->findAll();
+        $rooms = $em->getRepository('LocationPlanBundle:Room')->findAllOrderedByNumber();
         return array('rooms' => $rooms);
     }
 }

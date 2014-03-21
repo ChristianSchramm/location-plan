@@ -21,7 +21,7 @@
       <tbody>
       {% for event in events %}
         <tr>
-          <td>1</td>
+          <td>{{ loop.index }}</td>
           <td>{{ event.date }} {{ event.time }}</td>
           <td>{{ event.name }}</td>
           <td>{{ event.description }}</td>
