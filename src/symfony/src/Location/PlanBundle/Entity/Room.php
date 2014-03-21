@@ -37,6 +37,13 @@ class Room
     private $number;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text")
+     */
+    private $description;
+
+    /**
      * @ORM\OneToMany(targetEntity="Event", mappedBy="room")
      */
     private $events;
@@ -137,5 +144,28 @@ class Room
     public function getEvents()
     {
         return $this->events;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Room
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

@@ -56,6 +56,20 @@ class Event
     /**
      * @var string
      *
+     */
+    private $date;
+
+
+    /**
+     * @var string
+     *
+     */
+    private $time;
+
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="leader", type="string", length=255)
      */
     private $leader;
@@ -185,6 +199,26 @@ class Event
     public function getUntil()
     {
         return $this->until;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \String 
+     */
+    public function getDate()
+    {
+        return $this->from->format('d.m.Y');
+    }
+
+    /**
+     * Get time
+     *
+     * @return \String 
+     */
+    public function getTime()
+    {
+        return $this->from->format('H:i') . " - " . $this->until->format('H:i');
     }
 
     /**

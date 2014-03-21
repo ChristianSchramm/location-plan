@@ -19,13 +19,17 @@ class DefaultController extends Controller {
      * @Template()
      */
     public function eventAction() {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $events = $em->getRepository('LocationPlanBundle:Event')->findAll();
+        return array('events' => $events);
     }
     /**
      * @Route("/rooms", name="room")
      * @Template()
      */
     public function roomAction() {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $rooms = $em->getRepository('LocationPlanBundle:Room')->findAll();
+        return array('rooms' => $rooms);
     }
 }
