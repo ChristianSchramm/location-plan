@@ -6,4 +6,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class RoomController extends Controller {
+      /**
+     * @Route("/admin/rooms", name="room")
+     * @Route("")
+     * @Template()
+     */
+    public function indexAction() {
+        return array();
+    }
 }

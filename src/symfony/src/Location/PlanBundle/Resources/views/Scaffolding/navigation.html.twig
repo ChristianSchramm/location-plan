@@ -6,11 +6,11 @@
 
 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
   <li>
-    <a href="" title="Raumübersicht" >Raumübersicht</a>
+    <a href="{{ path('room') }}" title="Raumübersicht" >Raumübersicht</a>
   </li>
 
   <li>
-    <a href="" title="Eventübersicht" >Eventübersicht</a>
+    <a href="{{ path('event') }}" title="Eventübersicht" >Eventübersicht</a>
   </li>
 {% endif %}
 </ul>
