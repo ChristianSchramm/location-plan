@@ -14,10 +14,9 @@ class EventRepository extends EntityRepository
 {
     public function findAllOrderedByFrom()
     {
-        return $this->getEntityManager()
-            ->createQuery(
-                'SELECT e FROM LocationPlanBundle:Event e ORDER BY e.from ASC'
-            )
-            ->getResult();
+        return $this->createQueryBuilder('e')
+         ->orderBy('e.from', 'ASC')
+         ->getQuery()
+         ->getResult();
     }
 }
