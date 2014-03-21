@@ -1,47 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <title>{% block title %}Location Plan Backend{% endblock %}</title>
-    {% block stylesheets %}
-    {% stylesheets
-		  '@LocationPlanBundle/Resources/public/sass/bootstrap.scss'
-		  filter='yui_css'
-      output='css/min.css'
-    %}
-    <link rel="stylesheet" href="{{ asset_url }}">
-	  {% endstylesheets %}
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-    {% endblock %}
-    <link rel="icon" type="image/x-icon" href="{{ asset('bundles/locationplan/images/favicon.ico') }}">
-  </head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>{% block title %}Location Plan Backend{% endblock %}</title>
+        {% block stylesheets %}
+            {% stylesheets
+                '@LocationPlanBundle/Resources/public/sass/bootstrap.scss'
+                filter='yui_css'
+                output='css/min.css'
+            %}
+                <link rel="stylesheet" href="{{ asset_url }}">
+            {% endstylesheets %}
+            <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('bundles/locationplan/images/favicon.ico') }}">
+    </head>
 
-  <body class="{% block bodyClasses %}{% endblock %}">
-    <header class="{% block headerClasses %}navbar navbar-inverse navbar-static-top {% endblock %}">
-      {% embed 'LocationPlanBundle:Scaffolding:header.html.twig' %}{% endembed %}
-    </header>
+    <body class="{% block bodyClasses %}{% endblock %}">
+        <header class="{% block headerClasses %}navbar navbar-inverse navbar-static-top {% endblock %}">
+        {% embed 'LocationPlanBundle:Scaffolding:header.html.twig' %}{% endembed %}
+        </header>
 
-    <section id="main" class="{% block mainClasses%}container {% endblock %}">
+        <section id="main" class="{% block mainClasses%}container {% endblock %}">
         {% block main %}{% endblock %}
-    </section>{# /.main #}
+        </section>{# /.main #}
 
-    <footer class="{% block footerClasses %}navbar navbar-default navbar-fixed-bottom {% endblock %}">
+        <footer class="{% block footerClasses %}navbar navbar-default navbar-fixed-bottom {% endblock %}">
 
-    </footer>
+        </footer>
 
-    {% block javascripts %}
+        {% block javascripts %}
+            {% javascripts
+                '@LocationPlanBundle/Resources/public/js/jquery-2.1.0.min.js'
+                '@LocationPlanBundle/Resources/public/js/bootstrap.min.js'
+                filter='yui_js'
+                output='js/min.js'
+            %}
+                <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
 
-	  {% javascripts 
-        '@LocationPlanBundle/Resources/public/js/jquery-2.1.0.min.js'
-	    '@LocationPlanBundle/Resources/public/js/bootstrap.min.js'
-        filter='yui_js' 
-        output='js/min.js'
-    %}
-    <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-    {% endblock %}
-
-
-  </body>
+    </body>
 </html>

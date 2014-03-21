@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class EventType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
@@ -25,7 +25,7 @@ class EventType extends AbstractType
             ->add('assets')
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

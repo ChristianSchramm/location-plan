@@ -21,23 +21,12 @@ class Asset
      */
     private $id;
 
-
     /**
      * @ORM\ManyToMany(targetEntity="Event", inversedBy="assets")
      * @ORM\JoinTable(name="asset_events")
      */
     private $events;
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
     /**
      * Constructor
      */
@@ -45,7 +34,17 @@ class Asset
     {
         $this->events = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
     /**
      * Add events
      *
@@ -55,7 +54,7 @@ class Asset
     public function addEvent(\Location\PlanBundle\Entity\Event $events)
     {
         $this->events[] = $events;
-    
+
         return $this;
     }
 
@@ -72,7 +71,7 @@ class Asset
     /**
      * Get events
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getEvents()
     {

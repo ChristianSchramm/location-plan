@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class RoomType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
@@ -19,7 +19,7 @@ class RoomType extends AbstractType
             ->add('number')
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
