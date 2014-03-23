@@ -1,0 +1,19 @@
+TouchMe\FloorPlanBundle\Entity\Asset:
+  type: entity
+  table: asset
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    title:
+      type: string
+      length: 255
+    src:
+      type: string
+      length: 255
+  manyToMany:
+    events:
+      targetEntity: Event
+      mappedBy: assets

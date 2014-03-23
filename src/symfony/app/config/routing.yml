@@ -1,5 +1,13 @@
-location_plan:
-    resource: "@LocationPlanBundle/Controller/"
-    type:     annotation
-    prefix:   /
+login:
+  path: /login
+  defaults:
+    _controller: TouchMeFloorPlanBundle:Security:login
+login_check:
+  path: /login_check
+logout:
+  path: /logout
+
+touch_me_floor_plan:
+  resource: "@TouchMeFloorPlanBundle/Resources/config/routing.yml"
+  prefix:   /
 

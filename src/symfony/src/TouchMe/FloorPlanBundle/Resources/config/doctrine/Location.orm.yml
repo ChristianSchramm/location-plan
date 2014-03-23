@@ -1,0 +1,21 @@
+TouchMe\FloorPlanBundle\Entity\Location:
+  type: entity
+  repositoryClass: TouchMe\FloorPlanBundle\Entity\LocationRepository
+  table: location
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    'number':
+      type: integer
+    'type':
+      type: string
+      length: 100
+    description:
+      type: text
+  oneToMany:
+    events:
+      targetEntity: Event
+      mappedBy: location

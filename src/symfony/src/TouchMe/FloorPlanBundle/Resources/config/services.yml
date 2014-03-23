@@ -1,0 +1,7 @@
+parameters:
+#    touch_me_floor_plan.example.class: TouchMe\FloorPlanBundle\Example
+
+services:
+#    touch_me_floor_plan.example:
+#        class: %touch_me_floor_plan.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

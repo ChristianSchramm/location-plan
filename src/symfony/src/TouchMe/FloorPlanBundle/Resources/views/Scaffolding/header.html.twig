@@ -1,0 +1,14 @@
+{# header block#}
+
+{% block header %}
+<div class="navbar-header">
+</div>{#  /.navbar-header #}
+
+<div class="container">
+  <div class="navbar-collapse collapse">
+
+    {% embed 'TouchMeFloorPlanBundle:Default:navigation.html.twig' %}{% endembed %}
+
+  </div>{#  /.navbar-collapse collapse #}
+</div>{#  /.container #}
+{% endblock %}
