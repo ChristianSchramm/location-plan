@@ -10,11 +10,4 @@ class EventController extends Controller
   {
     return $this->render('TouchMeFloorPlanBundle:Default:index.html.twig', array('name' => $name));
   }
-
-  public function getAllAction()
-  {
-    $events = $this->getDoctrine()->getRepository('LocationPlanBundle:Event')->findAll();
-
-    return array('events' => $events);
-  }
 }

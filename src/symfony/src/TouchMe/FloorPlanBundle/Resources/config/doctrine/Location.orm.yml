@@ -10,12 +10,16 @@ TouchMe\FloorPlanBundle\Entity\Location:
   fields:
     'number':
       type: integer
+      nullable: false
     'type':
       type: string
       length: 100
+      nullable: false
     description:
       type: text
+      nullable: false
   oneToMany:
     events:
       targetEntity: Event
       mappedBy: location
+      nullable: false

@@ -11,23 +11,31 @@ TouchMe\FloorPlanBundle\Entity\Event:
     title:
       type: string
       length: 255
+      nullable: false
     starttime:
       type: datetime
+      nullable: false
     endtime:
       type: datetime
+      nullable: false
     description:
       type: text
+      nullable: false
     branchofstudy:
       type: string
       length: 100
+      nullable: false
     personincharge:
       type: string
       length: 100
+      nullable: false
   manyToOne:
     location:
       targetEntity: Location
       inversedBy: events
+      nullable: false
   manyToMany:
     assets:
       targetEntity: Asset
       inversedBy: events
+      nullable: false

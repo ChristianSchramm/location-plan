@@ -43,7 +43,7 @@ class Location
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -66,7 +66,7 @@ class Location
     /**
      * Get number
      *
-     * @return integer 
+     * @return integer
      */
     public function getNumber()
     {
@@ -89,7 +89,7 @@ class Location
     /**
      * Get type
      *
-     * @return string 
+     * @return string
      */
     public function getType()
     {
@@ -112,7 +112,7 @@ class Location
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -145,10 +145,23 @@ class Location
     /**
      * Get events
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getEvents()
     {
         return $this->events;
+    }
+
+    /**
+     * Location toArray
+     * @return array
+     */
+    public function toArray()
+    {
+        $array = get_object_vars($this);
+        unset($array['events']);
+        unset($array["__isInitialized__"]);
+
+        return array_filter($array);
     }
 }

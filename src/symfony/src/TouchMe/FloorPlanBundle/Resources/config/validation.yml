@@ -1,0 +1,31 @@
+TouchMe\FloorPlanBundle\Entity\Event:
+  properties:
+    title:
+      - NotBlank: ~
+    starttime:
+      - NotNull: ~
+    endtime:
+      - NotNull: ~
+    description:
+      - NotBlank: ~
+    brancheofstudy:
+      - NotBlank: ~
+    personincharge:
+      - NotBlank: ~
+    location:
+      - NotNull: ~
+
+TouchMe\FloorPlanBundle\Entity\Location:
+  properties:
+    number:
+      - GreaterThan:
+        value: 0
+    type:
+      - NotBlank: ~
+    description:
+      - NotBlank: ~
+
+TouchMe\FloorPlanBundle\Entity\Asset:
+  properties:
+    title:
+      - NotBlank: ~

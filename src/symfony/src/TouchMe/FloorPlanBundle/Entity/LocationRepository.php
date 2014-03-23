@@ -12,4 +12,8 @@ use Doctrine\ORM\EntityRepository;
  */
 class LocationRepository extends EntityRepository
 {
+  public function findAllOrderedByNumber()
+  {
+    return $this->createQueryBuilder('l')->orderBy('l.number', 'ASC')->getQuery()->getResult();
+  }
 }

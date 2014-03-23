@@ -4,7 +4,7 @@ namespace TouchMe\FloorPlanBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class RoomController extends Controller
+class LocationController extends Controller
 {
     public function indexAction($name)
     {

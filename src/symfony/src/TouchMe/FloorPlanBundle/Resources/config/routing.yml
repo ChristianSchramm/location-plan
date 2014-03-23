@@ -1,6 +1,6 @@
-room:
-  pattern: /room/{name}
-  defaults: { _controller: TouchMeFloorPlanBundle:Room:index, name: room }
+location:
+  pattern: /location/{name}
+  defaults: { _controller: TouchMeFloorPlanBundle:Location:index, name: location }
 
 event:
   pattern: /event/{name}

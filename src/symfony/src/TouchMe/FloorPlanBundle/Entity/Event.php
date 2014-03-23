@@ -63,7 +63,7 @@ class Event
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -86,7 +86,7 @@ class Event
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -109,7 +109,7 @@ class Event
     /**
      * Get starttime
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getStarttime()
     {
@@ -132,7 +132,7 @@ class Event
     /**
      * Get endtime
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getEndtime()
     {
@@ -155,7 +155,7 @@ class Event
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -178,7 +178,7 @@ class Event
     /**
      * Get branchofstudy
      *
-     * @return string 
+     * @return string
      */
     public function getBranchofstudy()
     {
@@ -201,7 +201,7 @@ class Event
     /**
      * Get personincharge
      *
-     * @return string 
+     * @return string
      */
     public function getPersonincharge()
     {
@@ -224,7 +224,7 @@ class Event
     /**
      * Get location
      *
-     * @return \TouchMe\FloorPlanBundle\Entity\Location 
+     * @return \TouchMe\FloorPlanBundle\Entity\Location
      */
     public function getLocation()
     {
@@ -257,10 +257,38 @@ class Event
     /**
      * Get assets
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getAssets()
     {
         return $this->assets;
+    }
+
+    /**
+     * EventToArray
+     * @return array
+     */
+    public function toArray()
+    {
+        $array = get_object_vars($this);
+        $array['location'] = $this->getLocation()->toArray();
+        $array['assets'] = $this->getAssetsAsArray();
+
+        return $array;
+    }
+
+    /**
+     * Event ManyToMany getAssets
+     * @return array
+     */
+    public function getAssetsAsArray()
+    {
+        $array = array();
+        foreach($this->getAssets() as $asset)
+        {
+          $array[] = $asset->toArray();
+        }
+
+        return $array;
     }
 }

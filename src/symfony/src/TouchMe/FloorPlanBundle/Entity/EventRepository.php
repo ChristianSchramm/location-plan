@@ -12,4 +12,8 @@ use Doctrine\ORM\EntityRepository;
  */
 class EventRepository extends EntityRepository
 {
+  public function findAllOrderedByStarttime()
+  {
+    return $this->createQueryBuilder('e')->orderBy('e.starttime', 'ASC')->getQuery()->getResult();
+  }
 }
