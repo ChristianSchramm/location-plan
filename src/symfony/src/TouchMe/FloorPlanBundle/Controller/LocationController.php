@@ -6,8 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class LocationController extends Controller
 {
-    public function indexAction($name)
+    public function indexAction()
     {
-        return $this->render('TouchMeFloorPlanBundle:Default:index.html.twig', array('name' => $name));
+        $locations = $this->getDoctrine()->getRepository('TouchMeFloorPlanBundle:Location')->findAllOrderedByNumber();
+        return $this->render('TouchMeFloorPlanBundle:Location:index.html.twig', array('locations' => $locations));
     }
 }

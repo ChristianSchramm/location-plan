@@ -1,10 +1,14 @@
 location:
-  pattern: /location/{name}
-  defaults: { _controller: TouchMeFloorPlanBundle:Location:index, name: location }
+  pattern: /admin/location/
+  defaults: { _controller: TouchMeFloorPlanBundle:Location:index }
 
 event:
-  pattern: /event/{name}
-  defaults: { _controller: TouchMeFloorPlanBundle:Event:index, name: event }
+  pattern: /admin/event/
+  defaults: { _controller: TouchMeFloorPlanBundle:Event:index }
+
+export:
+  pattern: /admin/export/
+  defaults: { _controller: TouchMeFloorPlanBundle:Export:index }
 
 touch_me_floor_plan_homepage:
   pattern:  /{name}
