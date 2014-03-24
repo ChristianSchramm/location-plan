@@ -81,6 +81,10 @@ $z-main-nav:    5;
   @include border-radius(0 10px 10px 0);
 }
 
+%round-ico {
+  @include border-radius(40px);
+}
+
 /* Helper */
 
 %border-box {

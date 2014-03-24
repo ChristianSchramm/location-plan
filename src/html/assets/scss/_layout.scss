@@ -72,7 +72,7 @@ li {
 }
 
 .ico {
-  border-radius: 40px;
+  @extend %round-ico;
   display: block;
   float: left;
   height: 40px;
@@ -82,8 +82,8 @@ li {
   z-index: 10;
   
   &.active {
-      background: #666;
-      color: black;
+    background: #666;
+    color: black;
   }
 }
 
@@ -163,4 +163,30 @@ li {
   position: absolute;
   right: 0;
   width: 200px;
+}
+
+/* room */
+
+.room {
+  @extend %round-ico;
+  background: violet;
+  display: inline-block;
+  height: 40px;
+  position: absolute;
+  width: 40px;
+}
+
+.switch-btn {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.number-111 {
+  left: 50%;
+  top: 50%;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
 }

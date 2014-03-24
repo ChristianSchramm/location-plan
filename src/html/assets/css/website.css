@@ -20,6 +20,14 @@
   border-radius: 0 10px 10px 0;
 }
 
+.ico, .room {
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+  border-radius: 40px;
+}
+
 /* Helper */
 .flap {
   -webkit-box-sizing: border-box;
@@ -792,7 +800,6 @@ li {
 }
 
 .ico {
-  border-radius: 40px;
   display: block;
   float: left;
   height: 40px;
@@ -871,4 +878,28 @@ li {
   position: absolute;
   right: 0;
   width: 200px;
+}
+
+/* room */
+.room {
+  background: violet;
+  display: inline-block;
+  height: 40px;
+  position: absolute;
+  width: 40px;
+}
+
+.switch-btn {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.number-111 {
+  left: 50%;
+  top: 50%;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
 }
