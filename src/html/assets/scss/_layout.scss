@@ -11,6 +11,11 @@ body {
   width: 100%;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 li {
   list-style: none;
 }
@@ -62,10 +67,10 @@ li {
 /* navi */
 
 .main-nav {
-  height: 60px;
+  height: 40px;
   left: 0;
   position: absolute;
-  top: 0;
+  top: 10px;
   width: 200px;
   z-index: $z-main-nav;
 
@@ -135,37 +140,39 @@ li {
   width: 66%; 
   
   &.fullscreen{
-      height: 90%;
-      width: 100%;
+    height: 90%;
+    width: 100%;
   }
 }
 
 .floor-plan{
   background: blue;
-  height: 180px;
+  padding: 10px;
   position: absolute;
   right: 0;
   top: 0;
   width: 200px;
+  z-index: $z-floorplan;
 }
 
 .list{
+  @extend %border-box;
   height: 100%;
   opacity: 0;
   overflow: hidden;
-  padding: 5%;
+  padding: 70px 20px 20px;
   position: absolute;
-  transition: all 0.2s linear 0.2s;    
+  transition: all 0.2s linear 0.2s;
+  width: 100%;
   z-index: 2;
   
   ul{
-      color: black;
-      line-height: 20px;
-      padding: 20px;
+    color: black;
+    line-height: 20px;
   }
   
   &.active{
-      opacity: 1;
+    opacity: 1;
   }
 }
 
@@ -174,10 +181,11 @@ li {
 .legend {
   background: yellow;
   bottom: 0;
-  height: 200px;
+  padding: 10px;
   position: absolute;
   right: 0;
   width: 200px;
+  z-index: $z-legend;
 }
 
 /* room */
