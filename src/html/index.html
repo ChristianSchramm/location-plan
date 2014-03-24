@@ -26,17 +26,18 @@
     </header> <!-- header -->
       
     <div class="main" role="main">
-
-      <div class="flap">
-        <div class="sort">
+	
+	<div class="buttonsWrap">
           <ul>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
+            <li><a href="#" onclick="showList(1, this);" class="buttonIcon button1"><img src="svg/crosshair7.svg" width="100%" alt="übersicht" /></a></li>
+            <li><a href="#" onclick="showList(2, this);" class="buttonIcon button2"><img src="svg/wall9.svg" width="100%" alt="übersicht" /></a></li>
+            <li><a href="#" onclick="showList(3, this);" class="buttonIcon button3"><img src="svg/stack13.svg" width="100%" alt="übersicht" /></a></li>
           </ul>
-        </div> <!-- sort -->
+        </div> <!-- buttonsWrap -->	   
 
-        <div class="timetable">
+      <div class="flap" id="listwrap">
+        
+        <div class="timetable list list1">
           <ul>
             <li>
               <div class="list-entry">
@@ -61,7 +62,7 @@
         </ul>
       </div> <!-- floor-plan -->
       
-      <div class="map-container">
+      <div class="map-container fullscreen">
 
         <div class="room">
         
@@ -120,6 +121,6 @@
     <script>window.jQuery || document.write('<script src="assets/js/jquery-2.1.0.min.js"><\/script>')</script>
 
     <script src="assets/js/plugins.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/scripts.js"></script>
   </body>
 </html>
