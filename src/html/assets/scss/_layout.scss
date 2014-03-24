@@ -198,10 +198,12 @@ li {
 
 .number-111 {
   left: 50%;
-  top: 50%;
+  top: 25%;
 }
 
 .tooltip {
-  display: none;
+  background: lightgreen;
+  // display: none;
+  padding: 20px;
   position: absolute;
 }
