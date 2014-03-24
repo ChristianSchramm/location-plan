@@ -730,29 +730,62 @@ body {
   padding: 0;
 }
 
-.header {
-  background: red;
-  height: 5%;
+.wrapper {
+  bottom: 0;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
   width: 100%;
 }
 
+/* header */
+.header {
+  background: red;
+  height: 60px;
+  width: 100%;
+}
+.header .heading {
+  display: inline-block;
+  margin: 0;
+}
+
+.logo {
+  display: inline-block;
+}
+
+/* main */
+.main {
+  bottom: 20px;
+  position: absolute;
+  top: 60px;
+  width: 100%;
+}
+
+/* footer */
 .footer {
   background: green;
   bottom: 0;
-  height: 5%;
+  height: 20px;
   left: 0;
   position: absolute;
-  width: 100%;
+  right: 0;
 }
 
+/* navi */
 .main-nav {
-  z-index: 5;
+  height: 60px;
+  left: 0;
   position: absolute;
-  height: 100px;
+  top: 0;
+  width: 200px;
+  z-index: 5;
 }
 .main-nav li {
   float: left;
   list-style: none;
+}
+.main-nav li a {
+  background: pink;
 }
 
 .ico {
@@ -760,10 +793,8 @@ body {
   display: block;
   float: left;
   height: 40px;
-  line-height: 50px;
-  margin: 5px 0 0 5px;
-  padding: 10px;
   text-align: center;
+  text-indent: -999em;
   width: 40px;
   z-index: 10;
 }
@@ -772,15 +803,17 @@ body {
   color: black;
 }
 
+/* typo */
 .flap {
   background: #ccc;
   border-width: 2px 2px 2px 0;
-  height: 90%;
+  bottom: 0;
   left: -33%;
   overflow: hidden;
   position: absolute;
+  top: 0;
   transition: all 0.2s linear;
-  width: 33%;
+  width: 250px;
   z-index: 1;
 }
 .flap.active {
@@ -801,7 +834,12 @@ body {
 }
 
 .floor-plan {
-  display: none;
+  background: blue;
+  height: 180px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 200px;
 }
 
 .list {
@@ -822,8 +860,12 @@ body {
   opacity: 1;
 }
 
+/* legend */
 .legend {
+  background: yellow;
   bottom: 0;
+  height: 200px;
   position: absolute;
   right: 0;
+  width: 200px;
 }

@@ -3,29 +3,68 @@ body {
   padding: 0;
 }
 
-.header {
-  background: red;
-  height: 5%;
-  width: 100%;  
-}
-
-.footer {
-  background: green;
-  bottom:  0;
-  height: 5%;
-  left: 0;
+.wrapper {
+  bottom: 0;
   position: absolute;
+  overflow: hidden;
+  top: 0;
   width: 100%;
 }
 
-.main-nav {
-  z-index: $z-main-nav;
+/* header */
+
+.header {
+  background: red;
+  height: 60px;
+  width: 100%;  
+
+  .heading {
+    display: inline-block;
+    margin: 0;
+  }
+}
+
+.logo {
+  display: inline-block;
+}
+
+/* main */
+
+.main {
+  bottom: 20px;
   position: absolute;
-  height: 100px;
+  top: 60px;
+  width: 100%;
+}
+
+/* footer */
+
+.footer {
+  background: green;
+  bottom: 0;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+/* navi */
+
+.main-nav {
+  height: 60px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 200px;
+  z-index: $z-main-nav;
   
   li {
     float: left;
     list-style: none;
+
+    a {
+      background: pink;
+    }
   }
 }
 
@@ -34,10 +73,8 @@ body {
   display: block;
   float: left;
   height: 40px;
-  line-height: 50px;
-  margin: 5px 0 0 5px;
-  padding: 10px;
   text-align: center;
+  text-indent: -999em;
   width: 40px;
   z-index: 10;
   
@@ -45,23 +82,29 @@ body {
       background: #666;
       color: black;
   }
-} 
+}
+
+/* typo */
+
+.heading {
+}
 
 .flap{
   @extend %border-box;
   @extend %l-round-0-1-1-0;  
   background: #ccc;
   border-width: 2px 2px 2px 0;
-  height: 90%;
+  bottom: 0;
   left: -33%;
   overflow: hidden;
   position: absolute;
+  top: 0;
   transition: all 0.2s linear;
-  width:33%;
+  width: 250px;
   z-index: 1;
 
   &.active{
-      left: 0px;
+    left: 0px;
   }
 }
 
@@ -80,7 +123,12 @@ body {
 }
 
 .floor-plan{
-  display: none;
+  background: blue;
+  height: 180px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 200px;
 }
 
 .list{
@@ -103,8 +151,13 @@ body {
   }
 }
 
+/* legend */
+
 .legend {
+  background: yellow;
   bottom: 0;
+  height: 200px;
   position: absolute;
   right: 0;
+  width: 200px;
 }
