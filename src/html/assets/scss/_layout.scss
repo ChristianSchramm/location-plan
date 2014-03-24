@@ -1,0 +1,163 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  bottom: 0;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  width: 100%;
+}
+
+/* header */
+
+.header {
+  background: red;
+  height: 60px;
+  width: 100%;  
+
+  .heading {
+    display: inline-block;
+    margin: 0;
+  }
+}
+
+.logo {
+  display: inline-block;
+}
+
+/* main */
+
+.main {
+  bottom: 20px;
+  position: absolute;
+  top: 60px;
+  width: 100%;
+}
+
+/* footer */
+
+.footer {
+  background: green;
+  bottom: 0;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+/* navi */
+
+.main-nav {
+  height: 60px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 200px;
+  z-index: $z-main-nav;
+  
+  li {
+    float: left;
+    list-style: none;
+
+    a {
+      background: pink;
+    }
+  }
+}
+
+.ico {
+  border-radius: 40px;
+  display: block;
+  float: left;
+  height: 40px;
+  text-align: center;
+  text-indent: -999em;
+  width: 40px;
+  z-index: 10;
+  
+  &.active {
+      background: #666;
+      color: black;
+  }
+}
+
+/* typo */
+
+.heading {
+}
+
+.flap{
+  @extend %border-box;
+  @extend %l-round-0-1-1-0;  
+  background: #ccc;
+  border-width: 2px 2px 2px 0;
+  bottom: 0;
+  left: -33%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  transition: all 0.2s linear;
+  width: 250px;
+  z-index: 1;
+
+  &.active{
+    left: 0px;
+  }
+}
+
+.map-container{
+  height: 66%;
+  margin: auto 0;
+  position: absolute;
+  right: 0;
+  transition: all 0.2s ease-in-out;
+  width: 66%; 
+  
+  &.fullscreen{
+      height: 90%;
+      width: 100%;
+  }
+}
+
+.floor-plan{
+  background: blue;
+  height: 180px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 200px;
+}
+
+.list{
+  height: 100%;
+  opacity: 0;
+  overflow: hidden;
+  padding: 5%;
+  position: absolute;
+  transition: all 0.2s linear 0.2s;    
+  z-index: 2;
+  
+  ul{
+      color: black;
+      line-height: 20px;
+      padding: 20px;
+  }
+  
+  &.active{
+      opacity: 1;
+  }
+}
+
+/* legend */
+
+.legend {
+  background: yellow;
+  bottom: 0;
+  height: 200px;
+  position: absolute;
+  right: 0;
+  width: 200px;
+}
