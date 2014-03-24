@@ -6,8 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class EventController extends Controller
 {
-  public function indexAction($name)
+  public function indexAction()
   {
-    return $this->render('TouchMeFloorPlanBundle:Default:index.html.twig', array('name' => $name));
+    $events = $this->getDoctrine()->getRepository('TouchMeFloorPlanBundle:Event')->findAllOrderedByStarttime();
+    return $this->render('TouchMeFloorPlanBundle:Event:index.html.twig', array('events' => $events));
   }
 }

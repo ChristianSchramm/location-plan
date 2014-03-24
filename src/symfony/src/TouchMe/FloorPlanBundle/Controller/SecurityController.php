@@ -25,7 +25,7 @@ class SecurityController extends Controller
     }
 
     return $this->render(
-      'TouchMeFloorPlanBundle:Security:login.html.twig',
+      'TouchMeFloorPlanBundle:Default:index.html.twig',
       array(
         'last_username' => $session->get(SecurityContext::LAST_USERNAME),
         'error'         => $error

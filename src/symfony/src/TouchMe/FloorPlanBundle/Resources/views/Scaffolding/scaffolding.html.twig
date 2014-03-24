@@ -6,13 +6,12 @@
     <title>{% block title %}Location Plan Backend{% endblock %}</title>
     {% block stylesheets %}
       {% stylesheets
-        '@TouchMeFloorPlanBundle/Resources/public/sass/bootstrap.scss'
+        '@TouchMeFloorPlanBundle/Resources/public/css/bootstrap.min.css'
         filter='yui_css'
         output='css/min.css'
       %}
         <link rel="stylesheet" href="{{ asset_url }}">
       {% endstylesheets %}
-      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('bundles/FloorPlan/images/favicon.ico') }}">
   </head>
@@ -23,7 +22,11 @@
     </header>
 
     <section id="main" class="{% block mainClasses %}container {% endblock %}">
-      {% block main %}{% endblock %}
+      {% block main %}
+        {% if not is_granted('ROLE_USER') %}
+          {% embed 'TouchMeFloorPlanBundle:Security:login.html.twig' %}{% endembed %}
+        {% endif %}
+      {% endblock %}
     </section>{# /#main #}
 
     <footer class="{% block footerClasses %}navbar navbar-default navbar-fixed-bottom {% endblock %}">
