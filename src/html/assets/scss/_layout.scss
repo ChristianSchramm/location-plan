@@ -132,6 +132,9 @@ li {
 }
 
 .map-container{
+  background: 30% 0 no-repeat;
+  background-size: 60% auto;
+  @include base64-image($img-1OG-building-2and3);
   height: 66%;
   margin: auto 0;
   position: absolute;
@@ -140,7 +143,7 @@ li {
   width: 66%; 
   
   &.fullscreen{
-    height: 90%;
+    height: 100%;
     width: 100%;
   }
 }
@@ -194,9 +197,14 @@ li {
   @extend %round-ico;
   background: violet;
   display: inline-block;
-  height: 40px;
+  height: 26px;
   position: absolute;
-  width: 40px;
+  width: 26px;
+
+  .fullscreen & {
+    height: 40px;
+    width: 40px;
+  }
 }
 
 .switch-btn {
@@ -205,8 +213,8 @@ li {
 }
 
 .number-111 {
-  left: 50%;
-  top: 25%;
+  left: 30.5%;
+  top: 16%;
 }
 
 .tooltip {
