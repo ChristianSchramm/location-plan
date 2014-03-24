@@ -74,6 +74,10 @@ $z-basic:       1;
 * Placeholder
 **********************************************************/
 
+%border-box {
+  @include box-sizing('border-box');
+}
+
 %margin-bottom {
   margin-bottom: 20px;
 }
@@ -85,3 +89,11 @@ $z-basic:       1;
 /**********************************************************
 * Bilder
 **********************************************************/
+
+$ico-tooltip: "ico-tooltip.svg";
+$ico-wc: "ico-tooltip.svg"; //13
+$ico-mensa: "ico-tooltip.svg"; //11
+$ico-poi: "ico-tooltip.svg"; //3
+$ico-bibo: "ico-tooltip.svg"; //15
+$ico-pool: "ico-tooltip.svg"; //39
+$ico: "ico-tooltip.svg";

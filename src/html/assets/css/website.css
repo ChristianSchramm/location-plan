@@ -11,6 +11,12 @@
 /**********************************************************
 * Placeholder
 **********************************************************/
+#listWrap {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 /**********************************************************
 * Verläufe
 **********************************************************/
@@ -714,26 +720,30 @@ body {
   padding: 0;
 }
 
-header {
+.header {
+  background: red;
   height: 5%;
   width: 100%;
 }
 
-footer {
-  height: 5%;
-  width: 100%;
-  position: absolute;
+.footer {
+  background: green;
   bottom: 0;
+  height: 5%;
+  left: 0;
+  position: absolute;
+  width: 100%;
 }
 
-.buttonsWrap {
+.main-nav {
   height: 100px;
 }
-.buttonsWrap li {
+.main-nav li {
   float: left;
   list-style: none;
 }
-.buttonsWrap .buttonIcon {
+
+.ico {
   width: 40px;
   height: 40px;
   border-radius: 40px;
@@ -745,7 +755,7 @@ footer {
   line-height: 50px;
   z-index: 10;
 }
-.buttonsWrap .buttonIcon.active {
+.ico.active {
   background: #666666;
   color: black;
 }
@@ -763,8 +773,6 @@ footer {
   border-bottom-right-radius: 10px;
   border: 2px solid #000;
   border-width: 2px 2px 2px 0;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
 }
 #listWrap.active {
   left: 0px;

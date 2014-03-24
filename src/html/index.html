@@ -27,15 +27,27 @@
       
     <div class="main" role="main">
 	
-	<div class="buttonsWrap">
-          <ul>
-            <li><a href="#" onclick="showList(1, this);" class="buttonIcon button1"><img src="svg/crosshair7.svg" width="100%" alt="übersicht" /></a></li>
-            <li><a href="#" onclick="showList(2, this);" class="buttonIcon button2"><img src="svg/wall9.svg" width="100%" alt="übersicht" /></a></li>
-            <li><a href="#" onclick="showList(3, this);" class="buttonIcon button3"><img src="svg/stack13.svg" width="100%" alt="übersicht" /></a></li>
-          </ul>
-        </div> <!-- buttonsWrap -->	   
+	    <div class="main-nav">
+        <ul>
+          <li>
+            <a href="#" onclick="showList(1, this);" class="ico ico-poi">
+              Zur Tischposition springen
+            </a>
+          </li>
+          <li>
+            <a href="#" onclick="showList(2, this);" class="ico ico-timetable">
+              Ablauf-/Zeitplan einblenden
+            </a>
+          </li>
+           <li>
+            <a href="#" onclick="showList(2, this);" class="ico ico-compass">
+              Campusübersicht
+            </a>
+          </li>
+        </ul>
+      </div> <!-- buttonsWrap -->	   
 
-      <div class="flap" id="listwrap">
+      <div class="flap" id="flap">
         
         <div class="timetable list list1">
           <ul>
@@ -66,7 +78,8 @@
 
         <div class="room">
         
-          <a class="ico ico-poi switch-btn" data-postion="Raum 2.111" href="#"> <span>Position Raum 2.111</span>
+          <a class="ico ico-tooltip switch-btn" data-postion="Raum 2.111" href="#">
+            <span>Position Raum 2.111</span>
           </a>
           
           <article class="tooltip">
@@ -80,7 +93,6 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
               </figcaption>  <!-- caption -->
             </figure> <!-- image -->
-
 
             <!-- Platzhalter für Video: flowplayer -->
             <div class="video"></div> <!-- video -->
