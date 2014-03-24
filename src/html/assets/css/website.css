@@ -738,6 +738,10 @@ body {
   width: 100%;
 }
 
+li {
+  list-style: none;
+}
+
 /* header */
 .header {
   background: red;
@@ -782,7 +786,6 @@ body {
 }
 .main-nav li {
   float: left;
-  list-style: none;
 }
 .main-nav li a {
   background: pink;
@@ -808,12 +811,12 @@ body {
   background: #ccc;
   border-width: 2px 2px 2px 0;
   bottom: 0;
-  left: -33%;
+  left: -300px;
   overflow: hidden;
   position: absolute;
   top: 0;
   transition: all 0.2s linear;
-  width: 250px;
+  width: 300px;
   z-index: 1;
 }
 .flap.active {
