@@ -763,6 +763,12 @@ li {
 
 .logo {
   display: inline-block;
+  float: left;
+  height: 60px;
+  width: 172px;
+}
+.logo > img {
+  display: block;
 }
 
 /* main */
@@ -792,8 +798,16 @@ li {
   width: 200px;
   z-index: 5;
 }
+.main-nav ul {
+  display: inline-block;
+  padding-left: 20px;
+}
 .main-nav li {
   float: left;
+  margin-left: 20px;
+}
+.main-nav li:first-child {
+  margin-left: 0;
 }
 .main-nav li a {
   background: pink;
@@ -801,12 +815,10 @@ li {
 
 .ico {
   display: block;
-  float: left;
   height: 40px;
-  text-align: center;
   text-indent: -999em;
+  overflow: hidden;
   width: 40px;
-  z-index: 10;
 }
 .ico.active {
   background: #666;
