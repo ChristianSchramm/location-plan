@@ -1,0 +1,11 @@
+location:
+  pattern: /location/{name}
+  defaults: { _controller: TouchMeFloorPlanBundle:Location:index, name: location }
+
+event:
+  pattern: /event/{name}
+  defaults: { _controller: TouchMeFloorPlanBundle:Event:index, name: event }
+
+touch_me_floor_plan_homepage:
+  pattern:  /{name}
+  defaults: { _controller: TouchMeFloorPlanBundle:Default:index, name: home}

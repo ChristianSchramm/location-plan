@@ -1,0 +1,27 @@
+{% extends 'TouchMeFloorPlanBundle:Scaffolding:scaffolding.html.twig' %}
+
+{% block main %}
+
+<form class="form-signin" action="{{ path('login_check') }}" method="post">
+  <h1 class="form-signin-heading">Login</h1>
+  {% if error %}
+  <p>{{ error.message }}</p>
+  {% endif %}
+  <p>
+    <label for="username">
+      Username:
+      <input id="username" type="text" name="_username" value="{{ last_username }}" autofocus="" placeholder="Benutzername" class="form-control">
+    </label>
+  </p>
+  <p>
+    <label>
+      Passwort:
+      <input type="password" name="_password" placeholder="Passwort" class="form-control">
+    </label>
+  </p>
+  <p>
+    <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
+  </p>
+</form>
+
+{% endblock %}
