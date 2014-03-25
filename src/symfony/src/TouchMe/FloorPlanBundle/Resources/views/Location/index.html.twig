@@ -4,6 +4,7 @@
 
 <h2>Alle Räume</h2>
 <p>Hier finden Sie alle Räume.</p>
+<p><a href="{{ path('location_new')}}">Raum hinzufügen</a></p>
 
 
 <table class="table table-striped table-hover">
@@ -20,7 +21,7 @@
     <tr>
       <td>{{ loop.index }}</td>
       <td>{{ location.number }}</td>
-      <td>{{ location.name }}</td>
+      <td>{{ location.type }}</td>
       <td>{{ location.description }}</td>
     </tr>
   {% endfor %}

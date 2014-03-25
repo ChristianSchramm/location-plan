@@ -1,25 +1,24 @@
 {% block main %}
-
-<form class="form-signin" action="{{ path('login_check') }}" method="post">
-  <h1 class="form-signin-heading">Login</h1>
-  {% if error is defined %}
-  <p>{{ error.message }}</p>
-  {% endif %}
-  <p>
-    <label for="username">
-      Benutzername:
-      <input id="username" type="text" name="_username" value="" autofocus="" placeholder="Benutzername" class="form-control">
-    </label>
-  </p>
-  <p>
-    <label>
-      Passwort:
-      <input type="password" name="_password" placeholder="Passwort" class="form-control">
-    </label>
-  </p>
-  <p>
-    <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
-  </p>
-</form>
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <form class="form-signin" action="{{ path('login_check') }}" method="post">
+        {% if error is defined %}
+        <p>{{ error.message }}</p>
+        {% endif %}
+        <label for="username">
+          Benutzername:
+          <input type="text" name="_username" value="" autofocus="" placeholder="Benutzername" class="form-control">
+        </label>
+        <label>
+          Passwort:
+          <input type="password" name="_password" placeholder="Passwort" class="form-control">
+        </label>
+        <button type="submit" class="btn btn-sm btn-primary btn-block">Login</button>
+      </form>
+      </div>
+      <div class="col-md-4"></div>
+  </div>
+</div>
 {% endblock %}

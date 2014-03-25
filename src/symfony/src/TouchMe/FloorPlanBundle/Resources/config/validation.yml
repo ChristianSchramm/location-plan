@@ -18,8 +18,7 @@ TouchMe\FloorPlanBundle\Entity\Event:
 TouchMe\FloorPlanBundle\Entity\Location:
   properties:
     number:
-      - GreaterThan:
-        value: 0
+      - NotBlank: ~
     type:
       - NotBlank: ~
     description:

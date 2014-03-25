@@ -9,7 +9,8 @@ TouchMe\FloorPlanBundle\Entity\Location:
         strategy: AUTO
   fields:
     'number':
-      type: integer
+      type: string
+      length: 100
       nullable: false
     'type':
       type: string

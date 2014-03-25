@@ -13,7 +13,7 @@ class Location
     private $id;
 
     /**
-     * @var integer
+     * @var string
      */
     private $number;
 
@@ -53,7 +53,7 @@ class Location
     /**
      * Set number
      *
-     * @param integer $number
+     * @param string $number
      * @return Location
      */
     public function setNumber($number)
@@ -66,7 +66,7 @@ class Location
     /**
      * Get number
      *
-     * @return integer
+     * @return string
      */
     public function getNumber()
     {
