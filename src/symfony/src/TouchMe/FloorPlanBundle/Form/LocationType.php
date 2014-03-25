@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+
 class LocationType extends AbstractType
 {
         /**
@@ -15,18 +16,50 @@ class LocationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('number')
-            ->add('type', 'choice', array(
-                'choices'   => array(
-                    'Video'   => 'Video Raum',
-                    'Audio' => 'Audio Raum',
-                    'Computer'   => 'Computer Raum',
-                    'Normal'   => 'Lehr Raum',
-                    'Sanitary'   => 'Sanitär',
-
+            ->add('number', 'text', array(
+                'label' => 'Raumnummer',
+                'label_attr' => array(
+                    'class'=> ''
+                ),
+                'attr' => array(
+                    'class'=> 'form-control'
                 ),
             ))
-            ->add('description')
+            ->add('type', 'choice', array(
+                'label' => 'Raumtype',
+                'choices'   => array(
+                    'video'   => 'Schnittraum',
+                    'audio' => 'Tonstudio',
+                    'wood' => 'Holztechnik',
+                    'library' => 'Bibliothek',
+                    'pool'   => 'Computer Raum',
+                    'normal'   => 'Lehr Raum',
+                    'sanitary'   => 'Sanitär',
+                    'mensa'   => 'Mensa',
+
+                ),
+                'label_attr' => array(
+                    'class'=> ''
+                ),
+                'attr' => array(
+                    'class'=> 'form-control'
+                ),
+            ))
+            ->add('description', 'textarea',array(  
+                'label' => 'Beschreibung',               
+                'label_attr' => array(
+                    'class'=> ''
+                ),
+                'attr' => array(
+                    'class'=> 'form-control'
+                ),
+            ))
+            ->add('save', 'submit',array(    
+                'label' => 'speichern',             
+                'attr' => array(
+                    'class'=> 'btn btn-lg btn-primary btn-block'
+                ),
+            ))
         ;
     }
     

@@ -2,14 +2,27 @@
 
 {% block main %}
 
-<h2>Neuer Raum</h2>
+<h2>Neuen Raum anlegen</h2>
+<div class="row">
+  <div class="col-md-4">
+    {{ form_start(form) }}
+        {{ form_errors(form) }}
 
-{{ form_start(form) }}
-    {{ form_errors(form) }}
+        <div class="form-group ">
 
-    {{ form_row(form.number) }}
-    {{ form_row(form.type) }}
-    {{ form_row(form.description) }}
-{{ form_end(form) }}
 
+        {{ form_row(form.number) }}
+        </div>
+        <div class="form-group">
+        {{ form_row(form.type) }}
+        </div>
+        <div class="form-group ">
+        {{ form_row(form.description) }}
+        </div>
+        <div class="form-group">
+            {{ form_widget(form.save) }}
+        </div>
+    {{ form_end(form) }}
+  </div>
+</div>
 {% endblock %}
