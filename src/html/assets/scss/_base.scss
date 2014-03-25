@@ -73,6 +73,8 @@ $z-floorplan:  15;
 * Farben
 **********************************************************/
 
+$ba-blue: #006FB4;
+
 /**********************************************************
 * Placeholder
 **********************************************************/
@@ -106,12 +108,17 @@ $z-floorplan:  15;
 **********************************************************/
 
 $ico-tooltip: "ico-tooltip.svg";
+$ico-tooltip-hover: "ico-tooltip-hover.svg";
+$ico-position: "ico-position.svg"; //3
+$ico-position-hover: "ico-position-hover.svg"; //3
+$ico-timetable: "ico-timetable.svg";
+$ico-timetable-hover: "ico-timetable-hover.svg";
+$ico-compass: "ico-compass.svg";
+$ico-compass-hover: "ico-compass-hover.svg";
 $ico-wc: "ico-tooltip.svg"; //13
 $ico-mensa: "ico-tooltip.svg"; //11
-$ico-poi: "ico-tooltip.svg"; //3
 $ico-bibo: "ico-tooltip.svg"; //15
 $ico-pool: "ico-tooltip.svg"; //39
-$ico: "ico-tooltip.svg";
 $img-1OG-building-2and3: "1OG-building-2and3.svg";
 
 /* building */

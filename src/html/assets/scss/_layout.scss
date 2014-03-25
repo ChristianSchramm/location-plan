@@ -86,24 +86,12 @@ li {
     &:first-child {
       margin-left: 0;
     }
-
-    a {
-      background: pink;
-    }
   }
-}
 
-.ico {
-  @extend %round-ico;
-  display: block;
-  height: 40px;
-  text-indent: -999em;
-  overflow: hidden;
-  width: 40px;
-  
-  &.active {
-    background: #666;
-    color: black;
+  .ico {
+    background-size: 40px 40px;
+    height: 40px;
+    width: 40px;
   }
 }
 
@@ -112,7 +100,7 @@ li {
 .heading {
 }
 
-.flap{
+.flap {
   @extend %border-box;
   @extend %l-round-0-1-1-0;  
   background: #ccc;
@@ -126,23 +114,23 @@ li {
   width: 300px;
   z-index: 1;
 
-  &.active{
+  &.active {
     left: 0px;
   }
 }
 
-.map-container{
-  background: 30% 0 no-repeat;
-  background-size: 60% auto;
+.map-container {
+  background: 30% -30px no-repeat;
+  background-size: 65% auto;
   @include base64-image($img-1OG-building-2and3);
   height: 66%;
   margin: auto 0;
   position: absolute;
   right: 0;
   transition: all 0.2s ease-in-out;
-  width: 66%; 
+  width: 66%;
   
-  &.fullscreen{
+  &.fullscreen {
     height: 100%;
     width: 100%;
   }
@@ -194,8 +182,6 @@ li {
 /* room */
 
 .room {
-  @extend %round-ico;
-  background: violet;
   display: inline-block;
   height: 26px;
   position: absolute;
@@ -222,4 +208,62 @@ li {
   // display: none;
   padding: 20px;
   position: absolute;
+}
+
+/* Icons */
+
+.ico {
+  background: 0 0 no-repeat;
+  background-size: 26px 26px;
+  display: block;
+  height: 26px;
+  text-indent: -999em;
+  width: 26px;
+
+  .fullscreen & {
+    background-size: 40px 40px;
+    height: 40px;
+    width: 40px;
+  }
+}
+
+.ico-tooltip {
+  @include base64-image($ico-tooltip);
+
+  &:active,
+  &:hover,
+  &:focus,
+  &.active {
+    @include base64-image($ico-tooltip-hover);
+  }
+}
+.ico-position {
+  @include base64-image($ico-position);
+
+  &:active,
+  &:hover,
+  &:focus,
+  &.active {
+    @include base64-image($ico-position-hover);
+  }
+}
+.ico-compass {
+  @include base64-image($ico-compass);
+
+  &:active,
+  &:hover,
+  &:focus,
+  &.active {
+    @include base64-image($ico-compass-hover);
+  }
+}
+.ico-timetable {
+  @include base64-image($ico-timetable);
+
+  &:active,
+  &:hover,
+  &:focus,
+  &.active {
+    @include base64-image($ico-timetable-hover);
+  }
 }
