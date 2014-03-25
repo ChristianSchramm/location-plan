@@ -19,8 +19,11 @@
   {% for event in events %}
     <tr>
       <td>{{ loop.index }}</td>
-      <td>{{ event.date }} {{ event.time }}</td>
-      <td>{{ event.name }}</td>
+      <td>
+        von {{ event.starttime|date('d.m.Y') }} {{ event.starttime|date('h:i') }}<br>
+        bis {{ event.endtime|date('d.m.Y') }} {{ event.endtime|date('h:i') }}
+      </td>
+      <td>{{ event.title }}</td>
       <td>{{ event.description }}</td>
     </tr>
   {% endfor %}

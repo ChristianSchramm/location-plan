@@ -15,9 +15,9 @@ TouchMe\FloorPlanBundle\Entity\Asset:
       type: string
       length: 255
       nullable: false
-    file:
-      - File:
-        maxSize: 20M
+    #file:
+      #- File:
+        #maxSize: 20M
   manyToMany:
     events:
       targetEntity: Event

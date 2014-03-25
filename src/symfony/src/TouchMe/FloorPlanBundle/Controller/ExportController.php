@@ -19,12 +19,11 @@ class ExportController extends Controller
         // Absolute paths
         $webPath = $this->get('kernel')->getRootDir() . '/../web/';
         $uploadPath = $webPath . 'upload/';
+        $zipPath = $webPath . 'zip/';
 
-        if (is_dir($webPath . 'zip')) {
-            $zipPath = $webPath . 'zip/';
-        } else {
+        if (!is_dir($webPath . 'zip'))
+        {
             mkdir($webPath . 'zip/');
-            $zipPath = $webPath . 'zip/';
         }
 
         $eventArray = array();

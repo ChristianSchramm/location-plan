@@ -18,6 +18,10 @@ export:
   pattern: /admin/export/
   defaults: { _controller: TouchMeFloorPlanBundle:Export:index }
 
+import:
+  pattern: /admin/import/
+  defaults: { _controller: TouchMeFloorPlanBundle:Import:index }
+
 touch_me_floor_plan_homepage:
   pattern:  /{name}
   defaults: { _controller: TouchMeFloorPlanBundle:Default:index, name: home}

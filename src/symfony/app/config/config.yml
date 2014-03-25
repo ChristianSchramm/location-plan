@@ -36,7 +36,8 @@ assetic:
     bundles:        [ TouchMeFloorPlanBundle ]
     #java: /usr/bin/java
     filters:
-        cssrewrite: ~
+        #cssrewrite: ~
+        #sass: ~
         compass:
             apply_to: "\.(scss|sass)$"
         coffee:
