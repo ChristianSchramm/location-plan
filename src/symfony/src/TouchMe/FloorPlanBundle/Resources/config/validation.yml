@@ -19,7 +19,7 @@ TouchMe\FloorPlanBundle\Entity\Location:
   properties:
     number:
       - GreaterThan:
-        value: 0
+          value: 0
     type:
       - NotBlank: ~
     description:

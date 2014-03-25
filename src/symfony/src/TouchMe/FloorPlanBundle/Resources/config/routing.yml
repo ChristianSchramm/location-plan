@@ -2,6 +2,10 @@ location:
   pattern: /admin/location/
   defaults: { _controller: TouchMeFloorPlanBundle:Location:index }
 
+location_new:
+  pattern: /admin/location/new
+  defaults: { _controller: TouchMeFloorPlanBundle:Location:new }
+
 event:
   pattern: /admin/event/
   defaults: { _controller: TouchMeFloorPlanBundle:Event:index }
