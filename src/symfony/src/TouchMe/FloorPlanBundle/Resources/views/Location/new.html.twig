@@ -1,0 +1,15 @@
+{% extends 'TouchMeFloorPlanBundle:Scaffolding:scaffolding.html.twig' %}
+
+{% block main %}
+
+<h2>Neuer Raum</h2>
+
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    {{ form_row(form.number) }}
+    {{ form_row(form.type) }}
+    {{ form_row(form.description) }}
+{{ form_end(form) }}
+
+{% endblock %}

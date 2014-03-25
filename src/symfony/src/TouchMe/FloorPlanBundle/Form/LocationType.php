@@ -16,7 +16,16 @@ class LocationType extends AbstractType
     {
         $builder
             ->add('number')
-            ->add('type')
+            ->add('type', 'choice', array(
+                'choices'   => array(
+                    'Video'   => 'Video Raum',
+                    'Audio' => 'Audio Raum',
+                    'Computer'   => 'Computer Raum',
+                    'Normal'   => 'Lehr Raum',
+                    'Sanitary'   => 'Sanitär',
+
+                ),
+            ))
             ->add('description')
         ;
     }
