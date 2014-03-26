@@ -164,4 +164,9 @@ class Location
 
         return array_filter($array);
     }
+
+    public function __toString()
+    {
+      return $this->number;
+    }
 }

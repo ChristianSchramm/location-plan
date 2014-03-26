@@ -22,9 +22,31 @@ location_remove:
   pattern: /admin/location/remove/{id}
   defaults: { _controller: TouchMeFloorPlanBundle:Location:remove }
 
+
+
 event:
   pattern: /admin/event/
   defaults: { _controller: TouchMeFloorPlanBundle:Event:index }
+
+event_new:
+  pattern: /admin/event/new
+  defaults: { _controller: TouchMeFloorPlanBundle:Event:new }
+
+event_create:
+  pattern: /admin/event/create
+  defaults: { _controller: TouchMeFloorPlanBundle:Event:create }
+
+event_edit:
+  pattern: /admin/event/edit/{id}
+  defaults: { _controller: TouchMeFloorPlanBundle:Event:edit }
+
+event_save:
+  pattern: /admin/event/save/{id}
+  defaults: { _controller: TouchMeFloorPlanBundle:Event:save }
+
+event_remove:
+  pattern: /admin/event/remove/{id}
+  defaults: { _controller: TouchMeFloorPlanBundle:Event:remove }
 
 export:
   pattern: /admin/export/

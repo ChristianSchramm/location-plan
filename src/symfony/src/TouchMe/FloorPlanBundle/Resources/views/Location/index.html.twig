@@ -2,9 +2,8 @@
 
 {% block main %}
 
-<h2>Alle Räume</h2>
-<p>Hier finden Sie alle Räume.</p>
-<p><a href="{{ path('location_new')}}"><span class="glyphicon glyphicon-plus"></span> Raum hinzufügen</a></p>
+<h2>Alle Räume <small><a href="{{ path('location_new')}}"><span class="glyphicon glyphicon-plus"></span> Raum hinzufügen</a></small></h2>
+<p>Hier finden Sie alle Räume. </p>
 
 
 <table class="table table-striped table-hover">
@@ -24,7 +23,14 @@
       <td>{{ location.number }}</td>
       <td>{{ location.type }}</td>
       <td>{{ location.description }}</td>
-      <td><a href="{{ path('location_edit', {'id' : location.id }) }}"><span class="glyphicon glyphicon-edit"></span></a> &nbsp; &nbsp; <a href="{{ path('location_remove', {'id' : location.id }) }}"><span class="glyphicon glyphicon-remove"></span></a></td>
+      <td>
+        <a href="{{ path('location_edit', {'id' : location.id }) }}">
+          <span class="glyphicon glyphicon-edit"></span>
+        </a> &nbsp; &nbsp; 
+        <a href="{{ path('location_remove', {'id' : location.id }) }}">
+         <span class="glyphicon glyphicon-remove"></span>
+        </a>
+      </td>
     </tr>
   {% endfor %}
   </tbody>

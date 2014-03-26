@@ -8,7 +8,7 @@ TouchMe\FloorPlanBundle\Entity\Event:
       - NotNull: ~
     description:
       - NotBlank: ~
-    brancheofstudy:
+    branchofstudy:
       - NotBlank: ~
     personincharge:
       - NotBlank: ~
