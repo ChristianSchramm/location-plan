@@ -18,9 +18,19 @@ class Event
     private $title;
 
     /**
+     * @var \Date
+     */
+    private $startdate;
+
+    /**
      * @var \DateTime
      */
     private $starttime;
+
+    /**
+     * @var \Date
+     */
+    private $enddate;
 
     /**
      * @var \DateTime
@@ -94,6 +104,33 @@ class Event
     }
 
     /**
+     * Set startdate
+     *
+     * @param \Date $startdate
+     * @return Event
+     */
+    public function setStartdate($startdate)
+    {
+        $this->startdate = $startdate;
+
+        return $this;
+    }
+
+    /**
+     * Get startdate
+     *
+     * @return \Date
+     */
+    public function getStartdate()
+    {
+        return $this->startdate;
+    }
+
+
+
+
+
+    /**
      * Set starttime
      *
      * @param \DateTime $starttime
@@ -115,6 +152,33 @@ class Event
     {
         return $this->starttime;
     }
+
+
+    /**
+     * Set enddate
+     *
+     * @param \Date $enddate
+     * @return Event
+     */
+    public function setEnddate($enddate)
+    {
+        $this->enddate = $enddate;
+
+        return $this;
+    }
+
+    /**
+     * Get enddate
+     *
+     * @return \Date
+     */
+    public function getEnddate()
+    {
+        return $this->enddate;
+    }
+
+
+
 
     /**
      * Set endtime

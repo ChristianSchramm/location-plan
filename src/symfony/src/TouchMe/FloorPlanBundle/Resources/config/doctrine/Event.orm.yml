@@ -12,8 +12,14 @@ TouchMe\FloorPlanBundle\Entity\Event:
       type: string
       length: 255
       nullable: false
+    startdate:
+      type: date
+      nullable: false
     starttime:
       type: datetime
+      nullable: false
+    enddate:
+      type: date
       nullable: false
     endtime:
       type: datetime

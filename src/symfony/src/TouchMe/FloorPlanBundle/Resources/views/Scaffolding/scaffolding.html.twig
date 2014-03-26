@@ -7,6 +7,9 @@
     {% block stylesheets %}
       {% stylesheets
         '@TouchMeFloorPlanBundle/Resources/public/sass/bootstrap.scss'
+        '@TouchMeFloorPlanBundle/Resources/public/sass/picker.classic.css'
+        '@TouchMeFloorPlanBundle/Resources/public/sass/picker.classic.date.css'
+        '@TouchMeFloorPlanBundle/Resources/public/sass/picker.classic.time.css'
         '@TouchMeFloorPlanBundle/Resources/public/sass/style.scss'
         filter='yui_css'
         output='css/min.css'
@@ -41,6 +44,11 @@
       {% javascripts
         '@TouchMeFloorPlanBundle/Resources/public/js/jquery-2.1.0.min.js'
         '@TouchMeFloorPlanBundle/Resources/public/js/bootstrap.min.js'
+        '@TouchMeFloorPlanBundle/Resources/public/js/bootstrap.min.js'
+        '@TouchMeFloorPlanBundle/Resources/public/js/picker.js'
+        '@TouchMeFloorPlanBundle/Resources/public/js/picker.time.js'
+        '@TouchMeFloorPlanBundle/Resources/public/js/picker.date.js'
+        '@TouchMeFloorPlanBundle/Resources/public/js/main.js'
       %}
         <script src="{{ asset_url }}"></script>
       {% endjavascripts %}

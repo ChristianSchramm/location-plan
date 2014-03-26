@@ -26,16 +26,18 @@ class LocationType extends AbstractType
                 ),
             ))
             ->add('type', 'choice', array(
-                'label' => 'Raumtype',
+                'label' => 'Raumtyp',
                 'choices'   => array(
                     'video'   => 'Schnittraum',
                     'audio' => 'Tonstudio',
                     'wood' => 'Holztechnik',
                     'library' => 'Bibliothek',
-                    'pool'   => 'Computer Raum',
-                    'normal'   => 'Lehr Raum',
+                    'pool'   => 'Computerraum',
+                    'normal'   => 'Seminarraum',
                     'sanitary'   => 'Sanitär',
                     'mensa'   => 'Mensa',
+                    'stock'   => 'Lagerraum',
+                    'facility'   => 'Hausmeister',
 
                 ),
                 'label_attr' => array(

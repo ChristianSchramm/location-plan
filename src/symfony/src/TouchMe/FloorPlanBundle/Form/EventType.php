@@ -21,17 +21,51 @@ class EventType extends AbstractType
                     'class'=> ''
                 ),
                 'attr' => array(
-                    'class'=> 'form-control'
+                    'class'=> 'form-control '
                 ),
             ))
-            ->add('starttime')
-            ->add('endtime')
+            ->add('startdate', 'text', array(
+                'label' => 'Startdatum',
+                'label_attr' => array(
+                    'class'=> ''
+                ),
+                'attr' => array(
+                    'class'=> 'form-control datepicker'
+                ),
+            ))
+            ->add('starttime', 'text', array(
+                'label' => 'Startzeit',
+                'label_attr' => array(
+                    'class'=> ''
+                ),
+                'attr' => array(
+                    'class'=> 'form-control timepicker'
+                ),
+            ))
+            ->add('enddate', 'text', array(
+                'label' => 'Enddatum',
+                'label_attr' => array(
+                    'class'=> ''
+                ),
+                'attr' => array(
+                    'class'=> 'form-control datepicker'
+                ),
+            ))
+            ->add('endtime', 'text', array(
+                'label' => 'Endzeit',
+                'label_attr' => array(
+                    'class'=> ''
+                ),
+                'attr' => array(
+                    'class'=> 'form-control timepicker'
+                ),
+            ))
             ->add('description')
             ->add('branchofstudy')
             ->add('personincharge')
             ->add('location')
             ->add('assets')
-            
+
             ->add('save', 'submit',array(    
                 'label' => 'speichern',             
                 'attr' => array(
