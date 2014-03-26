@@ -23,7 +23,7 @@ class Event
     private $startdate;
 
     /**
-     * @var \DateTime
+     * @var \Time
      */
     private $starttime;
 
@@ -33,7 +33,7 @@ class Event
     private $enddate;
 
     /**
-     * @var \DateTime
+     * @var \Time
      */
     private $endtime;
 
@@ -133,7 +133,7 @@ class Event
     /**
      * Set starttime
      *
-     * @param \DateTime $starttime
+     * @param \Time $starttime
      * @return Event
      */
     public function setStarttime($starttime)
@@ -146,7 +146,7 @@ class Event
     /**
      * Get starttime
      *
-     * @return \DateTime
+     * @return \Time
      */
     public function getStarttime()
     {
@@ -183,7 +183,7 @@ class Event
     /**
      * Set endtime
      *
-     * @param \DateTime $endtime
+     * @param \Time $endtime
      * @return Event
      */
     public function setEndtime($endtime)
@@ -196,7 +196,7 @@ class Event
     /**
      * Get endtime
      *
-     * @return \DateTime
+     * @return \Time
      */
     public function getEndtime()
     {
