@@ -60,11 +60,57 @@ class EventType extends AbstractType
                     'class'=> 'form-control timepicker'
                 ),
             ))
-            ->add('description')
-            ->add('branchofstudy')
-            ->add('personincharge')
-            ->add('location')
-            ->add('assets')
+            ->add('description', 'textarea', array(
+                'label' => 'Beschreibung',
+                'label_attr' => array(
+                    'class'=> ''
+                ),
+                'attr' => array(
+                    'class'=> 'form-control '
+                ),
+            ))
+            ->add('branchofstudy', 'choice', array(
+                'label' => 'Studienrichtung',
+                'choices'   => array(
+                    'medieninformatik'   => 'Medieninformatik',
+
+                ),
+                'label_attr' => array(
+                    'class'=> ''
+                ),
+                'attr' => array(
+                    'class'=> 'form-control '
+                ),
+            ))
+            ->add('personincharge', 'text', array(
+                'label' => 'Eventtitle',
+                'label_attr' => array(
+                    'class'=> ''
+                ),
+                'attr' => array(
+                    'class'=> 'form-control '
+                ),
+            ))
+            ->add('location', 'entity', array(
+                'label' => 'Raum',
+                'class' => 'TouchMeFloorPlanBundle:Location',
+                'label_attr' => array(
+                    'class'=> ''
+                ),
+                'attr' => array(
+                    'class'=> 'form-control '
+                ),
+            ))
+            ->add('assets', 'entity', array(
+                'label' => 'Dateien',
+                'class' => 'TouchMeFloorPlanBundle:Asset',
+                'label_attr' => array(
+                    'class'=> ''
+                ),
+                'attr' => array(
+                    'class'=> 'form-control '
+                ),
+            ))
 
             ->add('save', 'submit',array(    
                 'label' => 'speichern',             
