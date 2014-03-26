@@ -10,6 +10,18 @@ location_create:
   pattern: /admin/location/create
   defaults: { _controller: TouchMeFloorPlanBundle:Location:create }
 
+location_edit:
+  pattern: /admin/location/edit/{id}
+  defaults: { _controller: TouchMeFloorPlanBundle:Location:edit }
+
+location_save:
+  pattern: /admin/location/save/{id}
+  defaults: { _controller: TouchMeFloorPlanBundle:Location:save }
+
+location_remove:
+  pattern: /admin/location/remove/{id}
+  defaults: { _controller: TouchMeFloorPlanBundle:Location:remove }
+
 event:
   pattern: /admin/event/
   defaults: { _controller: TouchMeFloorPlanBundle:Event:index }

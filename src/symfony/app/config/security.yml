@@ -18,6 +18,7 @@ security:
             pattern: ^/login$
             anonymous: ~
 
+
         secured_area:
             pattern:    ^/
             anonymous: ~
@@ -33,4 +34,4 @@ security:
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin$, roles: ROLE_ADMIN }
+        - { path: ^/admin, roles: ROLE_USER }
