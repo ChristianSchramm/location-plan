@@ -123,7 +123,7 @@ li {
   background: 30% -30px no-repeat;
   background-size: 65% auto;
   @include base64-image($img-1OG-building-2and3);
-  height: 66%;
+  height: 100%;
   margin: auto 0;
   position: absolute;
   right: 0;
@@ -183,14 +183,10 @@ li {
 
 .room {
   display: inline-block;
-  height: 26px;
+  height: 40px;
   position: absolute;
-  width: 26px;
-
-  .fullscreen & {
-    height: 40px;
-    width: 40px;
-  }
+  width: 40px;
+  z-index: 0;
 }
 
 .switch-btn {
@@ -203,31 +199,88 @@ li {
   top: 14%;
 }
 
+.number-112 {
+  left: 70.5%;
+  top: 14%;
+}
+
+.number-113 {
+  left: 30.5%;
+  top: 64%;
+}
+
+.number-114 {
+  left: 70.5%;
+  top: 64%;
+}
+
+.tl{
+    top: 0;
+    left: 0;
+}
+.tr{
+    top: 0;
+    right: 0;
+}
+.bl{
+    bottom: 0;
+    left: 0;
+}
+.br{
+    bottom: 0;
+    right: 0;
+}
+
 .tooltip {
   background: lightgreen;
   // display: none;
-  padding: 20px;
   position: absolute;
+  border: 20px solid lightgreen;
+  height: 0;
+  width: 0;
+  z-index: 1;
+  overflow: hidden;
+  transition: all 0.3s linear;
+  @extend %round-tooltip;
+  
+  &.active{
+      width: 200px;
+      height: 300px;
+      *{
+          transition: all 0.2s linear 0.4s;
+          opacity: 1;
+      }
+  }
+  
+  *{
+      transition: all 0.01s linear;
+      opacity: 0;
+  }
+  .close{
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      text-decoration: none;
+      font-size: 17px;
+  }
 }
 
 /* Icons */
 
 .ico {
   background: 0 0 no-repeat;
-  background-size: 26px 26px;
   display: block;
-  height: 26px;
   text-indent: -999em;
-  width: 26px;
-
-  .fullscreen & {
-    background-size: 40px 40px;
-    height: 40px;
-    width: 40px;
-  }
+  background-size: 40px 40px;
+  height: 40px;
+  width: 40px;
 }
 
 .ico-tooltip {
+  position: absolute;
+  z-index: 2;
+  transition: all 0.4s linear;
+  opacity: 1;
   @include base64-image($ico-tooltip);
 
   &:active,
@@ -235,6 +288,10 @@ li {
   &:focus,
   &.active {
     @include base64-image($ico-tooltip-hover);
+  }
+  &.active{  
+      transition: all 0.3s linear;
+      opacity: 0;
   }
 }
 .ico-position {
