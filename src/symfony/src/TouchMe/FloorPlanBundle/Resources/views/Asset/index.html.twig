@@ -1,0 +1,28 @@
+{% extends 'TouchMeFloorPlanBundle:Scaffolding:scaffolding.html.twig' %}
+
+{% block main %}
+
+  <h2>Alle Veranstaltungen <small><a href="{{ path('event_new')}}"><span class="glyphicon glyphicon-plus"></span> Veranstaltung hinzufügen</a></small></h2>
+  <p>Hier finden Sie alle kommenden Veranstaltungen.</p>
+
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>title</th>
+        <th>src</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for asset in assetss %}
+        <tr>
+          <td>{{ loop.index }} - ID:{{ asset.id }}</td>
+          <td>{{ asset.title }}</td>
+          <td>{{ asset.src }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

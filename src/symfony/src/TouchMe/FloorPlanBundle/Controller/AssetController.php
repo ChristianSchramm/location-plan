@@ -2,9 +2,9 @@
 
 namespace TouchMe\FloorPlanBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use TouchMe\FloorPlanBundle\Entity\Asset;
 
 class AssetController extends Controller
 {
@@ -16,19 +16,22 @@ class AssetController extends Controller
   public function uploadAction(Request $request)
   {
     $asset = new Asset();
-    $form = $this->createFormBuilder($asset)->add('title')->add('file')->getForm();
+    $form = $this->createFormBuilder($asset)
+            ->add('title', 'text')
+            ->add('file', 'file')
+            ->add('save', 'submit')
+            ->getForm();
+    
     $form->handleRequest($request);
     if ($form->isValid()) {
       $em = $this->getDoctrine()->getManager();
 
-      $asset->upload();
-
       $em->persist($asset);
       $em->flush();
 
-      return $this->redirect($this->generateUrl('/'));
+      return $this->redirect($this->generateUrl('touch_me_floor_plan_homepage'));
     }
 
-    return array('form' => $form->createView());
+    return $this->render('TouchMeFloorPlanBundle:Asset:new.html.twig', array('form' => $form->createView()));
   }
 }

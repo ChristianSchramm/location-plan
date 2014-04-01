@@ -220,7 +220,7 @@ class Asset
      */
     protected function getUploadDir()
     {
-        return 'uploads';
+        return 'upload';
     }
     
     /**
@@ -228,12 +228,12 @@ class Asset
      */
     public function preUpload()
     {
-      if ($this->getFile() !== null)
-      {
-          $this->src = preg_replace('/[^a-z0-9\.]/', '', strtolower($this->getFile()->getClientOriginalName()))
-                  . substr(md5(rand()), 0, 7)
+        if ($this->getFile() !== null)
+        {
+            $this->src = preg_replace('/[^a-zA-Z0-9]/', '', basename($this->getFile()->getClientOriginalName(), $this->getFile()->getClientOriginalExtension()))
+                  . '_' . substr(md5(rand()), 0, 7) . '.'
                   . $this->getFile()->guessExtension();
-      }
+        }
     }
 
     /**
@@ -247,10 +247,10 @@ class Asset
         {
             return;
         }
-  
+
         // Moves file to upload directory with proper filename
         $this->getFile()->move($this->getUploadRootDir(), $this->src);
-  
+
         // Checks if there is an old file
         if (isset($this->srcTmp))
         {
@@ -259,7 +259,7 @@ class Asset
             // Clear the srcTmp file path
             $this->srcTmp = null;
         }
-  
+
         // Clean up the file property
         $this->file = null;
     }
@@ -269,9 +269,9 @@ class Asset
      */
     public function removeUpload()
     {
-      // If there's a file on given path, delete it
-      if ($file = $this->getAbsolutePath()) {
-        unlink($file);
-      }
+        // If there's a file on given path, delete it
+        if ($file = $this->getAbsolutePath()) {
+          unlink($file);
+        }
     }
 }

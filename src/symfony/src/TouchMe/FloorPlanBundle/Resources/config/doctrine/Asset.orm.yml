@@ -23,3 +23,9 @@ TouchMe\FloorPlanBundle\Entity\Asset:
       targetEntity: Event
       mappedBy: assets
       nullable: false
+  lifecycleCallbacks:
+    prePersist: [preUpload]
+    preUpdate: [preUpload]
+    postPersist: [upload]
+    postUpdate: [upload]
+    postRemove: [removeUpload]
