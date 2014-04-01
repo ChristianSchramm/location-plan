@@ -24,6 +24,12 @@ class Asset
      * @var string
      */
     private $src;
+    
+    /**
+     *
+     * @var string
+     */
+    private $srcTmp;
 
     /**
      * @var string
@@ -108,6 +114,12 @@ class Asset
     public function setFile(UploadedFile $file = null)
     {
         $this->file = $file;
+        
+        if (isset($this->src))
+        {
+            $this->srcTmp = $this->src;
+            $this->src = null;
+        }
 
         return $this;
     }
@@ -182,7 +194,7 @@ class Asset
      */
     public function getWebPath()
     {
-        return null === $this->src ? null : $this->getUploadDir() . '/' . $this->src;
+        return $this->src === null ? null : $this->getUploadDir() . '/' . $this->src;
     }
 
     /**
@@ -202,32 +214,56 @@ class Asset
     {
         return 'uploads';
     }
+    
+    /**
+     * Executed on PrePersist and PreUpdate
+     */
+    public function preUpload()
+    {
+      if ($this->getFile() !== null)
+      {
+          $this->src = preg_replace('/[^a-z0-9\.]/', '', strtolower($this->getFile()->getClientOriginalName()))
+                  . substr(md5(rand()), 0, 7)
+                  . $this->getFile()->guessExtension();
+      }
+    }
 
     /**
      * Moves the file into the proper directory
-     *
+     * Executed on PostPersist and PostUpdate
      */
     public function upload()
     {
         // the file property can be empty if the field is not required
-        if (null === $this->getFile()) {
+        if ($this->getFile() === null)
+        {
             return;
         }
-
-        // use the original file name here but you should
-        // sanitize it at least to avoid any security issues
-
-        // move takes the target directory and then the
-        // target filename to move to
-        $this->getFile()->move(
-            $this->getUploadRootDir(),
-            $this->getFile()->getClientOriginalName()
-        );
-
-        // set the path property to the filename where you've saved the file
-        $this->src = $this->getFile()->getClientOriginalName();
-
-        // clean up the file property as you won't need it anymore
+  
+        // Moves file to upload directory with proper filename
+        $this->getFile()->move($this->getUploadRootDir(), $this->src);
+  
+        // Checks if there is an old file
+        if (isset($this->srcTmp))
+        {
+            // Delete the old file
+            unlink($this->getUploadRootDir().'/'.$this->srcTmp);
+            // Clear the srcTmp file path
+            $this->srcTmp = null;
+        }
+  
+        // Clean up the file property
         $this->file = null;
+    }
+    
+    /**
+     * Executed on PostRemove
+     */
+    public function removeUpload()
+    {
+      // If there's a file on given path, delete it
+      if ($file = $this->getAbsolutePath()) {
+        unlink($file);
+      }
     }
 }

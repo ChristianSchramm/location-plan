@@ -4,7 +4,7 @@
     <div class="col-md-4"></div>
     <div class="col-md-4">
       <form class="form-signin" action="{{ path('login_check') }}" method="post">
-        {% if error is defined %}
+        {% if error is defined and error is not empty %}
         <p>{{ error.message }}</p>
         {% endif %}
         <label for="username">
