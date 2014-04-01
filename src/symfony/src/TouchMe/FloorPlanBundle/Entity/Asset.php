@@ -48,6 +48,14 @@ class Asset
     {
         $this->events = new \Doctrine\Common\Collections\ArrayCollection();
     }
+    
+    /**
+     * toString
+     * @return string Asset
+     */
+    public function __toString() {
+      return $this->title;
+    }
 
     /**
      * Get id
