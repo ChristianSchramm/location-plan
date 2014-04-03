@@ -50,12 +50,19 @@ event_remove:
 
 
 
+asset_show:
+  pattern: /admin/asset/all
+  defaults: { _controller: TouchMeFloorPlanBundle:Asset:index }
+
 asset_new:
   pattern: /admin/asset/new
-  defaults:
-    _controller: TouchMeFloorPlanBundle:Asset:upload
-  
-  
+  defaults: { _controller: TouchMeFloorPlanBundle:Asset:upload }
+
+asset_remove:
+  pattern: /admin/asset/del
+  defaults: { _controller: TouchMeFloorPlanBundle:Asset:index }
+
+
 export:
   pattern: /admin/export/
   defaults: { _controller: TouchMeFloorPlanBundle:Export:index }
@@ -66,4 +73,4 @@ import:
 
 touch_me_floor_plan_homepage:
   pattern:  /{name}
-  defaults: { _controller: TouchMeFloorPlanBundle:Default:index, name: home}
+  defaults: { _controller: TouchMeFloorPlanBundle:Default:index, name: home }

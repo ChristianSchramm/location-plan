@@ -9,6 +9,13 @@
     <li>
       <a href="{{ path('event') }}" title="Veranstaltungsübersicht">Veranstaltungsübersicht</a>
     </li>
+    <li class="dropdown">
+      <a href="{{ path('asset_show') }}" class="dropdown-toggle" data-toggle="dropdown" title="Dateiverwaltung">Dateiverwaltung <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="{{ path('asset_show') }}" title="Alle Anhänge anzeigen">Alle Anhänge anzeigen</a></li>
+        <li><a href="{{ path('asset_new') }}" title="Neuen Anhang hinzufügen">Neuen Anhang hinzufügen</a></li>
+      </ul>
+    </li>
     <li>
       <a href="{{ path('import') }}" title="Import">Import</a>
     </li>

@@ -8,9 +8,15 @@ use TouchMe\FloorPlanBundle\Entity\Asset;
 
 class AssetController extends Controller
 {
-  public function indexAction($name)
+
+  public function indexAction(Request $request)
   {
-    return $this->render('TouchMeFloorPlanBundle:Default:index.html.twig', array('name' => $name));
+    $assets = $this->getDoctrine()->getRepository('TouchMeFloorPlanBundle:Asset')->findAll();
+
+    foreach ($assets as $asset) {
+        $asset->setSrc('/upload/' . $asset->getSrc());
+    }
+    return $this->render('TouchMeFloorPlanBundle:Asset:index.html.twig', array('assets' => $assets));
   }
 
   public function uploadAction(Request $request)
@@ -19,9 +25,9 @@ class AssetController extends Controller
     $form = $this->createFormBuilder($asset)
             ->add('title', 'text')
             ->add('file', 'file')
-            ->add('save', 'submit')
+            ->add('Speichern', 'submit')
             ->getForm();
-    
+
     $form->handleRequest($request);
     if ($form->isValid()) {
       $em = $this->getDoctrine()->getManager();
@@ -34,4 +40,5 @@ class AssetController extends Controller
 
     return $this->render('TouchMeFloorPlanBundle:Asset:new.html.twig', array('form' => $form->createView()));
   }
+
 }

@@ -1,8 +1,9 @@
 {% extends 'TouchMeFloorPlanBundle:Scaffolding:scaffolding.html.twig' %}
 
 {% block main %}
-
-
-
-  {{ parent() }}
+  {% if not is_granted('ROLE_USER') %}
+    {% embed 'TouchMeFloorPlanBundle:Security:login.html.twig' %}{% endembed %}
+  {% else %}
+    <h1>Willkommen im Verwaltungstool des Interaktiven Lageplans</h1>
+  {% endif %}
 {% endblock %}

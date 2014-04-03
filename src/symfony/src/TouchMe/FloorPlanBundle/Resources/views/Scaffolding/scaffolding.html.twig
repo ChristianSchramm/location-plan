@@ -29,11 +29,7 @@
     </header>
 
     <section id="main" class="{% block mainClasses %}container {% endblock %}">
-      {% block main %}
-        {% if not is_granted('ROLE_USER') %}
-          {% embed 'TouchMeFloorPlanBundle:Security:login.html.twig' %}{% endembed %}
-        {% endif %}
-      {% endblock %}
+      {% block main %}{% endblock %}
     </section>{# /#main #}
 
     <footer class="{% block footerClasses %}navbar navbar-default navbar-fixed-bottom {% endblock %}">
@@ -43,7 +39,6 @@
     {% block javascripts %}
       {% javascripts
         '@TouchMeFloorPlanBundle/Resources/public/js/jquery-2.1.0.min.js'
-        '@TouchMeFloorPlanBundle/Resources/public/js/bootstrap.min.js'
         '@TouchMeFloorPlanBundle/Resources/public/js/bootstrap.min.js'
         '@TouchMeFloorPlanBundle/Resources/public/js/picker.js'
         '@TouchMeFloorPlanBundle/Resources/public/js/picker.time.js'

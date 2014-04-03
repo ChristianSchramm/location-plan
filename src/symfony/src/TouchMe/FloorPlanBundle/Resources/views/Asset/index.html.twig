@@ -2,9 +2,7 @@
 
 {% block main %}
 
-  <h2>Alle Veranstaltungen <small><a href="{{ path('event_new')}}"><span class="glyphicon glyphicon-plus"></span> Veranstaltung hinzufügen</a></small></h2>
-  <p>Hier finden Sie alle kommenden Veranstaltungen.</p>
-
+  <h2>Alle Dateianhänge <small><a href="{{ path('asset_new')}}"><span class="glyphicon glyphicon-plus"></span> Anhang hinzufügen</a></small></h2>
 
   <table class="table table-striped table-hover">
     <thead>
@@ -15,11 +13,15 @@
       </tr>
     </thead>
     <tbody>
-      {% for asset in assetss %}
+      {% for asset in assets %}
         <tr>
           <td>{{ loop.index }} - ID:{{ asset.id }}</td>
           <td>{{ asset.title }}</td>
-          <td>{{ asset.src }}</td>
+          <td>
+            <a href="{{ asset.src }}" class="thumbnail">
+              <img data-src="holder.js/100x180" src="{{ asset.src }}" alt="{{ asset.title }}" title="{{ asset.title }}" style="max-height:180px; max-width:100px">
+            </a>
+          </td>
         </tr>
       {% endfor %}
     </tbody>
