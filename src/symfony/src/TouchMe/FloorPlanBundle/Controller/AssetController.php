@@ -9,7 +9,7 @@ use TouchMe\FloorPlanBundle\Entity\Asset;
 class AssetController extends Controller
 {
 
-  public function indexAction(Request $request)
+  public function indexAction()
   {
     $assets = $this->getDoctrine()->getRepository('TouchMeFloorPlanBundle:Asset')->findAll();
 
