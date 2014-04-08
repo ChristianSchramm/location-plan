@@ -13,6 +13,7 @@
       <th>Datum</th>
       <th>Name</th>
       <th>Beschreibung</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -25,6 +26,14 @@
       </td>
       <td>{{ event.title }}</td>
       <td>{{ event.description }}</td>
+      <td>
+        <a href="{{ path('event_edit', {'id' : event.id }) }}">
+          <span class="glyphicon glyphicon-edit"></span>
+        </a> &nbsp; &nbsp; 
+        <a href="{{ path('event_remove', {'id' : event.id }) }}">
+         <span class="glyphicon glyphicon-remove"></span>
+        </a>
+      </td>
     </tr>
   {% endfor %}
   </tbody>

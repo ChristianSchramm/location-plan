@@ -16,7 +16,7 @@ class EventType extends AbstractType
     {
         $builder
             ->add('title', 'text', array(
-                'label' => 'Eventtitle',
+                'label' => 'Titel',
                 'label_attr' => array(
                     'class'=> ''
                 ),
@@ -83,7 +83,7 @@ class EventType extends AbstractType
                 ),
             ))
             ->add('personincharge', 'text', array(
-                'label' => 'Eventtitle',
+                'label' => 'Leiter',
                 'label_attr' => array(
                     'class'=> ''
                 ),
@@ -102,7 +102,8 @@ class EventType extends AbstractType
                 ),
             ))
             ->add('assets', 'entity', array(
-                'label' => 'Dateien',
+                'label' => 'Medien',
+                'multiple' => true,
                 'class' => 'TouchMeFloorPlanBundle:Asset',
                 'label_attr' => array(
                     'class'=> ''

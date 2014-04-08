@@ -2,6 +2,8 @@
 
 namespace TouchMe\FloorPlanBundle\Entity;
 
+ use \Symfony\Component\Form\ValueTransformer\StringToDateTimeTransformer;
+
 /**
 * Event
 */
@@ -355,4 +357,5 @@ class Event
 
         return $array;
     }
+
 }

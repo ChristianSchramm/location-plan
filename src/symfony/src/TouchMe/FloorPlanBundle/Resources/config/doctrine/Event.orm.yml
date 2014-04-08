@@ -13,16 +13,20 @@ TouchMe\FloorPlanBundle\Entity\Event:
       length: 255
       nullable: false
     startdate:
-      type: date
+      type: string
+      length: 255
       nullable: false
     starttime:
-      type: time
+      type: string
+      length: 255
       nullable: false
     enddate:
-      type: date
+      type: string
+      length: 255
       nullable: false
     endtime:
-      type: time
+      type: string
+      length: 255
       nullable: false
     description:
       type: text
@@ -44,4 +48,4 @@ TouchMe\FloorPlanBundle\Entity\Event:
     assets:
       targetEntity: Asset
       inversedBy: events
-      nullable: false
+      nullable: true
