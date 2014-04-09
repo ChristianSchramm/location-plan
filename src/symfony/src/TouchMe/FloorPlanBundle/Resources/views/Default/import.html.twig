@@ -1,15 +1,14 @@
 {% extends 'TouchMeFloorPlanBundle:Scaffolding:scaffolding.html.twig' %}
 
 {% block main %}
-  {{ parent() }}
 
-  {% if success is not defined %}
+  {% for flashMessage in app.session.flashbag.get('notice') %}
+    <p>{{ flashMessage }}</p>
+  {% endfor %}
+
   <form method="post" enctype="multipart/form-data">
     <input type="file" name="backup">
     <input type="submit" name="submit" value="upload">
   </form>
-  {% else %}
-    <p class="success">Die Daten wurden erfolgreich importiert</p>
-  {% endif %}
 
 {% endblock %}

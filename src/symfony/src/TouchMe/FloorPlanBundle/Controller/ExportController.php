@@ -56,7 +56,7 @@ class ExportController extends Controller
                 $response = new BinaryFileResponse($zipPath . $filename);
                 $response->trustXSendfileTypeHeader();
                 $response->setContentDisposition(
-                        ResponseHeaderBag::DISPOSITION_INLINE, $filename, iconv('UTF-8', 'ASCII//TRANSLIT', $filename)
+                    ResponseHeaderBag::DISPOSITION_INLINE, $filename, iconv('UTF-8', 'ASCII//TRANSLIT', $filename)
                 );
 
                 $response->prepare(Request::createFromGlobals());

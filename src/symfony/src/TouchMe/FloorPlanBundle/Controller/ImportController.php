@@ -63,7 +63,12 @@ class ImportController extends Controller
         // Removes $backupPath directory
         $fs->remove($backupPath);
 
-        return $this->render("TouchMeFloorPlanBundle:Default:import.html.twig", array('success' => TRUE));
+        // Generate a flash message
+        $this->get('session')->getFlashBag()->add('notice', 'Die Daten wurden erfolgreich importiert.');
+        
+        //return $this->render("TouchMeFloorPlanBundle:Default:import.html.twig");
+        // Redirect to "/"
+        return $this->redirect($this->generateUrl('touch_me_floor_plan_homepage'));
       }
       else
       {

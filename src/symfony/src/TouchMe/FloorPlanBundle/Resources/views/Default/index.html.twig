@@ -5,5 +5,9 @@
     {% embed 'TouchMeFloorPlanBundle:Security:login.html.twig' %}{% endembed %}
   {% else %}
     <h1>Willkommen im Verwaltungstool des Interaktiven Lageplans</h1>
+
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+      <p>{{ flashMessage }}</p>
+    {% endfor %}
   {% endif %}
 {% endblock %}

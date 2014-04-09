@@ -27,10 +27,10 @@ class AssetController extends Controller
     $asset = new Asset();
     // Creates new form for an Asset object
     $form = $this->createFormBuilder($asset)
-            ->add('title', 'text')
-            ->add('file', 'file')
-            ->add('Speichern', 'submit')
-            ->getForm();
+      ->add('title', 'text')
+      ->add('file', 'file')
+      ->add('Speichern', 'submit')
+      ->getForm();
 
     // Inspects the given request and calls {@link submit()} if the form was submitted.
     $form->handleRequest($request);
