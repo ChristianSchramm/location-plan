@@ -61,7 +61,7 @@ class AssetController extends Controller
     
     // Inspects the given request and calls {@link submit()} if the form was submitted.
     $form->handleRequest($request);
-    if ($form->isValid() && $form->has('id'))
+    if ($form->isValid())
     {
       $doctrine = $this->getDoctrine();
       // Get asset with committed id
