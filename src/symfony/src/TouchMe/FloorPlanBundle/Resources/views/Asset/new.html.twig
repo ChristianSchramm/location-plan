@@ -2,8 +2,12 @@
 
 {% block main %}
 
-<h2>Neues Asset anlegen</h2>
+  <h2>Neues Asset anlegen</h2>
 
-{% include 'TouchMeFloorPlanBundle:Asset:_form.html.twig'  %}
+  <div class="row">
+    <div class="col-md-4">
+      {{ form(form) }}
+    </div>
+  </div>
 
 {% endblock %}
