@@ -51,7 +51,7 @@ event_remove:
 
 
 asset_show:
-  pattern: /admin/asset/all
+  pattern: /admin/asset
   defaults: { _controller: TouchMeFloorPlanBundle:Asset:index }
 
 asset_new:
@@ -60,7 +60,7 @@ asset_new:
 
 asset_remove:
   pattern: /admin/asset/del
-  defaults: { _controller: TouchMeFloorPlanBundle:Asset:index }
+  defaults: { _controller: TouchMeFloorPlanBundle:Asset:remove }
 
 
 export:
