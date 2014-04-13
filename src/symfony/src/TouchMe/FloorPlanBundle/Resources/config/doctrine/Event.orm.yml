@@ -30,7 +30,7 @@ TouchMe\FloorPlanBundle\Entity\Event:
       nullable: false
     description:
       type: text
-      nullable: false
+      nullable: true
     branchofstudy:
       type: string
       length: 100
