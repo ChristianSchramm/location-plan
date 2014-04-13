@@ -18,7 +18,7 @@ TouchMe\FloorPlanBundle\Entity\Location:
       nullable: false
     description:
       type: text
-      nullable: false
+      nullable: true
   oneToMany:
     events:
       targetEntity: Event
