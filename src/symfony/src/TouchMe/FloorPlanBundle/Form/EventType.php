@@ -72,7 +72,16 @@ class EventType extends AbstractType
             ->add('branchofstudy', 'choice', array(
                 'label' => 'Studienrichtung',
                 'choices'   => array(
-                    'medieninformatik'   => 'Medieninformatik',
+                    'Agrarmanagement'   => 'Agrarmanagement',
+                    'Betriebswirtschaft - Handel'   => 'Betriebswirtschaft - Handel',
+                    'Betriebswirtschaft - Industrie'   => 'Betriebswirtschaft - Industrie',
+                    'Finanzwirtschaft - Bank'   => 'Finanzwirtschaft - Bank',
+                    'Finanzwirtschaft - Versicherung'   => 'Finanzwirtschaft - Versicherung',
+                    'Holz- und Holzwerkstofftechnik'   => 'Holz- und Holzwerkstofftechnik',
+                    'Informationstechnik'   => 'Informationstechnik',
+                    'Medieninformatik'   => 'Medieninformatik',
+                    'Steuern Prüfungswesen Consulting'   => 'Steuern Prüfungswesen Consulting',
+                    'Wirtschaftsinformatik'   => 'Wirtschaftsinformatik',
 
                 ),
                 'label_attr' => array(
