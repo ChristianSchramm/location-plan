@@ -6,8 +6,6 @@ TouchMe\FloorPlanBundle\Entity\Event:
       - NotNull: ~
     endtime:
       - NotNull: ~
-    description:
-      - NotBlank: ~
     branchofstudy:
       - NotBlank: ~
     personincharge:
@@ -20,8 +18,6 @@ TouchMe\FloorPlanBundle\Entity\Location:
     number:
       - NotBlank: ~
     type:
-      - NotBlank: ~
-    description:
       - NotBlank: ~
 
 TouchMe\FloorPlanBundle\Entity\Asset:
