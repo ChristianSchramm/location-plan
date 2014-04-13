@@ -62,7 +62,7 @@ class EventType extends AbstractType
             ))
             ->add('description', 'textarea', array(
                 'label' => 'Beschreibung',
-                'require' => false,          
+                'required' => false,          
                 'label_attr' => array(
                     'class'=> ''
                 ),

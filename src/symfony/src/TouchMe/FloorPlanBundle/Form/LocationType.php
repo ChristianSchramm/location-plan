@@ -49,7 +49,7 @@ class LocationType extends AbstractType
             ))
             ->add('description', 'textarea',array(  
                 'label' => 'Beschreibung',
-                'requtire' => false,               
+                'required' => false,               
                 'label_attr' => array(
                     'class'=> ''
                 ),
