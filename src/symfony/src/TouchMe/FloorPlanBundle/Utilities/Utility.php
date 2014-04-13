@@ -38,8 +38,12 @@ class Utility
       $eventObj->setPersonincharge($event['personincharge']);
       $eventObj->setDescription($event['description']);
       $eventObj->setBranchofstudy($event['branchofstudy']);
-      $eventObj->setStarttime(\DateTime::createFromFormat("Y-m-d H:i:s", $event['starttime']['date']));
-      $eventObj->setEndtime(\DateTime::createFromFormat("Y-m-d H:i:s", $event['endtime']['date']));
+//      $eventObj->setStarttime(\DateTime::createFromFormat("Y-m-d H:i:s", $event['starttime']['date']));
+//      $eventObj->setEndtime(\DateTime::createFromFormat("Y-m-d H:i:s", $event['endtime']['date']));
+      $eventObj->setStartdate($event['startdate']);
+      $eventObj->setStarttime($event['starttime']);
+      $eventObj->setEnddate($event['enddate']);
+      $eventObj->setEndtime($event['endtime']);
 
       $locationObj = new Location();
       $locationObj->setDescription($event["location"]["description"]);
