@@ -5,14 +5,14 @@ var floor = "F1";
 
 $( document ).ready(function() {
     init();
-    
+
 });
 
 function init(){
   $(".map").css("width", $(".map").height()+$(".map").height()*0.04);
   $(".map").css("margin-left", -$(".map").width()/2);
-  
-  
+
+
 	$.ajax({
 		type: "POST",
 		url: JSON_FILE,
@@ -24,9 +24,9 @@ function init(){
                   $(".number-111 .tooltip p.roomnr strong").html(data[0].room.number);
                   $(".number-111 .tooltip p.desc").html(data[0].description);
 		}
-		
+
 	});
- 
+
 }
 
 $( window ).resize(function() {
@@ -55,7 +55,7 @@ function eventlist(_data){
 function showList(i, elem){
   $(".map-container").removeClass("fullscreen");
   if($(elem).hasClass("active")){
-    $(elem).removeClass("active"); 
+    $(elem).removeClass("active");
   }else{
     $(".main-nav .ico").removeClass("active");
     $(elem).addClass("active");
@@ -82,7 +82,7 @@ function showTooltip(elem){
   setTimeout(function(){$(elem).css("z-index", "1");}, 200);
 }
 function closeTooltip(elem){
-  
+
   var ico = $(elem).parent(".tooltip").siblings(".room .ico");
   ico.css("z-index", "2");
   setTimeout(function(){
@@ -93,7 +93,7 @@ function closeTooltip(elem){
     $(elem).parents(".room").css("z-index", "");
    }, 200);
 
-  
+
 }
 
 function changeFloor( _floor){
@@ -105,7 +105,7 @@ function changeMap(_building, _floor){
     console.log($(".map."+_building+"."+_floor+".hide"));
     closeTooltip($(".tooltip.active .close"));
     $(".map."+building+"."+floor).addClass("hide");
-  
+
     building = _building;
     floor = _floor;
     setTimeout(function(){

@@ -73,7 +73,23 @@ $z-floorplan:  15;
 * Farben
 **********************************************************/
 
-$ba-blue: #006FB4;
+$ba-blue: #006eb6;
+
+$ba-lightgrey: #ececec;
+$ba-grey: #dadad9;
+$ba-mediumgrey: #c6c6c6;
+$ba-darkgrey: #5E5C5F;
+
+$color-agrar: #86bc24;
+$color-trade: #f59c00;
+$color-wood: #bb7a00;
+$color-medinf: #e30513;
+$color-insurance: #8b2839;
+$color-comtec: #e5007d;
+$color-tax: #c7135c;
+$color-banking: #951b81;
+$color-businessinf: #203a8F;
+$color-industrial: #15bae6;
 
 /**********************************************************
 * Placeholder
@@ -106,6 +122,14 @@ $ba-blue: #006FB4;
 /**********************************************************
 * Gradients
 **********************************************************/
+
+%ba-lightgrey-ba-mediumgrey-gradient {
+  background-color: $ba-lightgrey;
+  @include background(linear-gradient(top, $ba-lightgrey, $ba-mediumgrey));
+  .lt-ie9 & {
+    @include filter-gradient($ba-lightgrey, $ba-mediumgrey, vertical);
+  }
+}
 
 /**********************************************************
 * Bilder

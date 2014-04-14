@@ -1,4 +1,5 @@
 body {
+  color: $ba-darkgrey;
   margin: 0;
   padding: 0;
 }
@@ -20,24 +21,68 @@ li {
   list-style: none;
 }
 
+p {
+  font-size: 1.4em;
+  margin: 0 0 10px;
+}
+
+/* helper */
+
+.left {
+  float: left;
+}
+
+.agrar {
+  background-color: $color-agrar;
+}
+.trade {
+  background-color: $color-trade;
+}
+.wood {
+  background-color: $color-wood;
+}
+.medinf {
+  background-color: $color-medinf;
+}
+.insurance {
+  background-color: $color-insurance;
+}
+.comtec {
+  background-color: $color-comtec;
+}
+.tax {
+  background-color: $color-tax;
+}
+.banking {
+  background-color: $color-banking;
+}
+.businessinf {
+  background-color: $color-businessinf;
+}
+.industrial {
+  background-color: $color-industrial;
+}
+
 /* header */
 
 .header {
-  background: red;
+  @extend %ba-lightgrey-ba-mediumgrey-gradient;
+  border-bottom: 10px solid $ba-blue;
   height: 60px;
-  width: 100%;  
+  width: 100%;
 
   .heading {
     display: inline-block;
-    margin: 0;
+    margin: 8px 0 0;
   }
 }
 
 .logo {
   display: inline-block;
   float: left;
-  height: 60px;
-  width: 172px;
+  height: 40px;
+  margin: 9px 20px 0 20px;
+  width: 190px;
 
   > img {
     display: block;
@@ -47,18 +92,18 @@ li {
 /* main */
 
 .main {
-  bottom: 20px;
+  bottom: 40px;
   position: absolute;
-  top: 60px;
+  top: 70px;
   width: 100%;
 }
 
 /* footer */
 
 .footer {
-  background: green;
+  background: $ba-grey;
   bottom: 0;
-  height: 20px;
+  height: 40px;
   left: 0;
   position: absolute;
   right: 0;
@@ -78,7 +123,7 @@ li {
     display: inline-block;
     padding-left: 20px;
   }
-  
+
   li {
     float: left;
     margin-left: 20px;
@@ -98,18 +143,35 @@ li {
 /* typo */
 
 .heading {
+  margin: 0;
 }
+
+.style1 {
+  font-size: 3em;
+}
+
+.style2 {
+  font-size: 2.4em;
+}
+
+.style3 {
+  font-size: 2em;
+}
+
+.style4 {
+  font-size: 1.6em;
+}
+
+/* Lasche */
 
 .flap {
   @extend %border-box;
-  @extend %l-round-0-1-1-0;  
-  background: #ccc;
-  border-width: 2px 2px 2px 0;
-  bottom: 0;
+  background: $ba-grey;
+  bottom: 10px;
   left: -50%;
   overflow: hidden;
   position: absolute;
-  top: 0;
+  top: 80px;
   transition: all 0.2s linear;
   width: 25%;
   min-width: 300px;
@@ -130,7 +192,7 @@ li {
   right: 0;
   transition: all 0.2s ease-in-out;
   width: 75%;
-  
+
   &.fullscreen {
     height: 100%;
     width: 100%;
@@ -154,46 +216,123 @@ li {
 }
 
 .floor-plan{
-  background: blue;
+  background: $ba-grey;
   padding: 10px;
   position: absolute;
   right: 0;
-  top: 0;
-  width: 200px;
+  top: 10px;
+  width: 165px;
   z-index: $z-floorplan;
+
+  .heading {
+    text-align: center;
+  }
+
+  li {
+    margin-bottom: 5px;
+  }
 }
 
-.list{
+.floor {
+  background: $ba-blue;
+  color: #fff;
+  display: block;
+  font-size: 2.4em;
+  height: 33px;
+  padding: 5px 10px;
+  margin: 0 auto;
+  text-align: center;
+  text-decoration: none;
+  width: 55px;
+
+  &:active,
+  &:hover,
+  &:focus {
+    background: $color-medinf;
+  }
+}
+
+.timetable {
   @extend %border-box;
   height: 100%;
   opacity: 0;
   overflow: hidden;
-  padding: 70px 20px 20px;
+  padding: 20px;
   position: absolute;
   transition: all 0.2s linear 0.2s;
   width: 100%;
   z-index: 2;
-  
+
   ul{
-    color: black;
+    color: #000;
     line-height: 20px;
   }
-  
+
+  li {
+    border-top: 1px solid #fff;
+    margin-top: 10px;
+    padding-top: 10px;
+
+    &:first-child {
+      border-top: 0;
+      padding: 0;
+    }
+  }
+
   &.active{
     opacity: 1;
+  }
+}
+
+.list-entry {
+  display: inline-block;
+
+  .heading {
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: $ba-blue;
+    font-size: 1.4em;
+
+    &:active,
+    &:hover,
+    &:focus {
+      color: $color-medinf;
+    }
   }
 }
 
 /* legend */
 
 .legend {
-  background: yellow;
-  bottom: 0;
+  background: $ba-grey;
+  bottom: 10px;
   padding: 10px;
   position: absolute;
   right: 0;
-  width: 200px;
+  width: 165px;
   z-index: $z-legend;
+
+  li {
+    margin-bottom: 5px;
+  }
+
+  p {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+}
+
+.course {
+  display: block;
+  height: 12px;
+  margin: 4px 10px 0 0;
+  width: 12px;
 }
 
 /* room */
@@ -279,7 +418,7 @@ li {
   overflow: hidden;
   transition: all 0.3s linear;
   @extend %round-tooltip;
-  
+
   &.active{
       width: 200px;
       height: 300px;
@@ -288,7 +427,7 @@ li {
           opacity: 1;
       }
   }
-  
+
   *{
       transition: all 0.01s linear;
       opacity: 0;
@@ -305,20 +444,21 @@ li {
 /* Icons */
 
 .ico {
+  background-size: 40px 40px;
   background: 0 0 no-repeat;
   display: block;
-  text-indent: -999em;
-  background-size: 40px 40px;
   height: 40px;
+  overflow: hidden;
+  text-indent: -999em;
   width: 40px;
 }
 
 .ico-tooltip {
-  position: absolute;
-  z-index: 2;
-  transition: all 0.4s linear;
-  opacity: 1;
   @include base64-image($ico-tooltip);
+  opacity: 1;
+  position: absolute;
+  transition: all 0.4s linear;
+  z-index: 2;
 
   &:active,
   &:hover,
@@ -326,7 +466,7 @@ li {
   &.active {
     @include base64-image($ico-tooltip-hover);
   }
-  &.active{  
+  &.active{
       transition: all 0.3s linear;
       opacity: 0;
   }
