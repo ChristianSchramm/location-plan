@@ -66,7 +66,7 @@ function showList(i, elem){
     $(".list"+i).removeClass("active");
   }else{
     $(".list").removeClass("active");
-    setTimeout(function(){$(".list"+i).addClass("active")}, 200)
+    setTimeout(function(){$(".list"+i).addClass("active")}, 200);
   }
   if(!($(".main-nav .ico").hasClass("active"))){
     $("#flap").removeClass("active");
@@ -101,17 +101,15 @@ function changeFloor( _floor){
 }
 
 function changeMap(_building, _floor){
-  $(".map."+building+"."+floor).addClass("hide");
-  //if($(".map."+_building+"."+_floor)!= null){
+  if($(".map."+_building+"."+_floor+".hide")[0]!= null){
+    console.log($(".map."+_building+"."+_floor+".hide"));
+    closeTooltip($(".tooltip.active .close"));
+    $(".map."+building+"."+floor).addClass("hide");
+  
     building = _building;
     floor = _floor;
-    console.log(building);
-    console.log(floor);
-    console.log("________")
-    
-    console.log(_floor);
     setTimeout(function(){
       $(".map."+building+"."+floor).removeClass("hide");
     },200);
-  //}
+  }
 }

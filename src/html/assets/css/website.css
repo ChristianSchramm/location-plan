@@ -834,6 +834,7 @@ li {
   overflow: visible;
 }
 .map.hide {
+  z-index: -1;
   opacity: 0;
 }
 
@@ -908,6 +909,26 @@ li {
 .number-114 {
   left: 70.5%;
   top: 64%;
+}
+
+.number-211 {
+  left: 10.5%;
+  top: 14%;
+}
+
+.number-212 {
+  left: 70.5%;
+  top: 4%;
+}
+
+.number-213 {
+  left: 20.5%;
+  top: 44%;
+}
+
+.number-214 {
+  left: 60.5%;
+  top: 54%;
 }
 
 .tl {
