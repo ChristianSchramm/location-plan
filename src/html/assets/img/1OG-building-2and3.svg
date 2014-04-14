@@ -319,6 +319,28 @@
 		
 			<rect x="626.53" y="583.98" transform="matrix(-0.9999 0.0146 -0.0146 -0.9999 1274.6027 1172.2236)" fill="none" stroke="#000000" stroke-miterlimit="10" width="13.001" height="13.551"/>
 	</g>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="427.346" y1="173.361" x2="450.816" y2="173.361"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="427.346" y1="160.937" x2="450.816" y2="160.937"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="427.346" y1="158.452" x2="450.816" y2="158.452"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="427.346" y1="168.392" x2="450.816" y2="168.392"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="427.346" y1="170.876" x2="450.816" y2="170.876"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="427.346" y1="165.907" x2="450.816" y2="165.907"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="427.346" y1="163.422" x2="450.816" y2="163.422"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="427.346" y1="175.846" x2="450.816" y2="175.846"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="427.346" y1="178.331" x2="450.816" y2="178.331"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="427.346" y1="180.816" x2="450.816" y2="180.816"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="459.382" y1="173.361" x2="484.409" y2="173.361"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="459.382" y1="160.937" x2="484.409" y2="160.937"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="459.382" y1="158.452" x2="484.409" y2="158.452"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="459.382" y1="168.392" x2="484.409" y2="168.392"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="459.382" y1="170.876" x2="484.409" y2="170.876"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="459.382" y1="165.907" x2="484.409" y2="165.907"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="459.382" y1="163.422" x2="484.409" y2="163.422"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="459.382" y1="175.846" x2="484.409" y2="175.846"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="459.382" y1="178.331" x2="484.409" y2="178.331"/>
+	<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="459.382" y1="180.816" x2="484.409" y2="180.816"/>
+	<polyline fill="none" stroke="#000000" stroke-miterlimit="10" points="459.382,181.24 459.382,158.452 450.969,158.452 
+		450.969,181.24 	"/>
 </g>
 <g id="Ebene_5" display="none">
 	<path display="inline" fill="none" stroke="#000000" stroke-miterlimit="10" d="M409.14,118.299c5.159,0,9.333-3.458,9.333-7.73
