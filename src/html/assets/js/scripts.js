@@ -66,7 +66,7 @@ function showList(i, elem){
     $(".list"+i).removeClass("active");
   }else{
     $(".list").removeClass("active");
-    setTimeout(function(){$(".list"+i).addClass("active")}, 200);
+    setTimeout(function(){$(".list"+i).addClass("active");}, 200);
   }
   if(!($(".main-nav .ico").hasClass("active"))){
     $("#flap").removeClass("active");
