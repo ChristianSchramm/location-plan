@@ -42,6 +42,19 @@ class EventController extends Controller {
         
         return $this->redirect($this->generateUrl('event'));
     }
+
+    public function removeallAction() {
+        $em = $this->getDoctrine()->getManager();
+        $events = $em->getRepository('TouchMeFloorPlanBundle:Event')->findAll();
+        if ($events) {
+            foreach ($events as $event){
+                $em->remove($event);
+                $em->flush();
+            }
+        }
+        
+        return $this->redirect($this->generateUrl('event'));
+    }
     
     public function editAction($id) {
         $event = $this->getDoctrine()->getRepository('TouchMeFloorPlanBundle:Event')->findOneById($id);
