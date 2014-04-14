@@ -17,7 +17,6 @@ class ExportController extends Controller
         $fs = new Filesystem();
         $em = $this->getDoctrine();
         $events = $em->getRepository('TouchMeFloorPlanBundle:Event')->findAll();
-        $assets = $em->getRepository('TouchMeFloorPlanBundle:Asset')->findAll();
         
         // Absolute paths
         $webPath = $this->get('kernel')->getRootDir() . '/../web/';
@@ -32,23 +31,23 @@ class ExportController extends Controller
         // Create ZipArchive or overwrite old one
         $zipArchiv = new \ZipArchive();
         if ($zipArchiv->open($zipPath . $filename, \ZipArchive::CREATE | \ZIPARCHIVE::OVERWRITE) === TRUE)
-        {
-            // Create JSON-File
+        {   
             $eventArray = array();
-            foreach($events as $event)
-            {
-                $eventArray[] = $event->toArray();
-            }
-            $zipArchiv->addFromString('events.json', json_encode($eventArray));
-
-            // Add related files
-            foreach ($assets as $asset)
-            {
-                if ($fs->exists($uploadPath . $asset->getSrc()))
+            foreach ($events as $key => $event) {
+              // Serialize object
+              $eventArray[$key] = $event->toArray();
+              // Add related files
+              foreach ( $eventArray[$key]['assets'] as $asset)
+              {
+                if ($fs->exists($uploadPath . $asset['src']))
                 {
-                    $zipArchiv->addFile($uploadPath . $asset->getSrc(), $asset->getSrc());
+                    $zipArchiv->addFile($uploadPath . $asset['src'], $asset['src']);
                 }
+              }
             }
+            
+            // Create JSON-File
+            $zipArchiv->addFromString('events.json', json_encode($eventArray));
 
             if ($zipArchiv->close())
             {

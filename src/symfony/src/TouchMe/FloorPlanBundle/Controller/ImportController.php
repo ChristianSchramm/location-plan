@@ -33,6 +33,12 @@ class ImportController extends Controller
         {
           $fs->mkdir($uploadPath);
         }
+        else
+        {
+          // Clear upload directory
+          $fs->remove($uploadPath);
+          $fs->mkdir($uploadPath);
+        }
         if (!$fs->exists($backupPath))
         {
           $fs->mkdir($backupPath);
@@ -53,10 +59,10 @@ class ImportController extends Controller
           $json .= $file->getContents();
         }
 
-        //$events = json_decode($json, TRUE);
+        // Clear DB and fill it with new data
         Utility::clearDB($em);
         Utility::insertIntoDB(json_decode($json, TRUE), $em);
-
+        
         // Copie all files and directories from $backupPath/imports to $uploadPath
         $fs->mirror($backupPath . '/imports', $uploadPath);
 

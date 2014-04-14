@@ -1,6 +1,57 @@
-$( document ).ready(function() {
+var JSON_FILE = "event.json";
+var building = "B2";
+var floor = "F1";
 
+
+$( document ).ready(function() {
+    init();
+    
 });
+
+function init(){
+  $(".map").css("width", $(".map").height()+$(".map").height()*0.04);
+  $(".map").css("margin-left", -$(".map").width()/2);
+  
+  
+	$.ajax({
+		type: "POST",
+		url: JSON_FILE,
+		dataType: "json",
+		error: console.log("ajax"),
+		success: function(data, status, jqXHR ){
+                  eventlist(data);
+                  $(".number-111 .tooltip .heading").html(data[0].title);
+                  $(".number-111 .tooltip p.roomnr strong").html(data[0].room.number);
+                  $(".number-111 .tooltip p.desc").html(data[0].description);
+		}
+		
+	});
+ 
+}
+
+$( window ).resize(function() {
+    $(".map").css("width", $(".map").height()+$(".map").height()*0.04);
+    $(".map").css("margin-left", -$(".map").width()/2);
+});
+
+function eventlist(_data){
+  var container = $(".timetable.list.list1").find("ul");
+  console.log(_data);
+  $.each(_data, function(i, item) {
+
+    var room = _data[i].room.number;
+    console.log(room);
+    var room = room.split(".");
+    var floor = room[1].charAt(0);
+    container.append('<li><div class="list-entry"><h2 class="heading style3">'
+                    +item.title+'</h2><p>Ort: '
+                    +item.room.number+'; <strong>Zeit: '
+                    +item.from+'Uhr</strong></p><a class="location-pointer" onclick="changeMap(\'B'
+                    +room[0]+'\',\'F'
+                    +floor+'\');" href="#" title="">Gehe zum Ort</a></div></li>');
+  });
+}
+
 function showList(i, elem){
   $(".map-container").removeClass("fullscreen");
   if($(elem).hasClass("active")){
@@ -15,7 +66,7 @@ function showList(i, elem){
     $(".list"+i).removeClass("active");
   }else{
     $(".list").removeClass("active");
-    setTimeout(function(){$(".list"+i).addClass("active")}, 200)
+    setTimeout(function(){$(".list"+i).addClass("active");}, 200);
   }
   if(!($(".main-nav .ico").hasClass("active"))){
     $("#flap").removeClass("active");
@@ -45,3 +96,20 @@ function closeTooltip(elem){
   
 }
 
+function changeFloor( _floor){
+  changeMap(building, _floor);
+}
+
+function changeMap(_building, _floor){
+  if($(".map."+_building+"."+_floor+".hide")[0]!= null){
+    console.log($(".map."+_building+"."+_floor+".hide"));
+    closeTooltip($(".tooltip.active .close"));
+    $(".map."+building+"."+floor).addClass("hide");
+  
+    building = _building;
+    floor = _floor;
+    setTimeout(function(){
+      $(".map."+building+"."+floor).removeClass("hide");
+    },200);
+  }
+}
