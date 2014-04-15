@@ -16,9 +16,16 @@ function init(){
 		type: "POST",
 		url: JSON_FILE,
 		dataType: "json",
-		error: console.log("ajax"),
+		error: function(data, status) {
+      console.log(status);
+    },
 		success: function(data, status, jqXHR ){
-      eventlist(data);
+      // var test = data;
+      // console.log($('.' + test[0].room.type) );
+      // console.log(test[0].room.type);
+
+      // eventlist(data);
+      generateRooms(data);
       $(".number-111 .tooltip .heading").html(data[0].title);
       $(".number-111 .tooltip p.roomnr strong").html(data[0].room.number);
       $(".number-111 .tooltip p.desc").html(data[0].description);
@@ -33,22 +40,39 @@ $( window ).resize(function() {
   $(".map").css("margin-left", -$(".map").width()/2);
 });
 
-function eventlist(_data){
-  var container = $(".timetable.list.list1").find("ul");
-  console.log(_data);
+function generateRooms(_data) {
   $.each(_data, function(i, item) {
 
     var room = _data[i].room.number;
     console.log(room);
     var room = room.split(".");
+    var building = room[0];
     var floor = room[1].charAt(0);
-    container.append('<li><div class="list-entry"><h2 class="heading style3">'
-      +item.title+'</h2><p>Ort: '
-      +item.room.number+'; <strong>Zeit: '
-      +item.from+'Uhr</strong></p><a class="location-pointer" onclick="changeMap(\'B'
-      +room[0]+'\',\'F'
-      +floor+'\');" href="#" title="">Gehe zum Ort</a></div></li>');
+    console.log(room[0], room[1].charAt(0));
+
+    $('.map .B'+room[0]+ '.F'+floor+).function(){
+        console.log("test");
+    }
+
   });
+}
+
+function eventlist(_data){
+  // var container = $(".timetable.list.list1").find("ul");
+  // console.log(_data);
+  // $.each(_data, function(i, item) {
+
+  //   var room = _data[i].room.number;
+  //   console.log(room);
+  //   var room = room.split(".");
+  //   var floor = room[1].charAt(0);
+  //   container.append('<li><div class="list-entry"><h2 class="heading style3">'
+  //     +item.title+'</h2><p>Ort: '
+  //     +item.room.number+'; <strong>Zeit: '
+  //     +item.from+'Uhr</strong></p><a class="location-pointer" onclick="changeMap(\'B'
+  //     +room[0]+'\',\'F'
+  //     +floor+'\');" href="#" title="">Gehe zum Ort</a></div></li>');
+  // });
 }
 
 function showList(i, elem){
