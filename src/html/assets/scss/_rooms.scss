@@ -1,22 +1,64 @@
 /* Maps */
+.B1 {
+  background: 0 0 no-repeat;
+  background-size: auto 100%;
+
+  &.FK {
+    // @include base64-image($img-K-building-1);
+  }
+  &.F0 {
+    // @include base64-image($img-EG-building-1);
+  }
+  &.F1 {
+    // @include base64-image($img-1OG-building-1);
+  }
+  &.F2 {
+    // @include base64-image($img-2OG-building-1);
+  }
+  &.F3 {
+    // @include base64-image($img-3OG-building-1);
+  }
+}
 
 .B2 {
   background: 0 0 no-repeat;
+  background-size: auto 100%;
 
   &.FK {
-    @include base64-image($img-1OG-building-2);
+    @include base64-image($img-K-building-2);
   }
   &.F0 {
-    @include base64-image($img-1OG-building-2);
+    @include base64-image($img-EG-building-2);
   }
   &.F1 {
     @include base64-image($img-1OG-building-2);
   }
   &.F2 {
-    @include base64-image($img-1OG-building-2);
+    // @include base64-image($img-2OG-building-2);
   }
   &.F3 {
-    @include base64-image($img-1OG-building-2);
+    // @include base64-image($img-3OG-building-2);
+  }
+}
+
+.B3 {
+  background: 0 0 no-repeat;
+  background-size: auto 100%;
+
+  &.FK {
+    // @include base64-image($img-K-building-3);
+  }
+  &.F0 {
+    @include base64-image($img-EG-building-3);
+  }
+  &.F1 {
+    @include base64-image($img-1OG-building-3);
+  }
+  &.F2 {
+    // @include base64-image($img-2OG-building-3);
+  }
+  &.F3 {
+    // @include base64-image($img-3OG-building-3);
   }
 }
 
