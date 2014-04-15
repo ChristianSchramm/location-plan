@@ -1,0 +1,152 @@
+/* Maps */
+
+.B2 {
+  background: 0 0 no-repeat;
+
+  &.FK {
+    @include base64-image($img-1OG-building-2);
+  }
+  &.F0 {
+    @include base64-image($img-1OG-building-2);
+  }
+  &.F1 {
+    @include base64-image($img-1OG-building-2);
+  }
+  &.F2 {
+    @include base64-image($img-1OG-building-2);
+  }
+  &.F3 {
+    @include base64-image($img-1OG-building-2);
+  }
+}
+
+/* Floor 1 */
+
+.number-111 {
+  left: 30.5%;
+  top: 14%;
+}
+
+.number-112 {
+  left: 70.5%;
+  top: 14%;
+}
+
+.number-113 {
+  left: 30.5%;
+  top: 64%;
+}
+
+.number-114 {
+  left: 70.5%;
+  top: 64%;
+}
+
+/* Floor 2 */
+
+.number-211 {
+  left: 10.5%;
+  top: 14%;
+}
+
+.number-212 {
+  left: 70.5%;
+  top: 4%;
+}
+
+.number-213 {
+  left: 20.5%;
+  top: 44%;
+}
+
+.number-214 {
+  left: 60.5%;
+  top: 54%;
+}
+
+.number-001 {
+
+}
+
+.number-002 {
+
+}
+
+.number-003 {
+
+}
+
+.number-004 {
+
+}
+
+.number-005 {
+
+}
+
+.number-006 {
+
+}
+
+.number-007 {
+
+}
+
+.number-008 {
+
+}
+.number-009 {
+
+}
+.number-010 {
+
+}
+.number-011 {
+
+}
+.number-012 {
+
+}
+.number-013 {
+  left: 20%;
+  top: 30%;
+}
+.number-014 {
+
+}
+.number-015 {
+
+}
+.number-016 {
+
+}
+
+.number-017 {
+
+}
+
+.number-018 {
+
+}
+
+/* Floor 3 */
+
+.number-311 {
+  left: 10.5%;
+  top: 14%;
+}
+
+.number-312 {
+  left: 70.5%;
+  top: 4%;
+}
+
+.number-313 {
+  left: 20.5%;
+  top: 44%;
+}
+
+.number-314 {
+  left: 60.5%;
+  top: 54%;
+}

@@ -31,7 +31,7 @@
         <div class="main-nav">
           <ul>
             <li>
-              <a href="#" onclick="showList(1, this);" class="ico ico-position">
+              <a href="#" onclick="showList(1, this);" class="ico ico-tablepos">
                 Zur Tischposition springen
               </a>
             </li>
@@ -41,7 +41,7 @@
               </a>
             </li>
             <li>
-              <a onclick="changeFloor('FC');" href="#" class="ico ico-compass">Campusübersicht</a>
+              <a onclick="changeFloor('FC');" href="#" class="ico ico-campusplan">Campusübersicht</a>
             </li>
           </ul>
         </div> <!-- buttonsWrap -->
@@ -86,233 +86,210 @@
         <div class="map-container fullscreen">
 
 
-	  <div class="map B2 FK hide">
-          <div class="room number-K11">
+	        <div class="map B2 FK hide">
+            <div class="room number-K11">
+      	      <a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="Raum 2.K11" href="#">Position Raum 2.K11</a>
 
-	      <a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="Raum 2.K11" href="#">
-              Position Raum 2.K11
-            </a>
+              <article class="tooltip tl">
+  		          <a href="#" class="close" onclick="closeTooltip(this)">X</a>
+                <h1 class="heading style2">Veranstaltungstitel</h1>
+                <p><strong>Raumnummer</strong></p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
-            <article class="tooltip tl">
-		          <a href="#" class="close" onclick="closeTooltip(this)">X</a>
-              <h1 class="heading style2">Veranstaltungstitel</h1>
-              <p><strong>Raumnummer</strong></p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <figure class="image">
+                  <img src="#" title="" alt="">
+                  <figcaption class="caption">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                  </figcaption>  <!-- caption -->
+                </figure> <!-- image -->
 
-              <figure class="image">
-                <img src="#" title="" alt="">
-                <figcaption class="caption">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                </figcaption>  <!-- caption -->
-              </figure> <!-- image -->
+                <!-- Platzhalter für Video: flowplayer -->
+                <div class="video"></div> <!-- video -->
 
-              <!-- Platzhalter für Video: flowplayer -->
-              <div class="video"></div> <!-- video -->
+                <p>Verantwortlicher:</p>
 
-              <p>Verantwortlicher:</p>
+              </article> <!-- tooltip -->
+            </div> <!-- room -->
 
-            </article> <!-- tooltip -->
+	          <div class="room number-K12">
 
-          </div> <!-- room -->
+	            <a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="Raum 2.K12" href="#">Position Raum 2.K12</a>
 
-	  <div class="room number-K12">
+              <article class="tooltip tr">
+		            <a href="#" class="close" onclick="closeTooltip(this)">X</a>
+                <h1 class="heading style2">Veranstaltungstitel</h1>
+                <p><strong>Raumnummer</strong></p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
-	      <a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="Raum 2.K12" href="#">
-              Position Raum 2.K12
-            </a>
+                <figure class="image">
+                  <img src="#" title="" alt="">
+                  <figcaption class="caption">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                  </figcaption>  <!-- caption -->
+                </figure> <!-- image -->
 
-            <article class="tooltip tr">
-		<a href="#" class="close" onclick="closeTooltip(this)">X</a>
-              <h1 class="heading style2">Veranstaltungstitel</h1>
-              <p><strong>Raumnummer</strong></p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <!-- Platzhalter für Video: flowplayer -->
+                <div class="video"></div> <!-- video -->
 
-              <figure class="image">
-                <img src="#" title="" alt="">
-                <figcaption class="caption">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                </figcaption>  <!-- caption -->
-              </figure> <!-- image -->
+                <p>Verantwortlicher:</p>
 
-              <!-- Platzhalter für Video: flowplayer -->
-              <div class="video"></div> <!-- video -->
+              </article> <!-- tooltip -->
+            </div> <!-- room -->
 
-              <p>Verantwortlicher:</p>
+  	        <div class="room number-K13">
 
-            </article> <!-- tooltip -->
+	            <a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="Raum 2.K13" href="#">Position Raum 2.K13</a>
 
-          </div> <!-- room -->
+                <article class="tooltip bl">
+		              <a href="#" class="close" onclick="closeTooltip(this)">X</a>
+                  <h1 class="heading style2">Veranstaltungstitel</h1>
+                  <p><strong>Raumnummer</strong></p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
-	  <div class="room number-K13">
+                  <figure class="image">
+                    <img src="#" title="" alt="">
+                    <figcaption class="caption">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                    </figcaption>  <!-- caption -->
+                  </figure> <!-- image -->
 
-	      <a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="Raum 2.K13" href="#">
-              Position Raum 2.K13
-            </a>
+                  <!-- Platzhalter für Video: flowplayer -->
+                  <div class="video"></div> <!-- video -->
 
-            <article class="tooltip bl">
-		<a href="#" class="close" onclick="closeTooltip(this)">X</a>
-              <h1 class="heading style2">Veranstaltungstitel</h1>
-              <p><strong>Raumnummer</strong></p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  <p>Verantwortlicher:</p>
 
-              <figure class="image">
-                <img src="#" title="" alt="">
-                <figcaption class="caption">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                </figcaption>  <!-- caption -->
-              </figure> <!-- image -->
+                </article> <!-- tooltip -->
+              </div> <!-- room -->
 
-              <!-- Platzhalter für Video: flowplayer -->
-              <div class="video"></div> <!-- video -->
+	            <div class="room number-K14">
 
-              <p>Verantwortlicher:</p>
+	              <a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="Raum 2.K14" href="#">Position Raum 2.K14</a>
 
-            </article> <!-- tooltip -->
+                <article class="tooltip br">
+	                <a href="#" class="close" onclick="closeTooltip(this)">X</a>
+                  <h1 class="heading style2">Veranstaltungstitel</h1>
+                  <p><strong>Raumnummer</strong></p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
-          </div> <!-- room -->
+                  <figure class="image">
+                    <img src="#" title="" alt="">
+                    <figcaption class="caption">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                    </figcaption>  <!-- caption -->
+                  </figure> <!-- image -->
 
-	  <div class="room number-K14">
+                  <!-- Platzhalter für Video: flowplayer -->
+                  <div class="video"></div> <!-- video -->
 
-	      <a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="Raum 2.K14" href="#">
-              Position Raum 2.K14
-            </a>
+                  <p>Verantwortlicher:</p>
 
-            <article class="tooltip br">
-		<a href="#" class="close" onclick="closeTooltip(this)">X</a>
-              <h1 class="heading style2">Veranstaltungstitel</h1>
-              <p><strong>Raumnummer</strong></p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </article> <!-- tooltip -->
+              </div> <!-- room -->
 
-              <figure class="image">
-                <img src="#" title="" alt="">
-                <figcaption class="caption">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                </figcaption>  <!-- caption -->
-              </figure> <!-- image -->
+	          </div> <!-- map B2 FK-->
 
-              <!-- Platzhalter für Video: flowplayer -->
-              <div class="video"></div> <!-- video -->
+	          <div class="map B2 F0 hide">
+              <div class="room number-011">
 
-              <p>Verantwortlicher:</p>
+	              <a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="Raum 2.011" href="#">Position Raum 2.011</a>
 
-            </article> <!-- tooltip -->
+                <article class="tooltip tl">
+		              <a href="#" class="close" onclick="closeTooltip(this)">X</a>
+                  <h1 class="heading style2">Veranstaltungstitel</h1>
+                  <p><strong>Raumnummer</strong></p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
-          </div> <!-- room -->
-	  </div> <!-- map B2 FK-->
+                  <figure class="image">
+                    <img src="#" title="" alt="">
+                    <figcaption class="caption">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                    </figcaption>  <!-- caption -->
+                  </figure> <!-- image -->
 
-	  <div class="map B2 F0 hide">
-          <div class="room number-011">
+                  <!-- Platzhalter für Video: flowplayer -->
+                  <div class="video"></div> <!-- video -->
 
-	      <a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="Raum 2.011" href="#">
-              Position Raum 2.011
-            </a>
+                  <p>Verantwortlicher:</p>
 
-            <article class="tooltip tl">
-		<a href="#" class="close" onclick="closeTooltip(this)">X</a>
-              <h1 class="heading style2">Veranstaltungstitel</h1>
-              <p><strong>Raumnummer</strong></p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </article> <!-- tooltip -->
+              </div> <!-- room -->
 
-              <figure class="image">
-                <img src="#" title="" alt="">
-                <figcaption class="caption">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                </figcaption>  <!-- caption -->
-              </figure> <!-- image -->
+	            <div class="room number-012">
 
-              <!-- Platzhalter für Video: flowplayer -->
-              <div class="video"></div> <!-- video -->
+	              <a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="Raum 2.012" href="#">Position Raum 2.012</a>
 
-              <p>Verantwortlicher:</p>
+                <article class="tooltip tr">
+		              <a href="#" class="close" onclick="closeTooltip(this)">X</a>
+                  <h1 class="heading style2">Veranstaltungstitel</h1>
+                  <p><strong>Raumnummer</strong></p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
-            </article> <!-- tooltip -->
+                  <figure class="image">
+                    <img src="#" title="" alt="">
+                    <figcaption class="caption">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                    </figcaption>  <!-- caption -->
+                  </figure> <!-- image -->
 
-          </div> <!-- room -->
+                  <!-- Platzhalter für Video: flowplayer -->
+                  <div class="video"></div> <!-- video -->
 
-	  <div class="room number-012">
+                  <p>Verantwortlicher:</p>
 
-	      <a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="Raum 2.012" href="#">
-              Position Raum 2.012
-            </a>
+                </article> <!-- tooltip -->
+              </div> <!-- room -->
 
-            <article class="tooltip tr">
-		<a href="#" class="close" onclick="closeTooltip(this)">X</a>
-              <h1 class="heading style2">Veranstaltungstitel</h1>
-              <p><strong>Raumnummer</strong></p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	            <div class="room number-013">
 
-              <figure class="image">
-                <img src="#" title="" alt="">
-                <figcaption class="caption">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                </figcaption>  <!-- caption -->
-              </figure> <!-- image -->
+	            <a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="Raum 2.013" href="#">Position Raum 2.013</a>
 
-              <!-- Platzhalter für Video: flowplayer -->
-              <div class="video"></div> <!-- video -->
+              <article class="tooltip bl">
+		            <a href="#" class="close" onclick="closeTooltip(this)">X</a>
+                <h1 class="heading style2">Veranstaltungstitel</h1>
+                <p><strong>Raumnummer</strong></p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
-              <p>Verantwortlicher:</p>
+                <figure class="image">
+                  <img src="#" title="" alt="">
+                  <figcaption class="caption">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                  </figcaption>  <!-- caption -->
+                </figure> <!-- image -->
 
-            </article> <!-- tooltip -->
+                <!-- Platzhalter für Video: flowplayer -->
+                <div class="video"></div> <!-- video -->
 
-          </div> <!-- room -->
+                <p>Verantwortlicher:</p>
 
-	  <div class="room number-013">
+              </article> <!-- tooltip -->
+            </div> <!-- room -->
 
-	      <a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="Raum 2.013" href="#">
-              Position Raum 2.013
-            </a>
+	          <div class="room number-014">
 
-            <article class="tooltip bl">
-		<a href="#" class="close" onclick="closeTooltip(this)">X</a>
-              <h1 class="heading style2">Veranstaltungstitel</h1>
-              <p><strong>Raumnummer</strong></p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	            <a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="Raum 2.014" href="#">Position Raum 2.014</a>
 
-              <figure class="image">
-                <img src="#" title="" alt="">
-                <figcaption class="caption">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                </figcaption>  <!-- caption -->
-              </figure> <!-- image -->
+              <article class="tooltip br">
+		            <a href="#" class="close" onclick="closeTooltip(this)">X</a>
+                <h1 class="heading style2">Veranstaltungstitel</h1>
+                <p><strong>Raumnummer</strong></p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
-              <!-- Platzhalter für Video: flowplayer -->
-              <div class="video"></div> <!-- video -->
+                <figure class="image">
+                  <img src="#" title="" alt="">
+                  <figcaption class="caption">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                  </figcaption>  <!-- caption -->
+                </figure> <!-- image -->
 
-              <p>Verantwortlicher:</p>
+                <!-- Platzhalter für Video: flowplayer -->
+                <div class="video"></div> <!-- video -->
 
-            </article> <!-- tooltip -->
+                <p>Verantwortlicher:</p>
 
-          </div> <!-- room -->
+              </article> <!-- tooltip -->
+            </div> <!-- room -->
 
-	  <div class="room number-014">
-
-	      <a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="Raum 2.014" href="#">
-              Position Raum 2.014
-            </a>
-
-            <article class="tooltip br">
-		<a href="#" class="close" onclick="closeTooltip(this)">X</a>
-              <h1 class="heading style2">Veranstaltungstitel</h1>
-              <p><strong>Raumnummer</strong></p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-              <figure class="image">
-                <img src="#" title="" alt="">
-                <figcaption class="caption">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                </figcaption>  <!-- caption -->
-              </figure> <!-- image -->
-
-              <!-- Platzhalter für Video: flowplayer -->
-              <div class="video"></div> <!-- video -->
-
-              <p>Verantwortlicher:</p>
-
-            </article> <!-- tooltip -->
-
-          </div> <!-- room -->
-	  </div> <!-- map B2 F0 -->
+    	     </div> <!-- map B2 F0 -->
 
 	  <div class="map B2 F1">
           <div class="room number-111">
@@ -676,11 +653,13 @@
       </div> <!-- main -->
 
       <footer class="footer">
-        <ul>
-          <li>
-            <a href="#">Impressum</a>
-          </li>
-        </ul>
+        <nav class="footer-nav">
+          <ul>
+            <li>
+              <a href="#">Impressum</a>
+            </li>
+          </ul>
+        </nav>
       </footer> <!-- footer -->
 
     </div> <!-- wrapper -->
