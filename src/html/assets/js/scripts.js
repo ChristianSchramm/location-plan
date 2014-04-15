@@ -19,10 +19,10 @@ function init(){
 		dataType: "json",
 		error: console.log("ajax"),
 		success: function(data, status, jqXHR ){
-                  eventlist(data);
-                  $(".number-111 .tooltip .heading").html(data[0].title);
-                  $(".number-111 .tooltip p.roomnr strong").html(data[0].room.number);
-                  $(".number-111 .tooltip p.desc").html(data[0].description);
+      eventlist(data);
+      $(".number-111 .tooltip .heading").html(data[0].title);
+      $(".number-111 .tooltip p.roomnr strong").html(data[0].room.number);
+      $(".number-111 .tooltip p.desc").html(data[0].description);
 		}
 
 	});
@@ -44,11 +44,11 @@ function eventlist(_data){
     var room = room.split(".");
     var floor = room[1].charAt(0);
     container.append('<li><div class="list-entry"><h2 class="heading style3">'
-                    +item.title+'</h2><p>Ort: '
-                    +item.room.number+'; <strong>Zeit: '
-                    +item.from+'Uhr</strong></p><a class="location-pointer" onclick="changeMap(\'B'
-                    +room[0]+'\',\'F'
-                    +floor+'\');" href="#" title="">Gehe zum Ort</a></div></li>');
+      +item.title+'</h2><p>Ort: '
+      +item.room.number+'; <strong>Zeit: '
+      +item.from+'Uhr</strong></p><a class="location-pointer" onclick="changeMap(\'B'
+      +room[0]+'\',\'F'
+      +floor+'\');" href="#" title="">Gehe zum Ort</a></div></li>');
   });
 }
 
@@ -101,7 +101,7 @@ function changeFloor( _floor){
 }
 
 function changeMap(_building, _floor){
-  if($(".map."+_building+"."+_floor+".hide")[0]!= null){
+  if($(".map."+_building+"."+_floor+".hide")[0]!== null){
     console.log($(".map."+_building+"."+_floor+".hide"));
     closeTooltip($(".tooltip.active .close"));
     $(".map."+building+"."+floor).addClass("hide");
