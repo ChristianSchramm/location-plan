@@ -4,8 +4,7 @@ var floor = "F1";
 
 
 $( document ).ready(function() {
-    init();
-
+  init();
 });
 
 function init(){
@@ -30,8 +29,8 @@ function init(){
 }
 
 $( window ).resize(function() {
-    $(".map").css("width", $(".map").height()+$(".map").height()*0.04);
-    $(".map").css("margin-left", -$(".map").width()/2);
+  $(".map").css("width", $(".map").height()+$(".map").height()*0.04);
+  $(".map").css("margin-left", -$(".map").width()/2);
 });
 
 function eventlist(_data){
@@ -92,7 +91,6 @@ function closeTooltip(elem){
    setTimeout(function(){
     $(elem).parents(".room").css("z-index", "");
    }, 200);
-
 
 }
 

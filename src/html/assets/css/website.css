@@ -1050,22 +1050,23 @@ p {
 }
 
 .tooltip {
-  background: lightgreen;
-  position: absolute;
-  border: 20px solid lightgreen;
   height: 0;
+  overflow: hidden;
+  padding: 20px;
+  position: absolute;
+  transition: all 0.3s linear;
   width: 0;
   z-index: 1;
-  overflow: hidden;
-  transition: all 0.3s linear;
 }
 .tooltip.active {
-  width: 200px;
+  background: #ececec;
+  display: block;
   height: 300px;
+  width: 200px;
 }
 .tooltip.active * {
-  transition: all 0.2s linear 0.4s;
   opacity: 1;
+  transition: all 0.2s linear 0.4s;
 }
 .tooltip * {
   transition: all 0.01s linear;
@@ -1081,8 +1082,8 @@ p {
 
 /* Icons */
 .ico {
-  background-size: 40px 40px;
   background: 0 0 no-repeat;
+  background-size: 40px 40px;
   display: block;
   height: 40px;
   overflow: hidden;
@@ -1092,10 +1093,12 @@ p {
 
 .ico-tooltip {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGQ9Ik0yNTYsMEMxNjcuNjQxLDAsOTYsNzEuNjI1LDk2LDE2MGMwLDI0Ljc1LDUuNjI1LDQ4LjIxOSwxNS42NzIsNjkuMTI1QzExMi4yMzQsMjMwLjMxMywyNTYsNTEyLDI1Niw1MTJsMTQyLjU5NC0yNzkuMzc1DQoJQzQwOS43MTksMjEwLjg0NCw0MTYsMTg2LjE1Niw0MTYsMTYwQzQxNiw3MS42MjUsMzQ0LjM3NSwwLDI1NiwweiBNMjU2LDI1NmMtNTMuMDE2LDAtOTYtNDMtOTYtOTZzNDIuOTg0LTk2LDk2LTk2DQoJYzUzLDAsOTYsNDMsOTYsOTZTMzA5LDI1NiwyNTYsMjU2eiIvPg0KPC9zdmc+DQo=');
+  left: 0;
   opacity: 1;
   position: absolute;
   transition: all 0.4s linear;
-  z-index: 2;
+  top: 0;
+  z-index: 10000;
 }
 .ico-tooltip:active, .ico-tooltip:hover, .ico-tooltip:focus, .ico-tooltip.active {
   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGQ9Ik0yNTYsMEMxNjcuNjQxLDAsOTYsNzEuNjI1LDk2LDE2MGMwLDI0Ljc1LDUuNjI1LDQ4LjIxOSwxNS42NzIsNjkuMTI1QzExMi4yMzQsMjMwLjMxMywyNTYsNTEyLDI1Niw1MTJsMTQyLjU5NC0yNzkuMzc1DQoJQzQwOS43MTksMjEwLjg0NCw0MTYsMTg2LjE1Niw0MTYsMTYwQzQxNiw3MS42MjUsMzQ0LjM3NSwwLDI1NiwweiBNMjU2LDI1NmMtNTMuMDE2LDAtOTYtNDMtOTYtOTZzNDIuOTg0LTk2LDk2LTk2DQoJYzUzLDAsOTYsNDMsOTYsOTZTMzA5LDI1NiwyNTYsMjU2eiIvPg0KPC9zdmc+DQo=');

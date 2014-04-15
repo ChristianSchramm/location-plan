@@ -372,23 +372,25 @@ p {
 }
 
 .tooltip {
-  background: lightgreen;
   // display: none;
-  position: absolute;
-  border: 20px solid lightgreen;
+  @extend %round-tooltip;
   height: 0;
+  overflow: hidden;
+  padding: 20px;
+  position: absolute;
+  transition: all 0.3s linear;
   width: 0;
   z-index: 1;
-  overflow: hidden;
-  transition: all 0.3s linear;
-  @extend %round-tooltip;
 
   &.active{
-    width: 200px;
+    background: $ba-lightgrey;
+    display: block;
     height: 300px;
+    width: 200px;
+
     *{
-      transition: all 0.2s linear 0.4s;
       opacity: 1;
+      transition: all 0.2s linear 0.4s;
     }
   }
 
@@ -408,8 +410,8 @@ p {
 /* Icons */
 
 .ico {
-  background-size: 40px 40px;
   background: 0 0 no-repeat;
+  background-size: 40px 40px;
   display: block;
   height: 40px;
   overflow: hidden;
@@ -419,10 +421,12 @@ p {
 
 .ico-tooltip {
   @include base64-image($ico-tooltip);
+  left: 0;
   opacity: 1;
   position: absolute;
   transition: all 0.4s linear;
-  z-index: 2;
+  top: 0;
+  z-index: 10000;
 
   &:active,
   &:hover,
