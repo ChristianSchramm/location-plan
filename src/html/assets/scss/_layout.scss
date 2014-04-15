@@ -21,6 +21,17 @@ li {
   list-style: none;
 }
 
+a {
+  color: $ba-blue;
+  font-size: 1.4em;
+
+  &:active,
+  &:hover,
+  &:focus {
+    color: $color-medinf;
+  }
+}
+
 p {
   font-size: 1.4em;
   margin: 0 0 10px;
@@ -112,21 +123,20 @@ p {
 /* navi */
 
 .main-nav {
-  height: 40px;
-  left: 0;
+  display: block;
+  left: 10px;
   position: absolute;
   top: 10px;
-  width: 200px;
+  width: 260px;
   z-index: $z-main-nav;
 
   ul {
     display: inline-block;
-    padding-left: 20px;
   }
 
   li {
     float: left;
-    margin-left: 20px;
+    margin-left: 10px;
 
     &:first-child {
       margin-left: 0;
@@ -134,9 +144,16 @@ p {
   }
 
   .ico {
-    background-size: 40px 40px;
-    height: 40px;
-    width: 40px;
+    background-size: 80px 80px;
+    height: 80px;
+    width: 80px;
+  }
+}
+
+.footer-nav {
+  ul {
+    display: inline-block;
+    margin: 10px 0 0 20px;
   }
 }
 
@@ -171,7 +188,7 @@ p {
   left: -50%;
   overflow: hidden;
   position: absolute;
-  top: 80px;
+  top: 100px;
   transition: all 0.2s linear;
   width: 25%;
   min-width: 300px;
@@ -207,7 +224,6 @@ p {
   opacity: 1;
   height: 100%;
   transition: opacity 0.2s linear;
-  @include base64-image($img-1OG-building-2);
   overflow: visible;
   &.hide{
     z-index: -1;
@@ -249,6 +265,7 @@ p {
   &:hover,
   &:focus {
     background: $color-medinf;
+    color: #fff;
   }
 }
 
@@ -294,17 +311,6 @@ p {
   p {
     margin: 0;
   }
-
-  a {
-    color: $ba-blue;
-    font-size: 1.4em;
-
-    &:active,
-    &:hover,
-    &:focus {
-      color: $color-medinf;
-    }
-  }
 }
 
 /* legend */
@@ -348,46 +354,6 @@ p {
 .switch-btn {
   display: inline-block;
   overflow: hidden;
-}
-
-.number-111 {
-  left: 30.5%;
-  top: 14%;
-}
-
-.number-112 {
-  left: 70.5%;
-  top: 14%;
-}
-
-.number-113 {
-  left: 30.5%;
-  top: 64%;
-}
-
-.number-114 {
-  left: 70.5%;
-  top: 64%;
-}
-
-.number-211 {
-  left: 10.5%;
-  top: 14%;
-}
-
-.number-212 {
-  left: 70.5%;
-  top: 4%;
-}
-
-.number-213 {
-  left: 20.5%;
-  top: 44%;
-}
-
-.number-214 {
-  left: 60.5%;
-  top: 54%;
 }
 
 .tl{
@@ -471,24 +437,24 @@ p {
       opacity: 0;
   }
 }
-.ico-position {
-  @include base64-image($ico-position);
+.ico-tablepos {
+  @include base64-image($ico-tablepos);
 
   &:active,
   &:hover,
   &:focus,
   &.active {
-    @include base64-image($ico-position-hover);
+    @include base64-image($ico-tablepos-hover);
   }
 }
-.ico-compass {
-  @include base64-image($ico-compass);
+.ico-campusplan {
+  @include base64-image($ico-campusplan);
 
   &:active,
   &:hover,
   &:focus,
   &.active {
-    @include base64-image($ico-compass-hover);
+    @include base64-image($ico-campusplan-hover);
   }
 }
 .ico-timetable {
