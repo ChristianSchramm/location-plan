@@ -21,7 +21,7 @@
     <tr>
       <td>{{ loop.index }}</td>
       <td>
-        am {{ event.starttime|date('d.m.Y') }} von {{ event.starttime|date('h:i') }} - {{ event.endtime|date('h:i') }} 
+        am {{ event.startdate }} von {{ event.starttime }} - {{ event.endtime }} 
       </td>
       <td>{{ event.title }}</td>
       <td>{{ event.description }}</td>
