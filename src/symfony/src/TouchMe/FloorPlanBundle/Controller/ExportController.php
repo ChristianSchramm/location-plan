@@ -32,22 +32,35 @@ class ExportController extends Controller
         $zipArchiv = new \ZipArchive();
         if ($zipArchiv->open($zipPath . $filename, \ZipArchive::CREATE | \ZIPARCHIVE::OVERWRITE) === TRUE)
         {   
-            $eventArray = array();
-            foreach ($events as $key => $event) {
+            $locationDiff = array();
+            $exportArray = array();
+            foreach ($events as $key => $event)
+            {
               // Serialize object
-              $eventArray[$key] = $event->toArray();
+              $exportArray[0][$key] = $event->toArray();
+              
+              // Locations that are already stored
+              $locationDiff[] = $exportArray[0][$key]['location']['id'];
+              
               // Add related files
-              foreach ( $eventArray[$key]['assets'] as $asset)
+              foreach ( $exportArray[0][$key]['assets'] as $asset)
               {
-                if ($fs->exists($uploadPath . $asset['src']))
-                {
-                    $zipArchiv->addFile($uploadPath . $asset['src'], $asset['src']);
-                }
+                  if ($fs->exists($uploadPath . $asset['src']))
+                  {
+                      $zipArchiv->addFile($uploadPath . $asset['src'], $asset['src']);
+                  }
               }
             }
             
+            // Find and serialize locations that are not yet stored
+            $locations = $em->getRepository('TouchMeFloorPlanBundle:Location')->findAllExept($locationDiff);
+            foreach ($locations as $id => $location)
+            {
+                $exportArray[1][$id] = $location->toArray();
+            }
+            
             // Create JSON-File
-            $zipArchiv->addFromString('events.json', json_encode($eventArray));
+            $zipArchiv->addFromString('events.json', json_encode($exportArray));
 
             if ($zipArchiv->close())
             {

@@ -16,4 +16,14 @@ class LocationRepository extends EntityRepository
   {
     return $this->createQueryBuilder('l')->orderBy('l.number', 'ASC')->getQuery()->getResult();
   }
+  
+  public function findAllExept($param)
+  {
+    $qb = $this->createQueryBuilder('l');
+    $qb->select('l')
+      ->where($qb->expr()->notIn('l.id', '?1'))
+      ->setParameter(1, $param);
+    
+    return $qb->getQuery()->getResult();
+  }
 }
