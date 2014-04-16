@@ -12,6 +12,8 @@ TouchMe\FloorPlanBundle\Entity\Location:
       type: string
       length: 100
       nullable: false
+    visible:
+      type: boolean
     'type':
       type: string
       length: 100

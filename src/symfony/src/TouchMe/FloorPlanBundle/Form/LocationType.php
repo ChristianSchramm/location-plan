@@ -60,6 +60,16 @@ class LocationType extends AbstractType
                     'class'=> 'form-control'
                 ),
             ))
+            ->add('visible', 'checkbox',array(  
+                'label' => 'Sichtbar bei Veranstaltungen',
+                'required' => false,               
+                'label_attr' => array(
+                    'class'=> ''
+                ),
+                'attr' => array(
+                    'class'=> 'form-control'
+                ),
+            ))
             ->add('save', 'submit',array(    
                 'label' => 'speichern',             
                 'attr' => array(
