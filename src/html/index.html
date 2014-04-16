@@ -16,22 +16,22 @@
   </head>
   <body>
     <div class="wrapper">
-  
+
       <header class="header">
         <a class="logo" href="http://www.ba-dresden.de" target="_blank" title="Berufsakademie Dresden">
-          <img height="60" src="img/logo.svg" title="Berufsakademie Dresden" width="172">
+          <img height="40" src="img/logo.png" title="Berufsakademie Dresden" width="190">
         </a> <!-- logo -->
 
         <h1 class="heading style1">Berufsakademie Dresden - <span>Veranstaltungsplan</span></h1>
 
       </header> <!-- header -->
-        
+
       <div class="main" role="main">
-    
+
         <div class="main-nav">
           <ul>
             <li>
-              <a href="#" onclick="showList(1, this);" class="ico ico-position">
+              <a href="#" onclick="showList(1, this);" class="ico ico-tablepos">
                 Zur Tischposition springen
               </a>
             </li>
@@ -40,23 +40,22 @@
                 Ablauf-/Zeitplan einblenden
               </a>
             </li>
-             <li>
-              <a href="#" onclick="showList(2, this);" class="ico ico-compass">
-                Campusübersicht
-              </a>
+            <li>
+              <a onclick="changeMap('BC','FC');" href="#" class="ico ico-campusplan">Campusübersicht</a>
             </li>
           </ul>
-        </div> <!-- buttonsWrap -->    
+        </div> <!-- buttonsWrap -->
 
         <div class="flap" id="flap">
-          
+
           <div class="timetable list list1">
             <ul>
               <li>
+                <span class="course left medinf"></span>
                 <div class="list-entry">
-                  <h2 class="heading style3">Titel des Events</h2>
+                  <h2 class="heading style4">Titel des Events</h2>
                   <p>Ort: Zimmer; <strong>Zeit: 9:00Uhr</strong></p>
-                  <a class="location-pointer" href="#" title="">Gehe zum Ort</a>
+                  <a class="location-pointer" onclick="changeMap()" href="#" title="">Gehe zum Ort</a>
                 </div>
               </li>
             </ul>
@@ -65,159 +64,114 @@
         </div> <!-- flap -->
 
         <div class="floor-plan">
+          <h2 class="heading style1">Haus</h2>
           <ul>
-            <li><a class="floor" href="#">3. Etage</a></li>
-            <li><a class="floor" href="#">2. Etage</a></li>
-            <li><a class="floor" href="#">1. Etage</a></li>
-            <li><a class="floor" href="#">Erdgeschoss</a></li>
-            <li><a class="floor" href="#">Untergeschoss</a></li>
-            <li><a class="floor" href="#">Campus</a></li>
+            <li><a class="floor" onclick="changeBuilding('B1');" href="#">1</a></li>
+            <li><a class="floor" onclick="changeBuilding('B2');" href="#">2</a></li>
+            <li><a class="floor" onclick="changeBuilding('B3');" href="#">3</a></li>
           </ul>
+
+          <h2 class="heading style1">Etage</h2>
+          <ul>
+            <li><a class="floor" onclick="changeFloor('F3');" href="#">3.OG</a></li>
+            <li><a class="floor" onclick="changeFloor('F2');" href="#">2.OG</a></li>
+            <li><a class="floor" onclick="changeFloor('F1');" href="#">1.OG</a></li>
+            <li><a class="floor" onclick="changeFloor('F0');" href="#">EG</a></li>
+            <li><a class="floor" onclick="changeFloor('FK');" href="#">K</a></li>
+            <!-- <li><a class="floor" onclick="changeFloor('FC');" href="#">Campus</a></li> -->
+          </ul>
+
         </div> <!-- floor-plan -->
-        
+
         <div class="map-container fullscreen">
 
-          <div class="room number-111">
-          
-	      <a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="Raum 2.111" href="#">
-              Position Raum 2.111
-            </a>
-            
-            <article class="tooltip tl">
-		<a href="#" class="close" onclick="closeTooltip(this)">X</a>
-              <h1 class="heading style2">Veranstaltungstitel</h1>
-              <p><strong>Raumnummer</strong></p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <!-- Campus -->
+          <div class="map BC FC">
+          </div> <!-- map C-->
 
-              <figure class="image">
-                <img src="#" title="" alt="">
-                <figcaption class="caption">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                </figcaption>  <!-- caption -->
-              </figure> <!-- image -->
+          <!-- B1 -->
+          <div class="map B1 FK hide">
+          </div> <!-- map B1 FK-->
 
-              <!-- Platzhalter für Video: flowplayer -->
-              <div class="video"></div> <!-- video -->
+          <div class="map B1 F0 hide">
+          </div> <!-- map B1 F0 -->
 
-              <p>Verantwortlicher:</p>            
+          <div class="map B1 F1 hide">
+          </div> <!-- map B1 F1 -->
 
-            </article> <!-- tooltip -->
-          
-          </div> <!-- room -->
-	  
-	  <div class="room number-112">
-          
-	      <a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="Raum 2.111" href="#">
-              Position Raum 2.111
-            </a>
-            
-            <article class="tooltip tr">
-		<a href="#" class="close" onclick="closeTooltip(this)">X</a>
-              <h1 class="heading style2">Veranstaltungstitel</h1>
-              <p><strong>Raumnummer</strong></p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <div class="map B1 F2 hide">
+          </div> <!-- map B1 F2 -->
 
-              <figure class="image">
-                <img src="#" title="" alt="">
-                <figcaption class="caption">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                </figcaption>  <!-- caption -->
-              </figure> <!-- image -->
+          <div class="map B1 F3 hide">
+          </div> <!-- map B1 F3-->
 
-              <!-- Platzhalter für Video: flowplayer -->
-              <div class="video"></div> <!-- video -->
+          <!-- B2 -->
+	        <div class="map B2 FK hide">
+	        </div> <!-- map B2 FK-->
 
-              <p>Verantwortlicher:</p>            
+	        <div class="map B2 F0 hide">
+    	    </div> <!-- map B2 F0 -->
 
-            </article> <!-- tooltip -->
-          
-          </div> <!-- room -->
-	  
-	  <div class="room number-113">
-          
-	      <a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="Raum 2.111" href="#">
-              Position Raum 2.111
-            </a>
-            
-            <article class="tooltip bl">
-		<a href="#" class="close" onclick="closeTooltip(this)">X</a>
-              <h1 class="heading style2">Veranstaltungstitel</h1>
-              <p><strong>Raumnummer</strong></p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	        <div class="map B2 F1 hide">
+          </div> <!-- map B2 F1 -->
 
-              <figure class="image">
-                <img src="#" title="" alt="">
-                <figcaption class="caption">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                </figcaption>  <!-- caption -->
-              </figure> <!-- image -->
+  	      <div class="map B2 F2 hide">
+   	      </div> <!-- map B2 F2 -->
 
-              <!-- Platzhalter für Video: flowplayer -->
-              <div class="video"></div> <!-- video -->
+  	      <div class="map B2 F3 hide">
+   	      </div> <!-- map B2 F3-->
 
-              <p>Verantwortlicher:</p>            
+          <!-- B1 -->
+          <div class="map B3 FK hide">
+          </div> <!-- map B3 FK-->
 
-            </article> <!-- tooltip -->
-          
-          </div> <!-- room -->
-	  
-	  <div class="room number-114">
-          
-	      <a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="Raum 2.111" href="#">
-              Position Raum 2.111
-            </a>
-            
-            <article class="tooltip br">
-		<a href="#" class="close" onclick="closeTooltip(this)">X</a>
-              <h1 class="heading style2">Veranstaltungstitel</h1>
-              <p><strong>Raumnummer</strong></p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <div class="map B3 F0 hide">
+          </div> <!-- map B3 F0 -->
 
-              <figure class="image">
-                <img src="#" title="" alt="">
-                <figcaption class="caption">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                </figcaption>  <!-- caption -->
-              </figure> <!-- image -->
+          <div class="map B3 F1 hide">
+          </div> <!-- map B3 F1 -->
 
-              <!-- Platzhalter für Video: flowplayer -->
-              <div class="video"></div> <!-- video -->
+          <div class="map B3 F2 hide">
+          </div> <!-- map B3 F2 -->
 
-              <p>Verantwortlicher:</p>            
-
-            </article> <!-- tooltip -->
-          
-          </div> <!-- room -->
+          <div class="map B3 F3 hide">
+          </div> <!-- map B3 F3-->
 
         </div> <!-- map-container -->
-        
+
         <div class="legend">
           <ul>
-            <li>
-              <span class="course medinf"></span>
-              <p>Medieninformatik</p>
-            </li>
-            <li>
-              <span class="icon desk-location"></span>
-              <p>Tischposition</p>
-            </li>
+            <li><span class="course left agrar"></span><p>Agrarmanagement</p></li>
+            <li><span class="course left trade"></span><p>Handel</p></li>
+            <li><span class="course left wood"></span><p>Holztechnik</p></li>
+            <li><span class="course left medinf"></span><p>Medieninformatik</p></li>
+            <li><span class="course left insurance"></span><p>Versicherung</p></li>
+            <li><span class="course left comtec"></span><p>Informationstechnik</p></li>
+            <li><span class="course left tax"></span><p>Prüfungswesen/Steuer</p></li>
+            <li><span class="course left banking"></span><p>Bank</p></li>
+            <li><span class="course left businessinf"></span><p>Wirtschaftsinformatik</p></li>
+            <li><span class="course left industrial"></span><p>Industrie</p></li>
           </ul>
         </div> <!-- legend -->
-       
+
       </div> <!-- main -->
-        
+
       <footer class="footer">
-        <ul>
-          <li>
-            <a href="#">Impressum</a>
-          </li>
-        </ul>
+        <nav class="footer-nav">
+          <ul>
+            <li>
+              <a href="#">Impressum</a>
+            </li>
+          </ul>
+        </nav>
       </footer> <!-- footer -->
 
     </div> <!-- wrapper -->
 
-    // <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="assets/js/jquery-2.1.0.min.js"><\/script>')</script>
+    <!--
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    -->
+    <script>window.jQuery || document.write('<script src="assets/js/jquery-2.1.0.min.js"><\/script>');</script>
 
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>

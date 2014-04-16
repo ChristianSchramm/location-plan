@@ -13,17 +13,23 @@
       <th>Number</th>
       <th>Raum</th>
       <th>Beschreibung</th>
+      <th>Visible</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
   {% for location in locations %}
     <tr>
-      <td>{{ loop.index }}</td>
-      <td>{{ location.number }}</td>
-      <td>{{ location.type }}</td>
+      <td width="7%">{{ loop.index }}</td>
+      <td width="20%">{{ location.number }}</td>
+      <td width="20%">{{ location.type }}</td>
       <td>{{ location.description }}</td>
-      <td>
+      <td width="5%">
+        {% if  location.visible == true %}
+          sichtbar
+        {% endif %}
+      </td>
+      <td width="7%">
         <a href="{{ path('location_edit', {'id' : location.id }) }}">
           <span class="glyphicon glyphicon-edit"></span>
         </a> &nbsp; &nbsp; 

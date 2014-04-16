@@ -32,9 +32,7 @@
       {% block main %}{% endblock %}
     </section>{# /#main #}
 
-    <footer class="{% block footerClasses %}navbar navbar-default navbar-fixed-bottom {% endblock %}">
-      {% block footer %}{% endblock %}
-    </footer>
+
 
     {% block javascripts %}
       {% javascripts
@@ -44,6 +42,8 @@
         '@TouchMeFloorPlanBundle/Resources/public/js/picker.time.js'
         '@TouchMeFloorPlanBundle/Resources/public/js/picker.date.js'
         '@TouchMeFloorPlanBundle/Resources/public/js/main.js'
+
+        output='js/min.js'
       %}
         <script src="{{ asset_url }}"></script>
       {% endjavascripts %}

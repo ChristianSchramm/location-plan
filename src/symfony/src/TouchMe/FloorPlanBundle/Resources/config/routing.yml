@@ -48,6 +48,10 @@ event_remove:
   pattern: /admin/event/remove/{id}
   defaults: { _controller: TouchMeFloorPlanBundle:Event:remove }
 
+event_remove_all:
+  pattern: /admin/event/removeall
+  defaults: { _controller: TouchMeFloorPlanBundle:Event:removeall }
+
 
 
 asset_show:

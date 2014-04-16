@@ -28,16 +28,19 @@ class LocationType extends AbstractType
             ->add('type', 'choice', array(
                 'label' => 'Raumtyp',
                 'choices'   => array(
-                    'video'   => 'Schnittraum',
-                    'audio' => 'Tonstudio',
-                    'wood' => 'Holztechnik',
                     'library' => 'Bibliothek',
                     'pool'   => 'Computerraum',
-                    'normal'   => 'Seminarraum',
-                    'sanitary'   => 'Sanitär',
-                    'mensa'   => 'Mensa',
-                    'stock'   => 'Lagerraum',
+                    'wood' => 'Holztechnik',
                     'facility'   => 'Hausmeister',
+                    'auditorium'   => 'Hörsaal',
+                    'lab'   => 'Labor',
+                    'stock'   => 'Lagerraum',
+                    'mensa'   => 'Mensa',
+                    'sanitary'   => 'Sanitär',
+                    'video'   => 'Schnittraum',
+                    'normal'   => 'Seminarraum',
+                    'languagelab'   => 'Sprachlabor',
+                    'audio' => 'Tonstudio',
 
                 ),
                 'label_attr' => array(
@@ -49,6 +52,16 @@ class LocationType extends AbstractType
             ))
             ->add('description', 'textarea',array(  
                 'label' => 'Beschreibung',
+                'required' => false,               
+                'label_attr' => array(
+                    'class'=> ''
+                ),
+                'attr' => array(
+                    'class'=> 'form-control'
+                ),
+            ))
+            ->add('visible', 'checkbox',array(  
+                'label' => 'Sichtbar bei Veranstaltungen',
                 'required' => false,               
                 'label_attr' => array(
                     'class'=> ''

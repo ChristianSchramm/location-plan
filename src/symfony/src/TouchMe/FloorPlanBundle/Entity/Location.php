@@ -28,6 +28,11 @@ class Location
     private $description;
 
     /**
+     * @var boolean
+     */
+    private $visible;
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      */
     private $events;
@@ -95,6 +100,36 @@ class Location
     {
         return $this->type;
     }
+
+
+
+
+    /**
+     * Set visible
+     *
+     * @param boolean $visible
+     * @return Location
+     */
+    public function setVisible($visible)
+    {
+        $this->visible = $visible;
+
+        return $this;
+    }
+
+    /**
+     * Get visible
+     *
+     * @return boolean
+     */
+    public function getVisible()
+    {
+        return $this->visible;
+    }
+
+
+
+
 
     /**
      * Set description

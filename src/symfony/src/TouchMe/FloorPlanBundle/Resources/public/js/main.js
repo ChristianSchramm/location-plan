@@ -1,6 +1,6 @@
 $('.datepicker').pickadate({
   format: 'dd.mm.yyyy',
-  editable: true,
+  editable: true
 });
 
 $('.timepicker').pickatime({

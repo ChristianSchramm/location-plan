@@ -73,7 +73,23 @@ $z-floorplan:  15;
 * Farben
 **********************************************************/
 
-$ba-blue: #006FB4;
+$ba-blue: #006eb6;
+
+$ba-lightgrey: #ececec;
+$ba-grey: #dadad9;
+$ba-mediumgrey: #c6c6c6;
+$ba-darkgrey: #5E5C5F;
+
+$color-agrar: #86bc24;
+$color-trade: #f59c00;
+$color-wood: #bb7a00;
+$color-medinf: #e30513;
+$color-insurance: #8b2839;
+$color-comtec: #e5007d;
+$color-tax: #c7135c;
+$color-banking: #951b81;
+$color-businessinf: #203a8F;
+$color-industrial: #15bae6;
 
 /**********************************************************
 * Placeholder
@@ -107,22 +123,60 @@ $ba-blue: #006FB4;
 * Gradients
 **********************************************************/
 
+%ba-lightgrey-ba-mediumgrey-gradient {
+  background-color: $ba-lightgrey;
+  @include background(linear-gradient(top, $ba-lightgrey, $ba-mediumgrey));
+  .lt-ie9 & {
+    @include filter-gradient($ba-lightgrey, $ba-mediumgrey, vertical);
+  }
+}
+
 /**********************************************************
 * Bilder
 **********************************************************/
 
 $ico-tooltip: "ico-tooltip.svg";
+$ico-tooltip-agrar: "ico-tooltip-agrar.svg";
+$ico-tooltip-banking: "ico-tooltip-banking.svg";
+$ico-tooltip-businessinf: "ico-tooltip-businessinf.svg";
+$ico-tooltip-comtec: "ico-tooltip-comtec.svg";
+$ico-tooltip-industrial: "ico-tooltip-industrial.svg";
+$ico-tooltip-insurance: "ico-tooltip-insurance.svg";
+$ico-tooltip-medinf: "ico-tooltip-medinf.svg";
+$ico-tooltip-tax: "ico-tooltip-tax.svg";
+$ico-tooltip-trade: "ico-tooltip-trade.svg";
+$ico-tooltip-wood: "ico-tooltip-wood.svg";
 $ico-tooltip-hover: "ico-tooltip.svg";
-$ico-position: "ico-position.svg"; //3
-$ico-position-hover: "ico-tooltip.svg"; //3
-$ico-timetable: "ico-timetable.svg";
-$ico-timetable-hover: "ico-tooltip.svg";
-$ico-compass: "ico-compass.svg";
-$ico-compass-hover: "ico-tooltip.svg";
+
+$ico-tablepos: "ico-tablepos.png"; //3
+$ico-tablepos-hover: "ico-tablepos-hover.png"; //3
+$ico-timetable: "ico-timetable.png";
+$ico-timetable-hover: "ico-timetable-hover.png";
+$ico-campusplan: "ico-campusplan.png";
+$ico-campusplan-hover: "ico-campusplan-hover.png";
+
 $ico-wc: "ico-tooltip.svg"; //13
 $ico-mensa: "ico-tooltip.svg"; //11
 $ico-bibo: "ico-tooltip.svg"; //15
 $ico-pool: "ico-tooltip.svg"; //39
-$img-1OG-building-2and3: "1OG-building-2and3.svg";
+
 
 /* building */
+
+$img-campus: "campus.svg";
+
+$img-K-building-1: "K-building-1.svg";
+$img-K-building-2: "K-building-2.svg";
+$img-K-building-3: "K-building-3.svg";
+
+$img-EG-building-1: "EG-building-1.svg";
+$img-EG-building-2: "EG-building-2.svg";
+$img-EG-building-3: "EG-building-3.svg";
+
+$img-1OG-building-1: "1OG-building-1.svg";
+$img-1OG-building-2: "1OG-building-2.svg";
+$img-1OG-building-3: "1OG-building-3.svg";
+
+$img-2OG-building-1: "2OG-building-1.svg";
+$img-2OG-building-2: "2OG-building-2.svg";
+$img-2OG-building-3: "2OG-building-3.svg";

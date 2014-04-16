@@ -5,6 +5,7 @@ namespace TouchMe\FloorPlanBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Doctrine\ORM\EntityRepository;
 
 class EventType extends AbstractType
 {
@@ -73,6 +74,7 @@ class EventType extends AbstractType
             ->add('branchofstudy', 'choice', array(
                 'label' => 'Studienrichtung',
                 'choices'   => array(
+                    'Allgemeine Veranstaltung' => 'Allgemeine Veranstaltung',
                     'Agrarmanagement'   => 'Agrarmanagement',
                     'Betriebswirtschaft - Handel'   => 'Betriebswirtschaft - Handel',
                     'Betriebswirtschaft - Industrie'   => 'Betriebswirtschaft - Industrie',
@@ -104,6 +106,11 @@ class EventType extends AbstractType
             ->add('location', 'entity', array(
                 'label' => 'Raum',
                 'class' => 'TouchMeFloorPlanBundle:Location',
+                'query_builder' => function(EntityRepository $er) {
+                        return $er->createQueryBuilder('u')
+                        ->where('u.visible = true')
+                            ->orderBy('u.number', 'ASC');
+                    },
                 'label_attr' => array(
                     'class'=> ''
                 ),
