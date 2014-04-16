@@ -187,7 +187,8 @@ function changeBuilding( _building){
 }
 
 function changeMap(_building, _floor){
-  if(($(".map."+_building+"."+_floor+".hide").length) == 1 ){
+  var buildingLength = $(".map."+_building+"."+_floor+".hide").length;
+  if(buildingLength > 0){
     console.log($(".map."+_building+"."+_floor+".hide").length);
     closeTooltip($(".tooltip.active .close"));
     $(".map."+building+"."+floor).addClass("hide");
