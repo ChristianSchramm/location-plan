@@ -38,6 +38,9 @@ class LocationType extends AbstractType
                     'mensa'   => 'Mensa',
                     'stock'   => 'Lagerraum',
                     'facility'   => 'Hausmeister',
+                    'languagelab'   => 'Sprachlabor',
+                    'auditorium'   => 'Hörsaal',
+                    'lab'   => 'Labor',
 
                 ),
                 'label_attr' => array(

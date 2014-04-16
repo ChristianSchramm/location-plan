@@ -5,6 +5,7 @@ namespace TouchMe\FloorPlanBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Doctrine\ORM\EntityRepository;
 
 class EventType extends AbstractType
 {
@@ -83,6 +84,7 @@ class EventType extends AbstractType
                     'Medieninformatik'   => 'Medieninformatik',
                     'Steuern Prüfungswesen Consulting'   => 'Steuern Prüfungswesen Consulting',
                     'Wirtschaftsinformatik'   => 'Wirtschaftsinformatik',
+                    'Allgemeine Veranstaltung' => 'Allgemeine Veranstaltung',
 
                 ),
                 'label_attr' => array(
@@ -104,6 +106,10 @@ class EventType extends AbstractType
             ->add('location', 'entity', array(
                 'label' => 'Raum',
                 'class' => 'TouchMeFloorPlanBundle:Location',
+                'query_builder' => function(EntityRepository $er) {
+                        return $er->createQueryBuilder('u')
+                            ->orderBy('u.number', 'ASC');
+                    },
                 'label_attr' => array(
                     'class'=> ''
                 ),
