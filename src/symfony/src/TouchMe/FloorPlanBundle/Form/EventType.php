@@ -74,6 +74,7 @@ class EventType extends AbstractType
             ->add('branchofstudy', 'choice', array(
                 'label' => 'Studienrichtung',
                 'choices'   => array(
+                    'Allgemeine Veranstaltung' => 'Allgemeine Veranstaltung',
                     'Agrarmanagement'   => 'Agrarmanagement',
                     'Betriebswirtschaft - Handel'   => 'Betriebswirtschaft - Handel',
                     'Betriebswirtschaft - Industrie'   => 'Betriebswirtschaft - Industrie',
@@ -84,7 +85,6 @@ class EventType extends AbstractType
                     'Medieninformatik'   => 'Medieninformatik',
                     'Steuern Prüfungswesen Consulting'   => 'Steuern Prüfungswesen Consulting',
                     'Wirtschaftsinformatik'   => 'Wirtschaftsinformatik',
-                    'Allgemeine Veranstaltung' => 'Allgemeine Veranstaltung',
 
                 ),
                 'label_attr' => array(
@@ -108,6 +108,7 @@ class EventType extends AbstractType
                 'class' => 'TouchMeFloorPlanBundle:Location',
                 'query_builder' => function(EntityRepository $er) {
                         return $er->createQueryBuilder('u')
+                        ->where('u.visible = true')
                             ->orderBy('u.number', 'ASC');
                     },
                 'label_attr' => array(
