@@ -1,4 +1,11 @@
 /* Maps */
+
+.BC.FC {
+  background: 0 0 no-repeat;
+  background-size: auto 100%;
+  @include base64-image($img-EG-building-2);
+}
+
 .B1 {
   background: 0 0 no-repeat;
   background-size: auto 100%;

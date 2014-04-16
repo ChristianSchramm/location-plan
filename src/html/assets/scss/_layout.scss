@@ -271,7 +271,7 @@ p {
   @extend %border-box;
   height: 100%;
   opacity: 0;
-  overflow: hidden;
+  overflow-y: scroll;
   padding: 20px;
   position: absolute;
   transition: all 0.2s linear 0.2s;

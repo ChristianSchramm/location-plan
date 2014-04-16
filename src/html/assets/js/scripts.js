@@ -1,6 +1,6 @@
-var JSON_FILE = "event.json";
-var building = "B2";
-var floor = "F1";
+var JSON_FILE = "events.json";
+var building = "BC";
+var floor = "FC";
 
 
 $( document ).ready(function() {
@@ -11,29 +11,29 @@ function init(){
   $(".map").css("width", $(".map").height()+$(".map").height()*0.04);
   $(".map").css("margin-left", -$(".map").width()/2);
 
-  var data = $.parseJSON(JSON_FILE);
-  console.log(data);
-	// $.ajax({
-	// 	type: "POST",
-	// 	url: JSON_FILE,
-	// 	dataType: "json",
-	// 	error: function(data, status) {
- //      console.log(status);
- //    },
-	// 	success: function(data, status, jqXHR ){
- //      // var test = data;
- //      // console.log($('.' + test[0].room.type) );
- //      // console.log(test[0].room.type);
- //      console.log(data);
- //      eventlist(data);
- //      generateRooms(data);
+  // var data = $.getJSON(JSON_FILE);
+  // console.log(data.responseText+"test");
+	$.ajax({
+		type: "POST",
+		url: JSON_FILE,
+		dataType: "json",
+		error: function(data, status) {
+      console.log(status);
+    },
+		success: function(data, status, jqXHR ){
+      // var test = data;
+      // console.log($('.' + test[0].room.type) );
+      // console.log(test[0].room.type);
+      console.log(data);
+      eventlist(data[0]);
+      generateRooms(data[0]);
+      generateUnusedRooms(data[1]);
+      // $(".number-111 .tooltip .heading").html(data[0].title);
+      // $(".number-111 .tooltip p.roomnr strong").html(data[0].location.number);
+      // $(".number-111 .tooltip p.desc").html(data[0].description);
+		}
 
- //      $(".number-111 .tooltip .heading").html(data[0].title);
- //      $(".number-111 .tooltip p.roomnr strong").html(data[0].room.number);
- //      $(".number-111 .tooltip p.desc").html(data[0].description);
-	// 	}
-
-	// });
+	});
 
 }
 
@@ -64,13 +64,54 @@ function splitRoomNumber(_number){
 function generateRooms(_data) {
   $.each(_data, function(i, item) {
 
-    var srn = splitRoomNumber(_data[i].room.number);
+    var srn = splitRoomNumber(_data[i].location.number);
     // var room = room.split(".");
     // var building = room[0];
     // var floor = room[1].charAt(0);
     // console.log(room[0], room[1].charAt(0));
 
-    $('.map .B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
+    //Boilerplate
+  /*<div class="room number-K11">
+      <a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="Raum 2.K11" href="#">Position Raum 2.K11</a>
+
+      <article class="tooltip tl">
+        <a href="#" class="close" onclick="closeTooltip(this)">X</a>
+        <h1 class="heading style2">Veranstaltungstitel</h1>
+        <p><strong>Raumnummer</strong></p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+        <figure class="image">
+          <img src="#" title="" alt="">
+          <figcaption class="caption">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+          </figcaption>  <!-- caption -->
+        </figure> <!-- image -->
+
+        <!-- Platzhalter für Video: flowplayer -->
+        <div class="video"></div> <!-- video -->
+
+        <p>Verantwortlicher:</p>
+
+      </article> <!-- tooltip -->
+    </div> <!-- room -->
+  */
+
+    $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
+    console.log('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
+
+  });
+}
+
+function generateUnusedRooms(_data) {
+  $.each(_data, function(i, item) {
+
+    var srn = splitRoomNumber(_data[i].number);
+    // var room = room.split(".");
+    // var building = room[0];
+    // var floor = room[1].charAt(0);
+    // console.log(room[0], room[1].charAt(0));
+
+    $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
     console.log('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
 
   });
@@ -80,14 +121,14 @@ function eventlist(_data){
   var container = $(".timetable.list.list1").find("ul");
   console.log(_data);
   $.each(_data, function(i, item) {
-    var srn = splitRoomNumber(_data[i].room.number);
+    var srn = splitRoomNumber(_data[i].location.number);
     // var room = _data[i].room.number;
     // console.log(room);
     // var room = room.split(".");
     // var floor = room[1].charAt(0);
     container.append('<li><div class="list-entry"><h2 class="heading style3">'
       +item.title+'</h2><p>Ort: '
-      +item.room.number+'; <strong>Zeit: '
+      +item.location.number+'; <strong>Zeit: '
       +item.from+'Uhr</strong></p><a class="location-pointer" onclick="changeMap(\'B'
       +srn[0]+'\',\'F'
       +srn[1]+'\');" href="#" title="">Gehe zum Ort</a></div></li>');
@@ -141,9 +182,13 @@ function changeFloor( _floor){
   changeMap(building, _floor);
 }
 
+function changeBuilding( _building){
+  changeMap(_building, floor);
+}
+
 function changeMap(_building, _floor){
-  if($(".map."+_building+"."+_floor+".hide")[0]!== null){
-    console.log($(".map."+_building+"."+_floor+".hide"));
+  if(($(".map."+_building+"."+_floor+".hide").length) == 1 ){
+    console.log($(".map."+_building+"."+_floor+".hide").length);
     closeTooltip($(".tooltip.active .close"));
     $(".map."+building+"."+floor).addClass("hide");
 
