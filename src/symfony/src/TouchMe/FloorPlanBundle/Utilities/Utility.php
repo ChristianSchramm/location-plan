@@ -29,42 +29,73 @@ class Utility
    * @param  array $events
    * @param  EntityManager $em
    */
-  public static function insertIntoDB($events, $em)
+  public static function importEventsIntoDB($events, $em)
   {
     foreach ($events as $event)
     {
       $eventObj = new Event();
       $eventObj->setTitle($event['title']);
       $eventObj->setPersonincharge($event['personincharge']);
-      $eventObj->setDescription($event['description']);
+      $eventObj->setDescription(
+        array_key_exists('description', $event) ? $event['description'] : '');
       $eventObj->setBranchofstudy($event['branchofstudy']);
-//      $eventObj->setStarttime(\DateTime::createFromFormat("Y-m-d H:i:s", $event['starttime']['date']));
-//      $eventObj->setEndtime(\DateTime::createFromFormat("Y-m-d H:i:s", $event['endtime']['date']));
       $eventObj->setStartdate($event['startdate']);
       $eventObj->setStarttime($event['starttime']);
       $eventObj->setEnddate($event['enddate']);
       $eventObj->setEndtime($event['endtime']);
 
       $locationObj = new Location();
-      $locationObj->setDescription($event["location"]["description"]);
-      $locationObj->setNumber($event["location"]["number"]);
-      $locationObj->setType($event["location"]["type"]);
+      $locationObj->setDescription(
+        array_key_exists('description', $event['location']) ? $event['location']['description'] : '');
+      $locationObj->setNumber(
+        array_key_exists('number', $event['location']) ? $event['location']['number'] : '');
+      $locationObj->setType(
+        array_key_exists('type', $event['location']) ? $event['location']['type'] : '');
+      $locationObj->setVisible(
+        array_key_exists('visible', $event['location']) ? $event['location']['visible'] : false);
 
       $em->persist($locationObj);
       $eventObj->setLocation($locationObj);
 
-      foreach ($event["assets"] as $asset)
+      foreach ($event['assets'] as $asset)
       {
         $assetObj = new Asset();
-        $assetObj->setTitle($asset["title"]);
-        $assetObj->setSrc($asset["src"]);
+        $assetObj->setTitle($asset['title']);
+        $assetObj->setSrc($asset['src']);
 
         $em->persist($assetObj);
         $eventObj->addAsset($assetObj);
       }
 
       $em->persist($eventObj);
-      $em->flush();
     }
+    
+    $em->flush();
   }
+  
+  /**
+   * Insert all given locations into DB
+   * @param  array $locations
+   * @param  EntityManager $em
+   */
+  public static function importLocationIntoDB($locations, $em)
+  {
+    foreach ($locations as $location)
+    {
+      $locationObj = new Location();
+      $locationObj->setDescription(
+        array_key_exists('description', $location) ? $location['description'] : '');
+      $locationObj->setNumber(
+        array_key_exists('number', $location) ? $location['number'] : '');
+      $locationObj->setType(
+        array_key_exists('type', $location) ? $location['type'] : '');
+      $locationObj->setVisible(
+        array_key_exists('visible', $location) ? $location['visible'] : false);
+      
+      $em->persist($locationObj);
+    }
+    
+    $em->flush();
+  }
+
 }

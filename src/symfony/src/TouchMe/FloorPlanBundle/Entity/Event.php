@@ -128,10 +128,6 @@ class Event
         return $this->startdate;
     }
 
-
-
-
-
     /**
      * Set starttime
      *
@@ -155,7 +151,6 @@ class Event
         return $this->starttime;
     }
 
-
     /**
      * Set enddate
      *
@@ -178,10 +173,7 @@ class Event
     {
         return $this->enddate;
     }
-
-
-
-
+    
     /**
      * Set endtime
      *

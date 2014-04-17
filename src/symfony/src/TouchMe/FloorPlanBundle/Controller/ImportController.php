@@ -60,8 +60,10 @@ class ImportController extends Controller
         }
 
         // Clear DB and fill it with new data
+        $importArray = json_decode($json, TRUE);
         Utility::clearDB($em);
-        Utility::insertIntoDB(json_decode($json, TRUE), $em);
+        Utility::importEventsIntoDB($importArray[0], $em);
+        Utility::importLocationIntoDB($importArray[1], $em);
         
         // Copie all files and directories from $backupPath/imports to $uploadPath
         $fs->mirror($backupPath . '/imports', $uploadPath);

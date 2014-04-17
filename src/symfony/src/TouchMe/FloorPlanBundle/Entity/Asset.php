@@ -270,7 +270,7 @@ class Asset
     public function removeUpload()
     {
         // If there's a file on given path, delete it
-        if ($file = $this->getAbsolutePath()) {
+        if (file_exists($file = $this->getAbsolutePath())) {
           unlink($file);
         }
     }

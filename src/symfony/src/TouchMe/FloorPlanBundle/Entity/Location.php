@@ -30,7 +30,7 @@ class Location
     /**
      * @var boolean
      */
-    private $visible;
+    private $visible = false;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
