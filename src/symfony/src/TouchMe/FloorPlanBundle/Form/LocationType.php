@@ -39,6 +39,7 @@ class LocationType extends AbstractType
                     'sanitary'   => 'Sanitär',
                     'video'   => 'Schnittraum',
                     'normal'   => 'Seminarraum',
+                    'misc' => 'Sonstiges',
                     'languagelab'   => 'Sprachlabor',
                     'audio' => 'Tonstudio',
 
