@@ -48,7 +48,7 @@ class LocationController extends Controller {
             }else {
                 $this->get('session')->getFlashBag()->add(
                 'notice',
-                'Raum konnte nicht gelöscht werden, da in ihm Veranstaltungen stattfinden.'
+                'Raum '.$location->getNumber().' konnte nicht gelöscht werden, da in ihm Veranstaltungen stattfinden.'
                 );
             }
         }
