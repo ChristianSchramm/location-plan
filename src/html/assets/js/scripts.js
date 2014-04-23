@@ -1,6 +1,6 @@
 var JSON_FILE = "events.json";
 var building = "BC";
-var floor = "FC";
+var floor = "F0";
 
 
 $( document ).ready(function() {
@@ -13,14 +13,14 @@ function init(){
 
   // var data = $.getJSON(JSON_FILE);
   // console.log(data.responseText+"test");
-	$.ajax({
-		type: "POST",
-		url: JSON_FILE,
-		dataType: "json",
-		error: function(data, status) {
+  $.ajax({
+    type: "POST",
+    url: JSON_FILE,
+    dataType: "json",
+    error: function(data, status) {
       console.log(status);
     },
-		success: function(data, status, jqXHR ){
+    success: function(data, status, jqXHR ){
       // var test = data;
       // console.log($('.' + test[0].room.type) );
       // console.log(test[0].room.type);
@@ -31,9 +31,8 @@ function init(){
       // $(".number-111 .tooltip .heading").html(data[0].title);
       // $(".number-111 .tooltip p.roomnr strong").html(data[0].location.number);
       // $(".number-111 .tooltip p.desc").html(data[0].description);
-		}
-
-	});
+    }
+  });
 
 }
 
@@ -43,9 +42,11 @@ $( window ).resize(function() {
 });
 
 function splitRoomNumber(_number){
-    var roomNumber = _number;
-    // console.log(roomNumber);
-    var roomNumber = roomNumber.split(".");
+    var num = _number;
+    //console.log(num);
+    var roomNumber = num.split(".");
+    //console.log(roomNumber[0]);
+    //console.log(roomNumber[1]);
     var sBuilding = roomNumber[0];
     var sFloor = roomNumber[1].charAt(0);
     var sNumber = roomNumber[1].slice(1,3);
@@ -97,7 +98,7 @@ function generateRooms(_data) {
   */
 
     $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
-    console.log('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
+    //console.log('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
 
   });
 }
@@ -112,14 +113,14 @@ function generateUnusedRooms(_data) {
     // console.log(room[0], room[1].charAt(0));
 
     $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
-    console.log('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
+    //console.log('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
 
   });
 }
 
 function eventlist(_data){
   var container = $(".timetable.list.list1").find("ul");
-  console.log(_data);
+  //console.log(_data);
   $.each(_data, function(i, item) {
     var srn = splitRoomNumber(_data[i].location.number);
     // var room = _data[i].room.number;
@@ -189,7 +190,7 @@ function changeBuilding( _building){
 function changeMap(_building, _floor){
   var buildingLength = $(".map."+_building+"."+_floor+".hide").length;
   if(buildingLength > 0){
-    console.log($(".map."+_building+"."+_floor+".hide").length);
+    //console.log($(".map."+_building+"."+_floor+".hide").length);
     closeTooltip($(".tooltip.active .close"));
     $(".map."+building+"."+floor).addClass("hide");
 
