@@ -2,49 +2,59 @@
 
 {% block main %}
 
-<h2>Alle Räume <small><a href="{{ path('location_new')}}"><span class="glyphicon glyphicon-plus"></span> Raum hinzufügen</a></small></h2>
-<p>Hier finden Sie alle Räume. </p>
+  <h2>Alle Räume
+    {% if is_granted('ROLE_ADMIN') %}
+      <small><a href="{{ path('location_new')}}"><span class="glyphicon glyphicon-plus"></span> Raum hinzufügen</a></small>
+    {% endif %}
+  </h2>
+  <p>Hier finden Sie alle Räume. </p>
 
-{% for flashMessage in app.session.flashbag.get('notice') %}
+  {% for flashMessage in app.session.flashbag.get('notice') %}
     <div class="bg-danger">
-        {{ flashMessage }}
+      {{ flashMessage }}
     </div>
-{% endfor %}
-
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Number</th>
-      <th>Raum</th>
-      <th>Beschreibung</th>
-      <th>Visible</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for location in locations %}
-    <tr>
-      <td width="7%">{{ loop.index }}</td>
-      <td width="20%">{{ location.number }}</td>
-      <td width="20%">{{ location.type }}</td>
-      <td>{{ location.description }}</td>
-      <td width="5%">
-        {% if  location.visible == true %}
-          sichtbar
-        {% endif %}
-      </td>
-      <td width="7%">
-        <a href="{{ path('location_edit', {'id' : location.id }) }}">
-          <span class="glyphicon glyphicon-edit"></span>
-        </a> &nbsp; &nbsp; 
-        <a href="{{ path('location_remove', {'id' : location.id }) }}">
-         <span class="glyphicon glyphicon-remove"></span>
-        </a>
-      </td>
-    </tr>
   {% endfor %}
-  </tbody>
-</table>
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Number</th>
+        <th>Raum</th>
+        <th>Beschreibung</th>
+          {% if is_granted('ROLE_ADMIN') %}
+            <th>Sichtbar</th>
+          {% endif %}
+        <th>Bearbeiten</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for location in locations %}
+        <tr>
+          <td width="7%">{{ loop.index }}</td>
+          <td width="20%">{{ location.number }}</td>
+          <td width="20%">{{ location.type }}</td>
+          <td>{{ location.description }}</td>
+          {% if is_granted('ROLE_ADMIN') %}
+            <td width="5%">
+              {% if  location.visible == true %}
+                sichtbar
+              {% endif %}
+            </td>
+          {% endif %}
+          <td class="edit" width="7%">
+            <a href="{{ path('location_edit', {'id' : location.id }) }}">
+              <span class="glyphicon glyphicon-edit">&nbsp;</span>
+            </a>
+            {% if is_granted('ROLE_ADMIN') %}
+              <a href="{{ path('location_remove', {'id' : location.id }) }}">
+                <span class="glyphicon glyphicon-remove">&nbsp;</span>
+              </a>
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 
 {% endblock %}

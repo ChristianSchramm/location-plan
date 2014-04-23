@@ -34,4 +34,5 @@ security:
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/location/(new|create|remove), roles: ROLE_ADMIN }
         - { path: ^/admin, roles: ROLE_USER }
