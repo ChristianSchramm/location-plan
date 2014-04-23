@@ -78,7 +78,7 @@ class Utility
    * @param  array $locations
    * @param  EntityManager $em
    */
-  public static function importLocationIntoDB($locations, $em)
+  public static function importLocationsIntoDB($locations, $em)
   {
     foreach ($locations as $location)
     {
