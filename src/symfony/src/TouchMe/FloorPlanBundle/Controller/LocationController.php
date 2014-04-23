@@ -36,9 +36,21 @@ class LocationController extends Controller {
     public function removeAction($id) {
         $em = $this->getDoctrine()->getManager();
         $location = $em->getRepository('TouchMeFloorPlanBundle:Location')->findOneById($id);
+
+
         if ($location) {
-            $em->remove($location);
-            $em->flush();
+
+            $room = $em->getRepository('TouchMeFloorPlanBundle:Event')->findOneByLocation($location);
+            if (!$room){
+
+                $em->remove($location);
+                $em->flush();
+            }else {
+                $this->get('session')->getFlashBag()->add(
+                'notice',
+                'Raum konnte nicht gelöscht werden, da in ihm Veranstaltungen stattfinden.'
+                );
+            }
         }
         
         return $this->redirect($this->generateUrl('location'));
