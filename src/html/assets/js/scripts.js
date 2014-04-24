@@ -62,6 +62,7 @@ $( window ).resize(function() {
 });
 
 function createTableByCookie(){
+	$(".map").unbind('click');
 	var c = $.cookie('the_cookie').split(',');
 	console.log(c);
 	$(c[0]+' .room.table').remove();
