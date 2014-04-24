@@ -438,6 +438,37 @@ p {
     transition: all 0.3s linear;
     opacity: 0;
   }
+
+  &.ico-tooltip-agrar {
+    @include base64-image($ico-tooltip-agrar);
+  }
+  &.ico-tooltip-banking {
+    @include base64-image($ico-tooltip-banking);
+  }
+  &.ico-tooltip-businessinf {
+    @include base64-image($ico-tooltip-businessinf);
+  }
+  &.ico-tooltip-comtec {
+    @include base64-image($ico-tooltip-comtec);
+  }
+  &.ico-tooltip-industrial {
+    @include base64-image($ico-tooltip-industrial);
+  }
+  &.ico-tooltip-insurance {
+    @include base64-image($ico-tooltip-insurance);
+  }
+  &.ico-tooltip-medinf {
+    @include base64-image($ico-tooltip-medinf);
+  }
+  &.ico-tooltip-tax {
+    @include base64-image($ico-tooltip-tax);
+  }
+  &.ico-tooltip-trade {
+    @include base64-image($ico-tooltip-trade);
+  }
+  &.ico-tooltip-wood {
+    @include base64-image($ico-tooltip-wood);
+  }
 }
 .ico-tablepos {
   @include base64-image($ico-tablepos);
