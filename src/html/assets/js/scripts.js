@@ -251,7 +251,6 @@ function generateUnusedRooms(_data) {
 	+'" href="#">Position Raum '+nr+'</a>'
 	+'<article class="tooltip tl">'
     +'<a href="#" class="close" onclick="closeTooltip(this)">X</a>'
-    +dtitle
     +'<p><strong>'+nr+'</strong></p>'
     +ddesc
 	//+dassets
