@@ -261,7 +261,8 @@ p {
 
   &:active,
   &:hover,
-  &:focus {
+  &:focus,
+  &.active {
     background: $color-medinf;
     color: #fff;
   }
