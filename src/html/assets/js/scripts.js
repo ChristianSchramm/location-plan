@@ -96,9 +96,43 @@ function generateRooms(_data) {
       </article> <!-- tooltip -->
     </div> <!-- room -->
   */
-
-    $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
-    //console.log('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
+	var nr , dtitle, ddesc, dassets, dperson;
+	nr = _data[i].location.number;
+	if(_data[i].title != "" || _data[i].title != null){
+	  dtitle = '<h1 class="heading style2">'+_data[i].title+'</h1>';
+	}
+	if(_data[i].description != "" || _data[i].description != null){
+	  ddesc = '<p>'+_data[i].description+'</p>';
+	}
+	if(_data[i].personincharge != "" || _data[i].personincharge != null){
+	  dperson = '<p>Verantwortlicher: ' +_data[i].personincharge+'</p>';
+	}
+	if(_data[i].assets.length > 0){
+	  for(var j = 0; j < _data[i].assets.length ; j++){
+		dassets += '<figure class="image">'
+					+'<img src="'+_data[i].assets.path+'" title="" alt="'+_data[i].assets.name+'">'
+					+'<figcaption class="caption">'
+					+'<p>'+_data[i].assets.caption+'</p>'
+					+'</figcaption>'
+					+'</figure>';
+	  }
+	}else{
+		dassets = "";
+	}
+	
+	
+    $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'">'
+	+'<a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="'+_data[i].location.number
+	+'" href="#">Position Raum '+_data[i].location.number+'</a>'
+	+'<article class="tooltip tl">'
+    +'<a href="#" class="close" onclick="closeTooltip(this)">X</a>'
+    +dtitle
+    +'<p><strong>'+_data[i].location.number+'</strong></p>'
+    +ddesc
+	+dassets
+	+dperson
+	+'</article>'
+	+'</div>');
 
   });
 }
