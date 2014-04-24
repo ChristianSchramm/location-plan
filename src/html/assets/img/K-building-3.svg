@@ -344,35 +344,8 @@
 	<line fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" x1="117.4" y1="552.246" x2="117.4" y2="501.482"/>
 	<polyline fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" points="117.75,549.1 117.75,609.57 
 		26.254,609.57 26.254,473.637 	"/>
-</g>
-<g id="Ebene_5" display="none">
-	<path display="inline" fill="none" stroke="#000000" stroke-miterlimit="10" d="M234.395,91.294c5.159,0,9.333-3.458,9.333-7.73
-		h-9.333"/>
-	<path display="inline" fill="none" stroke="#000000" stroke-miterlimit="10" d="M233.137,156.617c5.159,0,9.333-3.458,9.333-7.73
-		h-9.333"/>
-	<path display="inline" fill="none" stroke="#000000" stroke-miterlimit="10" d="M233.137,272.867c5.159,0,9.333-3.458,9.333-7.73
-		h-9.333"/>
-	<path display="inline" fill="none" stroke="#000000" stroke-miterlimit="10" d="M233.137,289.115c5.159,0,9.333,3.458,9.333,7.73
-		h-9.333"/>
-	<path display="inline" fill="none" stroke="#000000" stroke-miterlimit="10" d="M233.137,310.529c5.159,0,9.333,3.458,9.333,7.73
-		h-9.333"/>
-	<path display="inline" fill="none" stroke="#000000" stroke-miterlimit="10" d="M233.887,355.262c5.159,0,9.333,3.457,9.333,7.729
-		h-9.333"/>
-	<path display="inline" fill="none" stroke="#000000" stroke-miterlimit="10" d="M233.137,396.194c5.159,0,9.333,3.457,9.333,7.729
-		h-9.333"/>
-	<path display="inline" fill="none" stroke="#000000" stroke-miterlimit="10" d="M233.887,440.937c5.159,0,9.333,3.457,9.333,7.729
-		h-9.333"/>
-	<path display="inline" fill="none" stroke="#000000" stroke-miterlimit="10" d="M233.887,457.184c5.159,0,9.333,3.457,9.333,7.729
-		h-9.333"/>
-	<path display="inline" fill="none" stroke="#000000" stroke-miterlimit="10" d="M233.887,512.456c5.159,0,9.333,3.457,9.333,7.729
-		h-9.333"/>
-	<path display="inline" fill="none" stroke="#000000" stroke-miterlimit="10" d="M253.765,382.882c-5.159,0-9.333,3.457-9.333,7.729
-		h9.333"/>
-	<path display="inline" fill="none" stroke="#000000" stroke-miterlimit="10" d="M321.273,527.32c0-5.159-3.457-9.333-7.729-9.333
-		v9.333"/>
-	<path display="inline" fill="none" stroke="#000000" stroke-miterlimit="10" d="M386.813,527.32c0-5.159-3.457-9.333-7.729-9.333
-		v9.333"/>
-	<path display="inline" fill="none" stroke="#000000" stroke-miterlimit="10" d="M253.303,566.887c0-5.159,3.457-9.333,7.729-9.333
-		v9.333"/>
+	<line fill="none" stroke="#9D9D9C" stroke-width="4" stroke-miterlimit="10" x1="591.775" y1="422.46" x2="591.775" y2="255.588"/>
+	<polyline fill="none" stroke="#9D9D9C" stroke-width="4" stroke-miterlimit="10" points="591.775,255.588 591.775,43.119 
+		767.522,43.119 767.522,512.741 591.775,512.741 591.775,421.563 	"/>
 </g>
 </svg>

@@ -441,8 +441,8 @@ p {
   width: 40px;
 }
 
+.ico-position,
 .ico-tooltip {
-  @include base64-image($ico-tooltip);
   left: 0;
   opacity: 1;
   position: absolute;
@@ -450,15 +450,24 @@ p {
   top: 0;
   z-index: 10000;
 
+  &.active{
+    transition: all 0.3s linear;
+    opacity: 0;
+  }
+}
+
+.ico-position {
+  @include base64-image($ico-position);
+}
+
+.ico-tooltip {
+  @include base64-image($ico-tooltip);
+
   &:active,
   &:hover,
   &:focus,
   &.active {
     @include base64-image($ico-tooltip-hover);
-  }
-  &.active{
-    transition: all 0.3s linear;
-    opacity: 0;
   }
 
   &.ico-tooltip-agrar {
