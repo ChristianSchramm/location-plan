@@ -180,9 +180,9 @@ function generateRooms(_data) {
 	if(_data[i].assets.length > 0){
 	  for(var j = 0; j < _data[i].assets.length ; j++){
 		dassets += '<figure class="image">'
-					+'<img src="'+_data[i].assets.path+'" title="" alt="'+_data[i].assets.name+'">'
+					+'<img src="img/'+_data[i].assets.path+'" title="" alt="'+_data[i].assets.title+'">'
 					+'<figcaption class="caption">'
-					+'<p>'+_data[i].assets.caption+'</p>'
+					+'<p>'+_data[i].assets.title+'</p>'
 					+'</figcaption>'
 					+'</figure>';
 	  }
