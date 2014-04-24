@@ -272,12 +272,18 @@ function eventlist(_data){
 	if(branch != ""){
 		bc = '<span class="course left '+branch+'"></span>';
 	}
-
+	var time = "";
+	if(item.starttime){
+		time += item.starttime;
+	}
+	if(item.endtime){
+		time += " - "+item.endtime;
+	}
     container.append('<li>'
 	  +bc+'<div class="list-entry"><h2 class="heading style4">'
       +item.title+'</h2><p>Ort: '
       +item.location.number+'; <strong>Zeit: '
-      +item.from+'Uhr</strong></p><a class="location-pointer" onclick="changeMap(\'B'
+      +time+' Uhr</strong></p><a class="location-pointer" onclick="changeMap(\'B'
       +srn[0]+'\',\'F'
       +srn[1]+'\');" href="#" title="">Gehe zum Ort</a></div></li>');
   });
