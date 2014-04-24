@@ -5,6 +5,20 @@ var floor = "F0";
 
 $( document ).ready(function() {
   init();
+  $(".map").click(function(e){
+   var parentOffset = $(this).offset(); 
+   //or $(this).offset(); if you really just want the current element's offset
+   var relX = e.pageX - parentOffset.left;
+   var relY = e.pageY - parentOffset.top;
+   var relXp = relX / $(this).width();
+   var relYp = relY / $(this).height();
+   console.log(relX);
+   console.log(relY);
+   console.log(relXp);
+   console.log(relYp);
+   console.log($(this));
+   
+	});
 });
 
 function init(){
@@ -62,6 +76,37 @@ function splitRoomNumber(_number){
     return srn;
 }
 
+function getBranchOfStudy(_branchofstudy){
+	var branch = "";
+	
+	
+	switch(_branchofstudy){
+	case "Agrarmanagement" : branch = "agrar";
+		break; 
+	case "Handel": branch = "trade";
+		break;
+	case "Holztechnik": branch = "wood";
+		break;
+	case "Medieninformatik": branch = "medinf";
+		break;
+	case "Versicherung": branch = "insurance";
+		break;
+	case "Informationstechnik": branch = "comtec";
+		break;
+	case "Prüfungswesen/Steuer": branch = "tax";
+		break;
+	case "Bank": branch = "banking";
+		break;
+	case "Wirtschaftsinformatik": branch = "businessinf";
+		break;
+	case "Industrie": branch = "industrial";
+		break;
+	default : branch = "";
+		break;
+	}
+	return branch;
+}
+
 function generateRooms(_data) {
   $.each(_data, function(i, item) {
 
@@ -96,7 +141,7 @@ function generateRooms(_data) {
       </article> <!-- tooltip -->
     </div> <!-- room -->
   */
-	var nr , dtitle, ddesc, dassets, dperson;
+	var nr , dtitle, ddesc, dassets, dperson, branch;
 	nr = _data[i].location.number;
 	if(_data[i].title != "" || _data[i].title != null){
 	  dtitle = '<h1 class="heading style2">'+_data[i].title+'</h1>';
@@ -119,10 +164,13 @@ function generateRooms(_data) {
 	}else{
 		dassets = "";
 	}
-
+	branch = getBranchOfStudy(_data[i].branchofstudy);
+	if(branch != ""){
+		branch = 'ico-tooltip-'+branch;
+	}
 
     $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'">'
-	+'<a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="'+nr
+	+'<a class="ico ico-tooltip '+branch+' switch-btn" onclick="showTooltip(this)" data-position="'+nr
 	+'" href="#">Position Raum '+nr+'</a>'
 	+'<article class="tooltip tl">'
     +'<a href="#" class="close" onclick="closeTooltip(this)">X</a>'
@@ -198,33 +246,8 @@ function eventlist(_data){
     // console.log(room);
     // var room = room.split(".");
     // var floor = room[1].charAt(0);
-	var branch = "";
 	var bc = "";
-	
-	switch(_data[i].branchofstudy){
-	case "Agrarmanagement" : branch = "agrar";
-		break; 
-	case "Handel": branch = "trade";
-		break;
-	case "Holztechnik": branch = "wood";
-		break;
-	case "Medieninformatik": branch = "medinf";
-		break;
-	case "Versicherung": branch = "insurance";
-		break;
-	case "Informationstechnik": branch = "comtec";
-		break;
-	case "Prüfungswesen/Steuer": branch = "tax";
-		break;
-	case "Bank": branch = "banking";
-		break;
-	case "Wirtschaftsinformatik": branch = "businessinf";
-		break;
-	case "Industrie": branch = "industrial";
-		break;
-	default : branch = "";
-		break;
-	}
+	var branch = getBranchOfStudy(_data[i].branchofstudy)
 	if(branch != ""){
 		bc = '<span class="course left '+branch+'"></span>';
 	}
@@ -290,7 +313,7 @@ function changeFloor( _floor){
 }
 
 function changeBuilding( _building){
-  changeMap(_building, floor);
+  changeMap(_building, "F0");
 }
 
 function changeMap(_building, _floor){
@@ -299,7 +322,13 @@ function changeMap(_building, _floor){
     //console.log($(".map."+_building+"."+_floor+".hide").length);
     closeTooltip($(".tooltip.active .close"));
     $(".map."+building+"."+floor).addClass("hide");
-
+	if(_building == "B1"){
+	  $(".floor.cFK").addClass("hide");
+	  $(".floor.cF3").addClass("hide");
+	}else{
+	  $(".floor.cFK").removeClass("hide");
+	  $(".floor.cF3").removeClass("hide");
+	}
     building = _building;
     floor = _floor;
 	$(".floor").removeClass("active");
@@ -310,3 +339,5 @@ function changeMap(_building, _floor){
     },200);
   }
 }
+
+
