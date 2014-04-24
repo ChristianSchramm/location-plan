@@ -329,6 +329,10 @@ function changeMap(_building, _floor){
 	  $(".floor.cFK").removeClass("hide");
 	  $(".floor.cF3").removeClass("hide");
 	}
+	if(_building == "B3"){#
+	  $(".floor.cF3").addClass("hide");
+	  $(".floor.cF3").removeClass("hide");
+	}
     building = _building;
     floor = _floor;
 	$(".floor").removeClass("active");
