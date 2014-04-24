@@ -166,23 +166,26 @@ function generateRooms(_data) {
       </article> <!-- tooltip -->
     </div> <!-- room -->
   */
-	var nr , dtitle, ddesc, dassets, dperson, branch;
+	var nr = "", dtitle = "", ddesc = "", dassets = "", dperson = "", branch = "", direction = "";
 	nr = _data[i].location.number;
-	if(_data[i].title != "" || _data[i].title != null){
+	if(_data[i].title != "" && _data[i].title && null ){
 	  dtitle = '<h1 class="heading style3">'+_data[i].title+'</h1>';
 	}
-	if(_data[i].description != "" || _data[i].description != null){
+	if(_data[i].description != "" && _data[i].description != null){
 	  ddesc = '<p>'+_data[i].description+'</p>';
+	
 	}
-	if(_data[i].personincharge != "" || _data[i].personincharge != null){
+	if(_data[i].personincharge != "" && _data[i].personincharge != null){
 	  dperson = '<p>Verantwortlicher: ' +_data[i].personincharge+'</p>';
 	}
 	if(_data[i].assets.length > 0){
+	//console.log(_data[i].assets.length);
 	  for(var j = 0; j < _data[i].assets.length ; j++){
+	  
 		dassets += '<figure class="image">'
-					+'<img src="img/'+_data[i].assets.path+'" title="" alt="'+_data[i].assets.title+'">'
+					+'<img src="img/'+_data[i].assets[j].src+'" title="" alt="'+_data[i].assets[j].title+'">'
 					+'<figcaption class="caption">'
-					+'<p>'+_data[i].assets.title+'</p>'
+					+'<p>'+_data[i].assets[j].title+'</p>'
 					+'</figcaption>'
 					+'</figure>';
 	  }
@@ -194,10 +197,23 @@ function generateRooms(_data) {
 		branch = 'ico-tooltip-'+branch;
 	}
 
-    $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'">'
+    $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'">');
+	var left = $('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('left').split("px")[0]/$('.map.B'+srn[0]+ '.F'+srn[1]).css("width").split("px")[0]*100
+	var top = $('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('top').split("px")[0]/$('.map.B'+srn[0]+ '.F'+srn[1]).css("height").split("px")[0]*100
+	if(top < 50){
+		direction += "t";
+	}else{
+		direction += "b";
+	}
+	if(left < 50){
+		direction += "l";
+	}else{
+		direction += "r";
+	}
+	$('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).append(''
 	+'<a class="ico ico-tooltip '+branch+' switch-btn" onclick="showTooltip(this)" data-position="'+nr
 	+'" href="#">Position Raum '+nr+'</a>'
-	+'<article class="tooltip tl">'
+	+'<article class="tooltip '+direction+'">'
     +'<a href="#" class="close" onclick="closeTooltip(this)">X</a>'
     +dtitle
     +'<p><strong>'+nr+'</strong></p>'
@@ -206,6 +222,9 @@ function generateRooms(_data) {
 	+dperson
 	+'</article>'
 	+'</div>');
+	console.log($('.map.B'+srn[0]+ '.F'+srn[1]).css("width").split("px")[0]);
+	console.log($('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('left').split("px")[0]);
+	console.log($('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('left').split("px")[0]/$('.map.B'+srn[0]+ '.F'+srn[1]).css("width").split("px")[0]*100);
 
   });
 }
