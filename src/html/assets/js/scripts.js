@@ -5,20 +5,8 @@ var floor = "F0";
 
 $( document ).ready(function() {
   init();
-  $(".map").click(function(e){
-   var parentOffset = $(this).offset(); 
-   //or $(this).offset(); if you really just want the current element's offset
-   var relX = e.pageX - parentOffset.left;
-   var relY = e.pageY - parentOffset.top;
-   var relXp = relX / $(this).width();
-   var relYp = relY / $(this).height();
-   console.log(relX);
-   console.log(relY);
-   console.log(relXp);
-   console.log(relYp);
-   console.log($(this));
-   
-	});
+  createTableByCookie();
+	
 });
 
 function init(){
@@ -50,10 +38,42 @@ function init(){
 
 }
 
+function setTable(){
+  $(".map").click(function(e){
+   var parentOffset = $(this).offset(); 
+   //or $(this).offset(); if you really just want the current element's offset
+   var relX = e.pageX - parentOffset.left;
+   var relY = e.pageY - parentOffset.top;
+   var relXp = relX / $(this).width();
+   var relYp = relY / $(this).height();
+   console.log(relX);
+   console.log(relY);
+   console.log(relXp);
+   console.log(relYp);
+   console.log($(this));
+   $.cookie('the_cookie', ['.'+$(this).context.className.split(' ').join('.'),relXp*100, relYp*100], { expires: 7 });
+   createTableByCookie();
+  });
+}
+
 $( window ).resize(function() {
   $(".map").css("width", $(".map").height()+$(".map").height()*0.04);
   $(".map").css("margin-left", -$(".map").width()/2);
 });
+
+function createTableByCookie(){
+	var c = $.cookie('the_cookie').split(',');
+	console.log(c);
+	$(c[0]+' .room.table').remove();
+	$(c[0]).append('<div class="room table" style="left:'+c[1]+'%; top:'+c[2]+'%; "><a class="ico ico-tooltip" href="#">table</a></div>');
+}
+
+function jumpToTable(){
+	var c = $.cookie('the_cookie').split(',');
+	var bf = c[0].split('.');
+	changeMap(bf[2],bf[3]);
+	//console.log(bf);
+}
 
 function splitRoomNumber(_number){
     var num = _number;
@@ -329,7 +349,7 @@ function changeMap(_building, _floor){
 	  $(".floor.cFK").removeClass("hide");
 	  $(".floor.cF3").removeClass("hide");
 	}
-	if(_building == "B3"){#
+	if(_building == "B3"){
 	  $(".floor.cF3").addClass("hide");
 	  $(".floor.cF3").removeClass("hide");
 	}
