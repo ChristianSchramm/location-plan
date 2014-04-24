@@ -990,7 +990,7 @@ p {
 }
 .timetable li:first-child {
   border-top: 0;
-  padding: 0;
+  margin: 0;
 }
 .timetable .course {
   left: 0;
@@ -1093,14 +1093,15 @@ p {
 }
 .tooltip .close {
   background-color: #006eb6;
+  border: 4px solid #fff;
   color: #fff;
   font-size: 17px;
   font-weight: bold;
   padding: 5px 10px;
   position: absolute;
-  right: 0px;
+  right: -15px;
   text-decoration: none;
-  top: 0px;
+  top: -17px;
 }
 
 /* Icons */
