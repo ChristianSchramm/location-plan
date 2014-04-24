@@ -11,12 +11,20 @@
 * Placeholder
 **********************************************************/
 /* Border-Radius */
+.tooltip .close {
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+  border-radius: 40px;
+}
+
 .tooltip {
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
-  border-radius: 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
 }
 
 /* Helper */
@@ -854,6 +862,13 @@ p {
   display: inline-block;
   margin: 10px 0 0 20px;
 }
+.footer-nav li {
+  float: left;
+  margin-left: 10px;
+}
+.footer-nav li:first-child {
+  margin-left: 0;
+}
 
 /* typo */
 .heading {
@@ -971,10 +986,16 @@ p {
   border-top: 1px solid #fff;
   margin-top: 10px;
   padding-top: 10px;
+  position: relative;
 }
 .timetable li:first-child {
   border-top: 0;
   padding: 0;
+}
+.timetable .course {
+  left: 0;
+  position: absolute;
+  top: 9px;
 }
 .timetable.active {
   opacity: 1;
@@ -982,6 +1003,7 @@ p {
 
 .list-entry {
   display: inline-block;
+  margin-left: 20px;
 }
 .list-entry .heading {
   margin-bottom: 10px;
@@ -1050,9 +1072,7 @@ p {
 }
 
 .tooltip {
-  height: 0;
-  overflow: hidden;
-  padding: 20px;
+  padding: 10px;
   position: absolute;
   transition: all 0.3s linear;
   width: 0;
@@ -1061,7 +1081,6 @@ p {
 .tooltip.active {
   background: #ececec;
   display: block;
-  height: 300px;
   width: 200px;
 }
 .tooltip.active * {
@@ -1073,7 +1092,11 @@ p {
   opacity: 0;
 }
 .tooltip .close {
+  background-color: #006eb6;
+  color: #fff;
   font-size: 17px;
+  font-weight: bold;
+  padding: 5px 10px;
   position: absolute;
   right: 0px;
   text-decoration: none;
