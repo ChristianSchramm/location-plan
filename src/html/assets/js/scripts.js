@@ -119,8 +119,8 @@ function generateRooms(_data) {
 	}else{
 		dassets = "";
 	}
-	
-	
+
+
     $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'">'
 	+'<a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="'+_data[i].location.number
 	+'" href="#">Position Raum '+_data[i].location.number+'</a>'
