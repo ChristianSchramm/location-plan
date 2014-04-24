@@ -244,11 +244,15 @@ p {
   position: absolute;
   right: 0;
   top: 10px;
-  width: 165px;
+  width: 14%;
   z-index: $z-floorplan;
 
   .heading {
     text-align: center;
+  }
+
+  .left {
+    width: 50%;
   }
 
   li {
@@ -260,13 +264,12 @@ p {
   background: $ba-blue;
   color: #fff;
   display: block;
-  font-size: 2.4em;
-  height: 33px;
-  padding: 5px 10px;
+  font-size: 2em;
+  padding: 3%;
   margin: 0 auto;
   text-align: center;
   text-decoration: none;
-  width: 55px;
+  width: 80%;
 
   &:active,
   &:hover,
@@ -338,7 +341,7 @@ p {
   padding: 10px;
   position: absolute;
   right: 0;
-  width: 165px;
+  width: 14%;
   z-index: $z-legend;
 
   li {
