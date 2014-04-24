@@ -66,12 +66,11 @@ function createTableByCookie(){
 	var c = $.cookie('the_cookie').split(',');
 	console.log(c);
 	$(c[0]+' .room.table').remove();
-	$(c[0]).append('<div class="room table" style="left:'+c[1]+'%; top:'+c[2]+'%; "><a class="ico ico-tooltip" onclick="showTooltip(this)" href="#">table</a>'
+	$(c[0]).append('<div class="room table" style="left:'+c[1]+'%; top:'+c[2]+'%; "><a class="ico ico-position" onclick="showTooltip(this)" href="#">table</a>'
 	+'<article class="tooltip tl">'
 	+'<a href="#" class="close" onclick="closeTooltip(this)">X</a>'
 	+'<p><strong>Hier bist du!</strong></p>'
 	+'</article></div>');
-	$(c[0]).append('<div class="room table" style="left:'+c[1]+'%; top:'+c[2]+'%; "><a class="ico ico-position" href="#">table</a></div>');
 }
 
 function jumpToTable(){
