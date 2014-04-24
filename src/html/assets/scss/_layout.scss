@@ -155,6 +155,15 @@ p {
     display: inline-block;
     margin: 10px 0 0 20px;
   }
+
+  li {
+    float: left;
+    margin-left: 10px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
 }
 
 /* typo */
@@ -288,11 +297,18 @@ p {
     border-top: 1px solid #fff;
     margin-top: 10px;
     padding-top: 10px;
+    position: relative;
 
     &:first-child {
       border-top: 0;
       padding: 0;
     }
+  }
+
+  .course {
+    left: 0;
+    position: absolute;
+    top: 9px;
   }
 
   &.active{
@@ -302,6 +318,8 @@ p {
 
 .list-entry {
   display: inline-block;
+  margin-left: 20px;
+
 
   .heading {
     margin-bottom: 10px;
@@ -375,9 +393,7 @@ p {
 .tooltip {
   // display: none;
   @extend %round-tooltip;
-  height: 0;
-  overflow: hidden;
-  padding: 20px;
+  padding: 10px;
   position: absolute;
   transition: all 0.3s linear;
   width: 0;
@@ -386,7 +402,6 @@ p {
   &.active{
     background: $ba-lightgrey;
     display: block;
-    height: 300px;
     width: 200px;
 
     *{
@@ -400,7 +415,12 @@ p {
     opacity: 0;
   }
   .close{
+    @extend %round-ico;
+    background-color: $ba-blue;
+    color: #fff;
     font-size: 17px;
+    font-weight: bold;
+    padding: 5px 10px;
     position: absolute;
     right: 0px;
     text-decoration: none;

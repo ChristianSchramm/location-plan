@@ -6,7 +6,7 @@ var floor = "F0";
 $( document ).ready(function() {
   init();
   createTableByCookie();
-	
+
 });
 
 function init(){
@@ -40,7 +40,7 @@ function init(){
 
 function setTable(){
   $(".map").click(function(e){
-   var parentOffset = $(this).offset(); 
+   var parentOffset = $(this).offset();
    //or $(this).offset(); if you really just want the current element's offset
    var relX = e.pageX - parentOffset.left;
    var relY = e.pageY - parentOffset.top;
@@ -98,11 +98,11 @@ function splitRoomNumber(_number){
 
 function getBranchOfStudy(_branchofstudy){
 	var branch = "";
-	
-	
+
+
 	switch(_branchofstudy){
 	case "Agrarmanagement" : branch = "agrar";
-		break; 
+		break;
 	case "Handel": branch = "trade";
 		break;
 	case "Holztechnik": branch = "wood";
@@ -164,7 +164,7 @@ function generateRooms(_data) {
 	var nr , dtitle, ddesc, dassets, dperson, branch;
 	nr = _data[i].location.number;
 	if(_data[i].title != "" || _data[i].title != null){
-	  dtitle = '<h1 class="heading style2">'+_data[i].title+'</h1>';
+	  dtitle = '<h1 class="heading style3">'+_data[i].title+'</h1>';
 	}
 	if(_data[i].description != "" || _data[i].description != null){
 	  ddesc = '<p>'+_data[i].description+'</p>';
@@ -219,7 +219,7 @@ function generateUnusedRooms(_data) {
 	var nr , dtitle, ddesc, dassets, dperson;
 	nr = _data[i].number;
 	if(_data[i].title != "" || _data[i].title != null){
-	  dtitle = '<h1 class="heading style2">'+_data[i].title+'</h1>';
+	  dtitle = '<h1 class="heading style3">'+_data[i].title+'</h1>';
 	}
 	if(_data[i].description != "" || _data[i].description != null){
 	  ddesc = '<p>'+_data[i].description+'</p>';
@@ -239,8 +239,8 @@ function generateUnusedRooms(_data) {
 	}else{
 		dassets = "";
 	}*/
-	
-	
+
+
     $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'">'
 	+'<a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="'+nr
 	+'" href="#">Position Raum '+nr+'</a>'
@@ -271,9 +271,9 @@ function eventlist(_data){
 	if(branch != ""){
 		bc = '<span class="course left '+branch+'"></span>';
 	}
-	
+
     container.append('<li>'
-	  +bc+'<div class="list-entry"><h2 class="heading style3">'
+	  +bc+'<div class="list-entry"><h2 class="heading style4">'
       +item.title+'</h2><p>Ort: '
       +item.location.number+'; <strong>Zeit: '
       +item.from+'Uhr</strong></p><a class="location-pointer" onclick="changeMap(\'B'

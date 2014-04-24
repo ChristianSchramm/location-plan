@@ -106,7 +106,7 @@ $color-industrial: #15bae6;
 }
 
 %round-tooltip {
-  @include border-radius(20px);
+  @include border-radius(10px);
 }
 
 /* Helper */
