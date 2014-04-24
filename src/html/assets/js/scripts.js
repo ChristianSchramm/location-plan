@@ -122,12 +122,12 @@ function generateRooms(_data) {
 	
 	
     $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'">'
-	+'<a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="'+_data[i].location.number
-	+'" href="#">Position Raum '+_data[i].location.number+'</a>'
+	+'<a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="'+nr
+	+'" href="#">Position Raum '+nr+'</a>'
 	+'<article class="tooltip tl">'
     +'<a href="#" class="close" onclick="closeTooltip(this)">X</a>'
     +dtitle
-    +'<p><strong>'+_data[i].location.number+'</strong></p>'
+    +'<p><strong>'+nr+'</strong></p>'
     +ddesc
 	+dassets
 	+dperson
@@ -148,12 +148,49 @@ function generateUnusedRooms(_data) {
 
     $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
     //console.log('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
+	var nr , dtitle, ddesc, dassets, dperson;
+	nr = _data[i].number;
+	if(_data[i].title != "" || _data[i].title != null){
+	  dtitle = '<h1 class="heading style2">'+_data[i].title+'</h1>';
+	}
+	if(_data[i].description != "" || _data[i].description != null){
+	  ddesc = '<p>'+_data[i].description+'</p>';
+	}
+	if(_data[i].personincharge != "" || _data[i].personincharge != null){
+	  dperson = '<p>Verantwortlicher: ' +_data[i].personincharge+'</p>';
+	}
+	/*if(_data[i].assets.length > 0){
+	  for(var j = 0; j < _data[i].assets.length ; j++){
+		dassets += '<figure class="image">'
+					+'<img src="'+_data[i].assets.path+'" title="" alt="'+_data[i].assets.name+'">'
+					+'<figcaption class="caption">'
+					+'<p>'+_data[i].assets.caption+'</p>'
+					+'</figcaption>'
+					+'</figure>';
+	  }
+	}else{
+		dassets = "";
+	}*/
+	
+	
+    $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'">'
+	+'<a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="'+nr
+	+'" href="#">Position Raum '+nr+'</a>'
+	+'<article class="tooltip tl">'
+    +'<a href="#" class="close" onclick="closeTooltip(this)">X</a>'
+    +dtitle
+    +'<p><strong>'+nr+'</strong></p>'
+    +ddesc
+	//+dassets
+	+dperson
+	+'</article>'
+	+'</div>');
 
   });
 }
 
 function eventlist(_data){
-  var container = $(".timetable.list.list1").find("ul");
+  var container = $(".timetable").find("ul");
   //console.log(_data);
   $.each(_data, function(i, item) {
     var srn = splitRoomNumber(_data[i].location.number);
@@ -161,7 +198,39 @@ function eventlist(_data){
     // console.log(room);
     // var room = room.split(".");
     // var floor = room[1].charAt(0);
-    container.append('<li><div class="list-entry"><h2 class="heading style3">'
+	var branch = "";
+	var bc = "";
+	
+	switch(_data[i].branchofstudy){
+	case "Agrarmanagement" : branch = "agrar";
+		break; 
+	case "Handel": branch = "trade";
+		break;
+	case "Holztechnik": branch = "wood";
+		break;
+	case "Medieninformatik": branch = "medinf";
+		break;
+	case "Versicherung": branch = "insurance";
+		break;
+	case "Informationstechnik": branch = "comtec";
+		break;
+	case "Prüfungswesen/Steuer": branch = "tax";
+		break;
+	case "Bank": branch = "banking";
+		break;
+	case "Wirtschaftsinformatik": branch = "businessinf";
+		break;
+	case "Industrie": branch = "industrial";
+		break;
+	default : branch = "";
+		break;
+	}
+	if(branch != ""){
+		bc = '<span class="course left '+branch+'"></span>';
+	}
+	
+    container.append('<li>'
+	  +bc+'<div class="list-entry"><h2 class="heading style3">'
       +item.title+'</h2><p>Ort: '
       +item.location.number+'; <strong>Zeit: '
       +item.from+'Uhr</strong></p><a class="location-pointer" onclick="changeMap(\'B'
@@ -170,8 +239,11 @@ function eventlist(_data){
   });
 }
 
-function showList(i, elem){
-  $(".map-container").removeClass("fullscreen");
+function showList(){
+	$(".map-container").toggleClass("fullscreen");
+	$("#flap").toggleClass("active");
+	$(".timetable").toggleClass("active");
+  /*$(".map-container").toggleClass("fullscreen");
   if($(elem).hasClass("active")){
     $(elem).removeClass("active");
   }else{
@@ -189,7 +261,7 @@ function showList(i, elem){
   if(!($(".main-nav .ico").hasClass("active"))){
     $("#flap").removeClass("active");
     $(".map-container").addClass("fullscreen");
-  }
+  }*/
 }
 
 function showTooltip(elem){
@@ -230,6 +302,9 @@ function changeMap(_building, _floor){
 
     building = _building;
     floor = _floor;
+	$(".floor").removeClass("active");
+	$(".floor.c"+building).addClass("active");
+	$(".floor.c"+floor).addClass("active");
     setTimeout(function(){
       $(".map."+building+"."+floor).removeClass("hide");
     },200);
