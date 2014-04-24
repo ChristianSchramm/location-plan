@@ -71,6 +71,7 @@ function createTableByCookie(){
 	+'<a href="#" class="close" onclick="closeTooltip(this)">X</a>'
 	+'<p><strong>Hier bist du!</strong></p>'
 	+'</article></div>');
+	$(c[0]).append('<div class="room table" style="left:'+c[1]+'%; top:'+c[2]+'%; "><a class="ico ico-position" href="#">table</a></div>');
 }
 
 function jumpToTable(){

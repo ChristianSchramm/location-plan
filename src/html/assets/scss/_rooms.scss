@@ -41,7 +41,7 @@
     @include base64-image($img-1OG-building-2);
   }
   &.F2 {
-    // @include base64-image($img-2OG-building-2);
+    @include base64-image($img-2OG-building-2);
   }
   &.F3 {
     @include base64-image($img-3OG-building-2);
@@ -62,7 +62,7 @@
     @include base64-image($img-1OG-building-3);
   }
   &.F2 {
-    // @include base64-image($img-2OG-building-3);
+    @include base64-image($img-2OG-building-3);
   }
   // &.F3 {
   //   @include base64-image($img-3OG-building-3);

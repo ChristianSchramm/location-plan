@@ -262,7 +262,7 @@
 	<line fill="none" stroke="#9D9D9C" stroke-width="2" stroke-miterlimit="10" x1="95.433" y1="546.912" x2="95.433" y2="507.32"/>
 	<line fill="none" stroke="#9D9D9C" stroke-width="2" stroke-miterlimit="10" x1="95.433" y1="580.662" x2="95.433" y2="552.912"/>
 	<line fill="none" stroke="#9D9D9C" stroke-width="2" stroke-miterlimit="10" x1="95.433" y1="609.57" x2="95.433" y2="586.412"/>
-	<line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="110.738" y1="507.32" x2="116.93" y2="507.32"/>
+	<line fill="none" stroke="#9D9D9C" stroke-width="2" stroke-miterlimit="10" x1="110.738" y1="507.32" x2="116.93" y2="507.32"/>
 	<line fill="none" stroke="#9D9D9C" stroke-width="2" stroke-miterlimit="10" x1="86.112" y1="507.32" x2="104.738" y2="507.32"/>
 	<line fill="none" stroke="#9D9D9C" stroke-width="2" stroke-miterlimit="10" x1="76.523" y1="507.32" x2="79.988" y2="507.32"/>
 	<line fill="none" stroke="#B2B2B2" stroke-width="2" stroke-miterlimit="10" x1="12.755" y1="186.579" x2="76.523" y2="186.579"/>
@@ -345,6 +345,8 @@
 		325.165,597.377 	"/>
 	
 		<line fill="none" stroke="#000000" stroke-width="3" stroke-miterlimit="10" x1="117.214" y1="552.246" x2="117.214" y2="501.482"/>
+	<polyline fill="none" stroke="#9D9D9C" stroke-width="4" stroke-miterlimit="10" points="591.775,255.588 591.775,43.119 
+		767.522,43.119 767.522,512.741 591.775,512.741 591.775,246.589 	"/>
 </g>
 <g id="Ebene_5" display="none">
 	<path display="inline" fill="none" stroke="#000000" stroke-miterlimit="10" d="M234.395,91.294c5.159,0,9.333-3.458,9.333-7.73
