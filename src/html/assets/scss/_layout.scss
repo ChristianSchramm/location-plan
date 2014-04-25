@@ -405,7 +405,7 @@ p {
   &.active{
     background: $ba-lightgrey;
     display: block;
-    width: 200px;
+    width: 250px;
 
     *{
       opacity: 1;
@@ -429,6 +429,32 @@ p {
     right: -15px;
     text-decoration: none;
     top: -17px;
+  }
+}
+
+.image {
+  margin-bottom: 20px;
+  position: relative;
+  width: 100%;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.caption {
+  background: rgba(#fff,.8);
+  bottom: 0;
+  display: block;
+  left: 0;
+  padding: 5px;
+  position: absolute;
+  right: 0;
+
+  p {
+    color: $ba-blue;
+    font-size: 1.2em;
+    margin-bottom: 0;
   }
 }
 

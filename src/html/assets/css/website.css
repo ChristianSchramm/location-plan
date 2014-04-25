@@ -1083,7 +1083,7 @@ p {
 .tooltip.active {
   background: #ececec;
   display: block;
-  width: 200px;
+  width: 250px;
 }
 .tooltip.active * {
   opacity: 1;
@@ -1104,6 +1104,30 @@ p {
   right: -15px;
   text-decoration: none;
   top: -17px;
+}
+
+.image {
+  margin-bottom: 20px;
+  position: relative;
+  width: 100%;
+}
+.image img {
+  max-width: 100%;
+}
+
+.caption {
+  background: rgba(255, 255, 255, 0.8);
+  bottom: 0;
+  display: block;
+  left: 0;
+  padding: 5px;
+  position: absolute;
+  right: 0;
+}
+.caption p {
+  color: #006eb6;
+  font-size: 1.2em;
+  margin-bottom: 0;
 }
 
 /* Icons */
