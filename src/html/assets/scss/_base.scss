@@ -106,7 +106,7 @@ $color-industrial: #15bae6;
 }
 
 %round-tooltip {
-  @include border-radius(20px);
+  @include border-radius(10px);
 }
 
 /* Helper */
@@ -160,12 +160,13 @@ $ico-mensa: "ico-tooltip.svg"; //11
 $ico-bibo: "ico-tooltip.svg"; //15
 $ico-pool: "ico-tooltip.svg"; //39
 
+$ico-position: "ico-position.svg";
+
 
 /* building */
 
 $img-campus: "campus.svg";
 
-$img-K-building-1: "K-building-1.svg";
 $img-K-building-2: "K-building-2.svg";
 $img-K-building-3: "K-building-3.svg";
 
@@ -180,3 +181,5 @@ $img-1OG-building-3: "1OG-building-3.svg";
 $img-2OG-building-1: "2OG-building-1.svg";
 $img-2OG-building-2: "2OG-building-2.svg";
 $img-2OG-building-3: "2OG-building-3.svg";
+
+$img-3OG-building-2: "3OG-building-2.svg";

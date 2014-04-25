@@ -155,6 +155,15 @@ p {
     display: inline-block;
     margin: 10px 0 0 20px;
   }
+
+  li {
+    float: left;
+    margin-left: 10px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
 }
 
 /* typo */
@@ -235,11 +244,15 @@ p {
   position: absolute;
   right: 0;
   top: 10px;
-  width: 165px;
+  width: 14%;
   z-index: $z-floorplan;
 
   .heading {
     text-align: center;
+  }
+
+  .left {
+    width: 50%;
   }
 
   li {
@@ -251,17 +264,17 @@ p {
   background: $ba-blue;
   color: #fff;
   display: block;
-  font-size: 2.4em;
-  height: 33px;
-  padding: 5px 10px;
+  font-size: 2em;
+  padding: 3%;
   margin: 0 auto;
   text-align: center;
   text-decoration: none;
-  width: 55px;
+  width: 80%;
 
   &:active,
   &:hover,
-  &:focus {
+  &:focus,
+  &.active {
     background: $color-medinf;
     color: #fff;
   }
@@ -287,11 +300,18 @@ p {
     border-top: 1px solid #fff;
     margin-top: 10px;
     padding-top: 10px;
+    position: relative;
 
     &:first-child {
       border-top: 0;
-      padding: 0;
+      margin: 0;
     }
+  }
+
+  .course {
+    left: 0;
+    position: absolute;
+    top: 9px;
   }
 
   &.active{
@@ -301,6 +321,8 @@ p {
 
 .list-entry {
   display: inline-block;
+  margin-left: 20px;
+
 
   .heading {
     margin-bottom: 10px;
@@ -319,7 +341,7 @@ p {
   padding: 10px;
   position: absolute;
   right: 0;
-  width: 165px;
+  width: 14%;
   z-index: $z-legend;
 
   li {
@@ -374,9 +396,7 @@ p {
 .tooltip {
   // display: none;
   @extend %round-tooltip;
-  height: 0;
-  overflow: hidden;
-  padding: 20px;
+  padding: 10px;
   position: absolute;
   transition: all 0.3s linear;
   width: 0;
@@ -385,7 +405,6 @@ p {
   &.active{
     background: $ba-lightgrey;
     display: block;
-    height: 300px;
     width: 200px;
 
     *{
@@ -399,11 +418,17 @@ p {
     opacity: 0;
   }
   .close{
+    @extend %round-ico;
+    background-color: $ba-blue;
+    border: 4px solid #fff;
+    color: #fff;
     font-size: 17px;
+    font-weight: bold;
+    padding: 5px 10px;
     position: absolute;
-    right: 0px;
+    right: -15px;
     text-decoration: none;
-    top: 0px;
+    top: -17px;
   }
 }
 
@@ -419,8 +444,8 @@ p {
   width: 40px;
 }
 
+.ico-position,
 .ico-tooltip {
-  @include base64-image($ico-tooltip);
   left: 0;
   opacity: 1;
   position: absolute;
@@ -428,15 +453,55 @@ p {
   top: 0;
   z-index: 10000;
 
+  &.active{
+    transition: all 0.3s linear;
+    opacity: 0;
+  }
+}
+
+.ico-position {
+  @include base64-image($ico-position);
+}
+
+.ico-tooltip {
+  @include base64-image($ico-tooltip);
+
   &:active,
   &:hover,
   &:focus,
   &.active {
     @include base64-image($ico-tooltip-hover);
   }
-  &.active{
-    transition: all 0.3s linear;
-    opacity: 0;
+
+  &.ico-tooltip-agrar {
+    @include base64-image($ico-tooltip-agrar);
+  }
+  &.ico-tooltip-banking {
+    @include base64-image($ico-tooltip-banking);
+  }
+  &.ico-tooltip-businessinf {
+    @include base64-image($ico-tooltip-businessinf);
+  }
+  &.ico-tooltip-comtec {
+    @include base64-image($ico-tooltip-comtec);
+  }
+  &.ico-tooltip-industrial {
+    @include base64-image($ico-tooltip-industrial);
+  }
+  &.ico-tooltip-insurance {
+    @include base64-image($ico-tooltip-insurance);
+  }
+  &.ico-tooltip-medinf {
+    @include base64-image($ico-tooltip-medinf);
+  }
+  &.ico-tooltip-tax {
+    @include base64-image($ico-tooltip-tax);
+  }
+  &.ico-tooltip-trade {
+    @include base64-image($ico-tooltip-trade);
+  }
+  &.ico-tooltip-wood {
+    @include base64-image($ico-tooltip-wood);
   }
 }
 .ico-tablepos {

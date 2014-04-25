@@ -5,6 +5,8 @@ var floor = "F0";
 
 $( document ).ready(function() {
   init();
+  createTableByCookie();
+
 });
 
 function init(){
@@ -36,10 +38,47 @@ function init(){
 
 }
 
+function setTable(){
+  $(".map").click(function(e){
+   var parentOffset = $(this).offset();
+   //or $(this).offset(); if you really just want the current element's offset
+   var relX = e.pageX - parentOffset.left;
+   var relY = e.pageY - parentOffset.top;
+   var relXp = relX / $(this).width();
+   var relYp = relY / $(this).height();
+   console.log(relX);
+   console.log(relY);
+   console.log(relXp);
+   console.log(relYp);
+   console.log($(this));
+   $.cookie('the_cookie', ['.'+$(this).context.className.split(' ').join('.'),relXp*100, relYp*100], { expires: 7 });
+   createTableByCookie();
+  });
+}
+
 $( window ).resize(function() {
   $(".map").css("width", $(".map").height()+$(".map").height()*0.04);
   $(".map").css("margin-left", -$(".map").width()/2);
 });
+
+function createTableByCookie(){
+	$(".map").unbind('click');
+	var c = $.cookie('the_cookie').split(',');
+	console.log(c);
+	$(c[0]+' .room.table').remove();
+	$(c[0]).append('<div class="room table" style="left:'+c[1]+'%; top:'+c[2]+'%; "><a class="ico ico-position" onclick="showTooltip(this)" href="#">table</a>'
+	+'<article class="tooltip tl">'
+	+'<a href="#" class="close" onclick="closeTooltip(this)">X</a>'
+	+'<p><strong>Hier bist du!</strong></p>'
+	+'</article></div>');
+}
+
+function jumpToTable(){
+	var c = $.cookie('the_cookie').split(',');
+	var bf = c[0].split('.');
+	changeMap(bf[2],bf[3]);
+	//console.log(bf);
+}
 
 function splitRoomNumber(_number){
     var num = _number;
@@ -60,6 +99,37 @@ function splitRoomNumber(_number){
     // console.log('floor'+sFloor);
     // console.log('number'+sNumber);
     return srn;
+}
+
+function getBranchOfStudy(_branchofstudy){
+	var branch = "";
+
+
+	switch(_branchofstudy){
+	case "Agrarmanagement" : branch = "agrar";
+		break;
+	case "Handel": branch = "trade";
+		break;
+	case "Holztechnik": branch = "wood";
+		break;
+	case "Medieninformatik": branch = "medinf";
+		break;
+	case "Versicherung": branch = "insurance";
+		break;
+	case "Informationstechnik": branch = "comtec";
+		break;
+	case "Prüfungswesen/Steuer": branch = "tax";
+		break;
+	case "Bank": branch = "banking";
+		break;
+	case "Wirtschaftsinformatik": branch = "businessinf";
+		break;
+	case "Industrie": branch = "industrial";
+		break;
+	default : branch = "";
+		break;
+	}
+	return branch;
 }
 
 function generateRooms(_data) {
@@ -96,9 +166,65 @@ function generateRooms(_data) {
       </article> <!-- tooltip -->
     </div> <!-- room -->
   */
+	var nr = "", dtitle = "", ddesc = "", dassets = "", dperson = "", branch = "", direction = "";
+	nr = _data[i].location.number;
+	if(_data[i].title != "" && _data[i].title && null ){
+	  dtitle = '<h1 class="heading style3">'+_data[i].title+'</h1>';
+	}
+	if(_data[i].description != "" && _data[i].description != null){
+	  ddesc = '<p>'+_data[i].description+'</p>';
+	
+	}
+	if(_data[i].personincharge != "" && _data[i].personincharge != null){
+	  dperson = '<p>Verantwortlicher: ' +_data[i].personincharge+'</p>';
+	}
+	if(_data[i].assets.length > 0){
+	//console.log(_data[i].assets.length);
+	  for(var j = 0; j < _data[i].assets.length ; j++){
+	  
+		dassets += '<figure class="image">'
+					+'<img src="img/'+_data[i].assets[j].src+'" title="" alt="'+_data[i].assets[j].title+'">'
+					+'<figcaption class="caption">'
+					+'<p>'+_data[i].assets[j].title+'</p>'
+					+'</figcaption>'
+					+'</figure>';
+	  }
+	}else{
+		dassets = "";
+	}
+	branch = getBranchOfStudy(_data[i].branchofstudy);
+	if(branch != ""){
+		branch = 'ico-tooltip-'+branch;
+	}
 
-    $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
-    //console.log('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
+    $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'">');
+	var left = $('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('left').split("px")[0]/$('.map.B'+srn[0]+ '.F'+srn[1]).css("width").split("px")[0]*100
+	var top = $('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('top').split("px")[0]/$('.map.B'+srn[0]+ '.F'+srn[1]).css("height").split("px")[0]*100
+	if(top < 50){
+		direction += "t";
+	}else{
+		direction += "b";
+	}
+	if(left < 50){
+		direction += "l";
+	}else{
+		direction += "r";
+	}
+	$('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).append(''
+	+'<a class="ico ico-tooltip '+branch+' switch-btn" onclick="showTooltip(this)" data-position="'+nr
+	+'" href="#">Position Raum '+nr+'</a>'
+	+'<article class="tooltip '+direction+'">'
+    +'<a href="#" class="close" onclick="closeTooltip(this)">X</a>'
+    +dtitle
+    +'<p><strong>'+nr+'</strong></p>'
+    +ddesc
+	+dassets
+	+dperson
+	+'</article>'
+	+'</div>');
+	console.log($('.map.B'+srn[0]+ '.F'+srn[1]).css("width").split("px")[0]);
+	console.log($('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('left').split("px")[0]);
+	console.log($('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('left').split("px")[0]/$('.map.B'+srn[0]+ '.F'+srn[1]).css("width").split("px")[0]*100);
 
   });
 }
@@ -114,12 +240,48 @@ function generateUnusedRooms(_data) {
 
     $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
     //console.log('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
+	var nr , dtitle, ddesc, dassets, dperson;
+	nr = _data[i].number;
+	if(_data[i].title != "" || _data[i].title != null){
+	  dtitle = '<h1 class="heading style3">'+_data[i].title+'</h1>';
+	}
+	if(_data[i].description != "" || _data[i].description != null){
+	  ddesc = '<p>'+_data[i].description+'</p>';
+	}
+	if(_data[i].personincharge != "" || _data[i].personincharge != null){
+	  dperson = '<p>Verantwortlicher: ' +_data[i].personincharge+'</p>';
+	}
+	/*if(_data[i].assets.length > 0){
+	  for(var j = 0; j < _data[i].assets.length ; j++){
+		dassets += '<figure class="image">'
+					+'<img src="'+_data[i].assets.path+'" title="" alt="'+_data[i].assets.name+'">'
+					+'<figcaption class="caption">'
+					+'<p>'+_data[i].assets.caption+'</p>'
+					+'</figcaption>'
+					+'</figure>';
+	  }
+	}else{
+		dassets = "";
+	}*/
+
+
+    $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'">'
+	+'<a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="'+nr
+	+'" href="#">Position Raum '+nr+'</a>'
+	+'<article class="tooltip tl">'
+    +'<a href="#" class="close" onclick="closeTooltip(this)">X</a>'
+    +'<p><strong>'+nr+'</strong></p>'
+    +ddesc
+	//+dassets
+	+dperson
+	+'</article>'
+	+'</div>');
 
   });
 }
 
 function eventlist(_data){
-  var container = $(".timetable.list.list1").find("ul");
+  var container = $(".timetable").find("ul");
   //console.log(_data);
   $.each(_data, function(i, item) {
     var srn = splitRoomNumber(_data[i].location.number);
@@ -127,17 +289,33 @@ function eventlist(_data){
     // console.log(room);
     // var room = room.split(".");
     // var floor = room[1].charAt(0);
-    container.append('<li><div class="list-entry"><h2 class="heading style3">'
+	var bc = "";
+	var branch = getBranchOfStudy(_data[i].branchofstudy)
+	if(branch != ""){
+		bc = '<span class="course left '+branch+'"></span>';
+	}
+	var time = "";
+	if(item.starttime){
+		time += item.starttime;
+	}
+	if(item.endtime){
+		time += " - "+item.endtime;
+	}
+    container.append('<li>'
+	  +bc+'<div class="list-entry"><h2 class="heading style4">'
       +item.title+'</h2><p>Ort: '
       +item.location.number+'; <strong>Zeit: '
-      +item.from+'Uhr</strong></p><a class="location-pointer" onclick="changeMap(\'B'
+      +time+' Uhr</strong></p><a class="location-pointer" onclick="changeMap(\'B'
       +srn[0]+'\',\'F'
       +srn[1]+'\');" href="#" title="">Gehe zum Ort</a></div></li>');
   });
 }
 
-function showList(i, elem){
-  $(".map-container").removeClass("fullscreen");
+function showList(){
+	$(".map-container").toggleClass("fullscreen");
+	$("#flap").toggleClass("active");
+	$(".timetable").toggleClass("active");
+  /*$(".map-container").toggleClass("fullscreen");
   if($(elem).hasClass("active")){
     $(elem).removeClass("active");
   }else{
@@ -155,7 +333,7 @@ function showList(i, elem){
   if(!($(".main-nav .ico").hasClass("active"))){
     $("#flap").removeClass("active");
     $(".map-container").addClass("fullscreen");
-  }
+  }*/
 }
 
 function showTooltip(elem){
@@ -184,7 +362,7 @@ function changeFloor( _floor){
 }
 
 function changeBuilding( _building){
-  changeMap(_building, floor);
+  changeMap(_building, "F0");
 }
 
 function changeMap(_building, _floor){
@@ -193,11 +371,26 @@ function changeMap(_building, _floor){
     //console.log($(".map."+_building+"."+_floor+".hide").length);
     closeTooltip($(".tooltip.active .close"));
     $(".map."+building+"."+floor).addClass("hide");
-
+	if(_building == "B1"){
+	  $(".floor.cFK").addClass("hide");
+	  $(".floor.cF3").addClass("hide");
+	}else{
+	  $(".floor.cFK").removeClass("hide");
+	  $(".floor.cF3").removeClass("hide");
+	}
+	if(_building == "B3"){
+	  $(".floor.cF3").addClass("hide");
+	  $(".floor.cF3").removeClass("hide");
+	}
     building = _building;
     floor = _floor;
+	$(".floor").removeClass("active");
+	$(".floor.c"+building).addClass("active");
+	$(".floor.c"+floor).addClass("active");
     setTimeout(function(){
       $(".map."+building+"."+floor).removeClass("hide");
     },200);
   }
 }
+
+
