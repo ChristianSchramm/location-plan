@@ -144,6 +144,43 @@ function getBranchOfStudy(_branchofstudy){
 	return branch;
 }
 
+function getRoomType(_type){
+var type = "";
+	switch(_type){
+	case "Bibliothek": 
+		break;
+	case "Computerraum": 	
+		break;
+	case "Holztechnik": 
+		break;
+	case "Hausmeister": 
+		break;
+	case "Hörsaal": 
+		break;
+	case "Labor": 
+		break;
+	case "Lagerraum": 
+		break;
+	case "Mensa": 
+		break;
+	case "Sanitär": 
+		break;
+	case "Schnittraum": 
+		break;
+	case "Seminarraum": 
+		break;
+	case "Sonstiges": 
+		break;
+	case "Sprachlabor": 
+		break;
+	case "Tonstudio": 
+		break;
+	default: type = "";
+		break;
+	}
+	return type;
+}
+
 function generateRooms(_data) {
   $.each(_data, function(i, item) {
 
