@@ -396,7 +396,7 @@ p {
 .tooltip {
   // display: none;
   @extend %round-tooltip;
-  
+
   position: absolute;
   transition: all 0.3s linear;
   width: 0;
@@ -543,6 +543,16 @@ p {
   &.ico-tooltip-wood {
     @include base64-image($ico-tooltip-wood);
   }
+
+  // Raumtypen
+
+  &.ico-mensa {}
+  &.ico-bibo {}
+  &.ico-pool {}
+  &.ico-audio {}
+  &.ico-laboratory {}
+  &.ico-language {}
+  &.ico-auditorium {}
 }
 .ico-tablepos {
   @include base64-image($ico-tablepos);
