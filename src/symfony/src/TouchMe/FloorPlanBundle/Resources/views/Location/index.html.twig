@@ -43,9 +43,7 @@
             </td>
           {% endif %}
           <td class="edit" width="7%">
-            <a href="{{ path('location_edit', {'id' : location.id }) }}">
-              <span class="glyphicon glyphicon-edit">&nbsp;</span>
-            </a>
+            <a href="{{ path('location_edit', {'id' : location.id }) }}"><span class="glyphicon glyphicon-edit">&nbsp;</span></a>
             {% if is_granted('ROLE_ADMIN') %}
               <a href="{{ path('location_remove', {'id' : location.id }) }}">
                 <span class="glyphicon glyphicon-remove">&nbsp;</span>
