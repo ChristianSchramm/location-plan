@@ -65,9 +65,21 @@ function createTableByCookie(){
 	$(".map").unbind('click');
 	var c = $.cookie('the_cookie').split(',');
 	console.log(c);
-	$(c[0]+' .room.table').remove();
+
+	$('.room.table').remove();
+	direction = "";
+	if(c[2] < 50){
+		direction += "t";
+	}else{
+		direction += "b";
+	}
+	if(c[1] < 50){
+		direction += "l";
+	}else{
+		direction += "r";
+	}
 	$(c[0]).append('<div class="room table" style="left:'+c[1]+'%; top:'+c[2]+'%; "><a class="ico ico-position" onclick="showTooltip(this)" href="#">table</a>'
-	+'<article class="tooltip tl">'
+	+'<article class="tooltip '+direction+'">'
 	+'<a href="#" class="close" onclick="closeTooltip(this)">X</a>'
 	+'<p><strong>Hier bist du!</strong></p>'
 	+'</article></div>');
@@ -108,19 +120,19 @@ function getBranchOfStudy(_branchofstudy){
 	switch(_branchofstudy){
 	case "Agrarmanagement" : branch = "agrar";
 		break;
-	case "Handel": branch = "trade";
+	case "Betriebswirtschaft - Handel": branch = "trade";
 		break;
-	case "Holztechnik": branch = "wood";
+	case "Holz- und Holzwerkstofftechnik": branch = "wood";
 		break;
 	case "Medieninformatik": branch = "medinf";
 		break;
-	case "Versicherung": branch = "insurance";
+	case "Finanzwirtschaft - Versicherung": branch = "insurance";
 		break;
 	case "Informationstechnik": branch = "comtec";
 		break;
-	case "Prüfungswesen/Steuer": branch = "tax";
+	case "Steuern Pr\u00fcfungswesen Consulting": branch = "tax";
 		break;
-	case "Bank": branch = "banking";
+	case "Finanzwirtschaft - Bank": branch = "banking";
 		break;
 	case "Wirtschaftsinformatik": branch = "businessinf";
 		break;
@@ -197,7 +209,7 @@ function generateRooms(_data) {
 		branch = 'ico-tooltip-'+branch;
 	}
 
-    $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'">');
+    $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
 	var left = $('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('left').split("px")[0]/$('.map.B'+srn[0]+ '.F'+srn[1]).css("width").split("px")[0]*100
 	var top = $('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('top').split("px")[0]/$('.map.B'+srn[0]+ '.F'+srn[1]).css("height").split("px")[0]*100
 	if(top < 50){
@@ -210,6 +222,7 @@ function generateRooms(_data) {
 	}else{
 		direction += "r";
 	}
+	
 	$('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).append(''
 	+'<a class="ico ico-tooltip '+branch+' switch-btn" onclick="showTooltip(this)" data-position="'+nr
 	+'" href="#">Position Raum '+nr+'</a>'
@@ -238,17 +251,17 @@ function generateUnusedRooms(_data) {
     // var floor = room[1].charAt(0);
     // console.log(room[0], room[1].charAt(0));
 
-    $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
+    //$('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
     //console.log('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
-	var nr , dtitle, ddesc, dassets, dperson;
+	var nr  = "", dtitle = "", ddesc = "", dassets = "", dperson = "", direction = "";
 	nr = _data[i].number;
-	if(_data[i].title != "" || _data[i].title != null){
+	if(_data[i].title != "" && _data[i].title != null){
 	  dtitle = '<h1 class="heading style3">'+_data[i].title+'</h1>';
 	}
-	if(_data[i].description != "" || _data[i].description != null){
+	if(_data[i].description != "" && _data[i].description != null){
 	  ddesc = '<p>'+_data[i].description+'</p>';
 	}
-	if(_data[i].personincharge != "" || _data[i].personincharge != null){
+	if(_data[i].personincharge != "" && _data[i].personincharge != null){
 	  dperson = '<p>Verantwortlicher: ' +_data[i].personincharge+'</p>';
 	}
 	/*if(_data[i].assets.length > 0){
@@ -263,12 +276,26 @@ function generateUnusedRooms(_data) {
 	}else{
 		dassets = "";
 	}*/
-
-
-    $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'">'
+	
+	$('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
+	var left = $('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('left').split("px")[0]/$('.map.B'+srn[0]+ '.F'+srn[1]).css("width").split("px")[0]*100
+	var top = $('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('top').split("px")[0]/$('.map.B'+srn[0]+ '.F'+srn[1]).css("height").split("px")[0]*100
+	if(top < 50){
+		direction += "t";
+	}else{
+		direction += "b";
+	}
+	if(left < 50){
+		direction += "l";
+	}else{
+		direction += "r";
+	}
+	
+	
+	$('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).append(''
 	+'<a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="'+nr
 	+'" href="#">Position Raum '+nr+'</a>'
-	+'<article class="tooltip tl">'
+	+'<article class="tooltip '+direction+'">'
     +'<a href="#" class="close" onclick="closeTooltip(this)">X</a>'
     +'<p><strong>'+nr+'</strong></p>'
     +ddesc
