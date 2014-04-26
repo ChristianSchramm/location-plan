@@ -31,12 +31,12 @@
         <div class="main-nav">
           <ul>
             <li>
-              <a href="#" onclick="showList(1, this);" class="ico ico-tablepos">
+              <a href="#" onclick="jumpToTable();" class="ico ico-tablepos">
                 Zur Tischposition springen
               </a>
             </li>
             <li>
-              <a href="#" onclick="showList(2, this);" class="ico ico-timetable">
+              <a href="#" onclick="showList();" class="ico ico-timetable">
                 Ablauf-/Zeitplan einblenden
               </a>
             </li>
@@ -48,7 +48,7 @@
 
         <div class="flap" id="flap">
 
-          <div class="timetable list list1">
+          <div class="timetable">
             <ul>
               <li>
                 <span class="course left medinf"></span>
@@ -64,22 +64,26 @@
         </div> <!-- flap -->
 
         <div class="floor-plan">
-          <h2 class="heading style1">Haus</h2>
-          <ul>
-            <li><a class="floor" onclick="changeBuilding('B1');" href="#">1</a></li>
-            <li><a class="floor" onclick="changeBuilding('B2');" href="#">2</a></li>
-            <li><a class="floor" onclick="changeBuilding('B3');" href="#">3</a></li>
-          </ul>
+          <div class="left">
+            <h2 class="heading style2">Haus</h2>
+            <ul>
+              <li><a class="floor cB1" onclick="changeBuilding('B1');" href="#">1</a></li>
+              <li><a class="floor cB2" onclick="changeBuilding('B2');" href="#">2</a></li>
+              <li><a class="floor cB3" onclick="changeBuilding('B3');" href="#">3</a></li>
+            </ul>
+          </div> <!-- left -->
 
-          <h2 class="heading style1">Etage</h2>
-          <ul>
-            <li><a class="floor" onclick="changeFloor('F3');" href="#">3.OG</a></li>
-            <li><a class="floor" onclick="changeFloor('F2');" href="#">2.OG</a></li>
-            <li><a class="floor" onclick="changeFloor('F1');" href="#">1.OG</a></li>
-            <li><a class="floor" onclick="changeFloor('F0');" href="#">EG</a></li>
-            <li><a class="floor" onclick="changeFloor('FK');" href="#">K</a></li>
-            <!-- <li><a class="floor" onclick="changeFloor('FC');" href="#">Campus</a></li> -->
-          </ul>
+          <div class="left">
+            <h2 class="heading style2">Etage</h2>
+            <ul>
+              <li><a class="floor cF3" onclick="changeFloor('F3');" href="#">3.OG</a></li>
+              <li><a class="floor cF2" onclick="changeFloor('F2');" href="#">2.OG</a></li>
+              <li><a class="floor cF1" onclick="changeFloor('F1');" href="#">1.OG</a></li>
+              <li><a class="floor cF0" onclick="changeFloor('F0');" href="#">EG</a></li>
+              <li><a class="floor cFK" onclick="changeFloor('FK');" href="#">K</a></li>
+              <!-- <li><a class="floor" onclick="changeFloor('FC');" href="#">Campus</a></li> -->
+            </ul>
+          </div> <!-- left -->
 
         </div> <!-- floor-plan -->
 
@@ -112,8 +116,9 @@
           </div> <!-- map C-->
 
           <!-- B1 -->
-          <div class="map B1 FK hide">
-          </div> <!-- map B1 FK-->
+          <!-- <div class="map B1 FK hide">
+          </div> -->
+           <!-- map B1 FK-->
 
           <div class="map B1 F0 hide">
           </div> <!-- map B1 F0 -->
@@ -124,8 +129,9 @@
           <div class="map B1 F2 hide">
           </div> <!-- map B1 F2 -->
 
-          <div class="map B1 F3 hide">
-          </div> <!-- map B1 F3-->
+          <!-- <div class="map B1 F3 hide">
+          </div> -->
+           <!-- map B1 F3-->
 
           <!-- B2 -->
 	        <div class="map B2 FK hide">
@@ -156,8 +162,9 @@
           <div class="map B3 F2 hide">
           </div> <!-- map B3 F2 -->
 
-          <div class="map B3 F3 hide">
-          </div> <!-- map B3 F3-->
+          <!-- <div class="map B3 F3 hide">
+          </div> -->
+          <!-- map B3 F3-->
 
         </div> <!-- map-container -->
 
@@ -184,6 +191,9 @@
             <li>
               <a href="#">Impressum</a>
             </li>
+            <li>
+              <a href="#" onclick="setTable()">Tischposition</a>
+            </li>
           </ul>
         </nav>
       </footer> <!-- footer -->
@@ -194,7 +204,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     -->
     <script>window.jQuery || document.write('<script src="assets/js/jquery-2.1.0.min.js"><\/script>');</script>
-
+	<script src="assets/js/jquery.cookie.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>
   </body>
