@@ -396,17 +396,24 @@ p {
 .tooltip {
   // display: none;
   @extend %round-tooltip;
-  padding: 10px;
+  
   position: absolute;
   transition: all 0.3s linear;
   width: 0;
-  z-index: 1;
-
+  z-index: 3;
+  .tooltipInfo{
+	overflow-y: auto;
+	max-height: 250px;
+  }
   &.active{
     background: $ba-lightgrey;
     display: block;
     width: 250px;
-
+	padding: 10px;
+	max-height: 250px;
+	.close{
+		opacity: 1;
+	}
     *{
       opacity: 1;
       transition: all 0.2s linear 0.4s;
@@ -429,6 +436,13 @@ p {
     right: -15px;
     text-decoration: none;
     top: -17px;
+	display:none;
+	opacity: 0;
+	transition: all 0.01s linear;
+	&.active{
+		display: block;
+		transition: all 0.2s linear 0.4s;
+	}
   }
 }
 

@@ -178,9 +178,18 @@ function generateRooms(_data) {
       </article> <!-- tooltip -->
     </div> <!-- room -->
   */
-	var nr = "", dtitle = "", ddesc = "", dassets = "", dperson = "", branch = "", direction = "";
+	var nr = "", type = "", time = "", dtitle = "", ddesc = "", dassets = "", dperson = "", branch = "", direction = "";
 	nr = _data[i].location.number;
-	if(_data[i].title != "" && _data[i].title && null ){
+	type = _data[i].location.type;
+	
+	if(_data[i].starttime){
+		time += _data[i].starttime;
+	}
+	if(_data[i].endtime){
+		time += " - "+_data[i].endtime;
+	}
+	
+	if(_data[i].title != "" && _data[i].title != null ){
 	  dtitle = '<h1 class="heading style3">'+_data[i].title+'</h1>';
 	}
 	if(_data[i].description != "" && _data[i].description != null){
@@ -208,33 +217,39 @@ function generateRooms(_data) {
 	if(branch != ""){
 		branch = 'ico-tooltip-'+branch;
 	}
-
-    $('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
-	var left = $('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('left').split("px")[0]/$('.map.B'+srn[0]+ '.F'+srn[1]).css("width").split("px")[0]*100
-	var top = $('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('top').split("px")[0]/$('.map.B'+srn[0]+ '.F'+srn[1]).css("height").split("px")[0]*100
-	if(top < 50){
-		direction += "t";
-	}else{
-		direction += "b";
-	}
-	if(left < 50){
-		direction += "l";
-	}else{
-		direction += "r";
-	}
+	if($('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).length == 0){
+		$('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
+		var left = $('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('left').split("px")[0]/$('.map.B'+srn[0]+ '.F'+srn[1]).css("width").split("px")[0]*100
+		var top = $('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('top').split("px")[0]/$('.map.B'+srn[0]+ '.F'+srn[1]).css("height").split("px")[0]*100
+		if(top < 50){
+			direction += "t";
+		}else{
+			direction += "b";
+		}
+		if(left < 50){
+			direction += "l";
+		}else{
+			direction += "r";
+		}
 	
 	$('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).append(''
 	+'<a class="ico ico-tooltip '+branch+' switch-btn" onclick="showTooltip(this)" data-position="'+nr
 	+'" href="#">Position Raum '+nr+'</a>'
 	+'<article class="tooltip '+direction+'">'
     +'<a href="#" class="close" onclick="closeTooltip(this)">X</a>'
-    +dtitle
+	+'<div class="tooltipInfo">'
+	+'</div>'
+	+'</article>');
+	}
+	$('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]+' .tooltipInfo').append(''
+	+dtitle
+	+'<p><strong>'+time+'</strong></p>'
+	+'<p><strong>'+type+'</strong></p>'
     +'<p><strong>'+nr+'</strong></p>'
     +ddesc
 	+dassets
-	+dperson
-	+'</article>'
-	+'</div>');
+	+dperson);
+	
 	console.log($('.map.B'+srn[0]+ '.F'+srn[1]).css("width").split("px")[0]);
 	console.log($('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('left').split("px")[0]);
 	console.log($('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('left').split("px")[0]/$('.map.B'+srn[0]+ '.F'+srn[1]).css("width").split("px")[0]*100);
@@ -253,8 +268,10 @@ function generateUnusedRooms(_data) {
 
     //$('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
     //console.log('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
-	var nr  = "", dtitle = "", ddesc = "", dassets = "", dperson = "", direction = "";
+	var nr  = "", type = "", dtitle = "", ddesc = "", dassets = "", dperson = "", direction = "";
 	nr = _data[i].number;
+	type = _data[i].type;
+	
 	if(_data[i].title != "" && _data[i].title != null){
 	  dtitle = '<h1 class="heading style3">'+_data[i].title+'</h1>';
 	}
@@ -264,6 +281,7 @@ function generateUnusedRooms(_data) {
 	if(_data[i].personincharge != "" && _data[i].personincharge != null){
 	  dperson = '<p>Verantwortlicher: ' +_data[i].personincharge+'</p>';
 	}
+	
 	/*if(_data[i].assets.length > 0){
 	  for(var j = 0; j < _data[i].assets.length ; j++){
 		dassets += '<figure class="image">'
@@ -276,33 +294,37 @@ function generateUnusedRooms(_data) {
 	}else{
 		dassets = "";
 	}*/
-	
-	$('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
-	var left = $('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('left').split("px")[0]/$('.map.B'+srn[0]+ '.F'+srn[1]).css("width").split("px")[0]*100
-	var top = $('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('top').split("px")[0]/$('.map.B'+srn[0]+ '.F'+srn[1]).css("height").split("px")[0]*100
-	if(top < 50){
-		direction += "t";
-	}else{
-		direction += "b";
+	if($('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).length == 0){
+		$('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
+		var left = $('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('left').split("px")[0]/$('.map.B'+srn[0]+ '.F'+srn[1]).css("width").split("px")[0]*100
+		var top = $('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('top').split("px")[0]/$('.map.B'+srn[0]+ '.F'+srn[1]).css("height").split("px")[0]*100
+		if(top < 50){
+			direction += "t";
+		}else{
+			direction += "b";
+		}
+		if(left < 50){
+			direction += "l";
+		}else{
+			direction += "r";
+		}
+		
+		
+		$('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).append(''
+		+'<a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="'+nr
+		+'" href="#">Position Raum '+nr+'</a>'
+		+'<article class="tooltip '+direction+'">'
+		+'<a href="#" class="close" onclick="closeTooltip(this)">X</a>'
+		+'<div class="tooltipInfo">'
+		+'</div>'
+		+'</article>');
 	}
-	if(left < 50){
-		direction += "l";
-	}else{
-		direction += "r";
-	}
-	
-	
-	$('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).append(''
-	+'<a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="'+nr
-	+'" href="#">Position Raum '+nr+'</a>'
-	+'<article class="tooltip '+direction+'">'
-    +'<a href="#" class="close" onclick="closeTooltip(this)">X</a>'
+	$('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]+' .tooltipInfo').append(''
+	+'<p><strong>'+type+'</strong></p>'
     +'<p><strong>'+nr+'</strong></p>'
     +ddesc
 	//+dassets
-	+dperson
-	+'</article>'
-	+'</div>');
+	+dperson);
 
   });
 }
@@ -366,7 +388,10 @@ function showList(){
 function showTooltip(elem){
   closeTooltip($(".tooltip.active .close"));
   $(elem).parent(".room").css("z-index", "2");
-  $(elem).siblings(".tooltip").toggleClass("active");
+  $(elem).siblings(".tooltip").find(".close").toggleClass("active");
+  setTimeout(function(){
+    $(elem).siblings(".tooltip").toggleClass("active");
+  }, 100);
   $(elem).toggleClass("active");
   setTimeout(function(){$(elem).css("z-index", "1");}, 200);
 }
@@ -374,6 +399,7 @@ function closeTooltip(elem){
 
   var ico = $(elem).parent(".tooltip").siblings(".room .ico");
   ico.css("z-index", "2");
+  $(elem).parent(".tooltip").find(".close").toggleClass("active");
   setTimeout(function(){
     ico.toggleClass("active");
     $(elem).parent(".tooltip").toggleClass("active");
