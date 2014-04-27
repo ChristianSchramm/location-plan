@@ -546,13 +546,27 @@ p {
 
   // Raumtypen
 
-  &.ico-mensa {}
-  &.ico-bibo {}
-  &.ico-pool {}
-  &.ico-audio {}
-  &.ico-laboratory {}
-  &.ico-language {}
-  &.ico-auditorium {}
+  &.ico-mensa {
+    @include base64-image($ico-mensa);
+  }
+  &.ico-bibo {
+    @include base64-image($ico-bibo);
+  }
+  &.ico-pool {
+    @include base64-image($ico-pool);
+  }
+  &.ico-audio {
+    @include base64-image($ico-audio);
+  }
+  &.ico-laboratory {
+    @include base64-image($ico-laboratory);
+  }
+  &.ico-language {
+    @include base64-image($ico-language);
+  }
+  &.ico-auditorium {
+    @include base64-image($ico-auditorium);
+  }
 }
 .ico-tablepos {
   @include base64-image($ico-tablepos);
