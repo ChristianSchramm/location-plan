@@ -964,10 +964,17 @@ p {
   text-align: center;
   text-decoration: none;
   width: 80%;
+  transition: all 0.2s linear;
 }
 .floor:active, .floor:hover, .floor:focus, .floor.active {
   background: #e30513;
   color: #fff;
+}
+.floor.hide {
+  font-size: 0;
+  opacity: 0;
+  padding: 0;
+  margin-top: -5px;
 }
 
 .timetable {

@@ -270,6 +270,7 @@ p {
   text-align: center;
   text-decoration: none;
   width: 80%;
+  transition: all 0.2s linear;
 
   &:active,
   &:hover,
@@ -277,6 +278,13 @@ p {
   &.active {
     background: $color-medinf;
     color: #fff;
+  }
+  &.hide{
+	font-size: 0;
+	opacity: 0;
+	padding: 0;
+	margin-top: -5px;
+	
   }
 }
 

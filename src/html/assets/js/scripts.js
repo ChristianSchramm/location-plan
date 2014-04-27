@@ -468,22 +468,27 @@ function changeMap(_building, _floor){
     //console.log($(".map."+_building+"."+_floor+".hide").length);
     closeTooltip($(".tooltip.active .close"));
     $(".map."+building+"."+floor).addClass("hide");
-	if(_building == "B1"){
-	  $(".floor.cFK").addClass("hide");
-	  $(".floor.cF3").addClass("hide");
-	}else{
-	  $(".floor.cFK").removeClass("hide");
-	  $(".floor.cF3").removeClass("hide");
-	}
-	if(_building == "B3"){
-	  $(".floor.cF3").addClass("hide");
-	  $(".floor.cF3").removeClass("hide");
-	}
+
     building = _building;
     floor = _floor;
 	$(".floor").removeClass("active");
 	$(".floor.c"+building).addClass("active");
 	$(".floor.c"+floor).addClass("active");
+	
+	if(_building == "B3" || _building == "B1" ){
+	  $(".floor.cF3").addClass("hide");
+	}else{
+	  $(".floor.cF3").removeClass("hide");
+	}
+	if(_building == "B1"){
+	  $(".floor.cFK").addClass("hide");
+	}else{
+	  $(".floor.cFK").removeClass("hide");
+	}
+	if(_building == "BC"){
+		$(".floor").removeClass("active");
+	}
+	
     setTimeout(function(){
       $(".map."+building+"."+floor).removeClass("hide");
     },200);
