@@ -524,6 +524,10 @@ p {
   @include base64-image($ico-position);
 }
 
+.ico-tooltip-grey {
+  @include base64-image($ico-tooltip-grey);
+}
+
 .ico-tooltip {
   @include base64-image($ico-tooltip);
 
@@ -573,20 +577,176 @@ p {
   &.ico-bibo {
     @include base64-image($ico-bibo);
   }
+
   &.ico-pool {
     @include base64-image($ico-pool);
+
+    &.ico-tooltip-agrar {
+      @include base64-image($ico-pool-agrar);
+    }
+    &.ico-tooltip-banking {
+      @include base64-image($ico-pool-banking);
+    }
+    &.ico-tooltip-businessinf {
+      @include base64-image($ico-pool-businessinf);
+    }
+    &.ico-tooltip-comtec {
+      @include base64-image($ico-pool-comtec);
+    }
+    &.ico-tooltip-industrial {
+      @include base64-image($ico-pool-industrial);
+    }
+    &.ico-tooltip-insurance {
+      @include base64-image($ico-pool-insurance);
+    }
+    &.ico-tooltip-medinf {
+      @include base64-image($ico-pool-medinf);
+    }
+    &.ico-tooltip-tax {
+      @include base64-image($ico-pool-tax);
+    }
+    &.ico-tooltip-trade {
+      @include base64-image($ico-pool-trade);
+    }
+    &.ico-tooltip-wood {
+      @include base64-image($ico-pool-wood);
+    }
   }
   &.ico-audio {
     @include base64-image($ico-audio);
+
+    &.ico-tooltip-agrar {
+      @include base64-image($ico-audio-agrar);
+    }
+    &.ico-tooltip-banking {
+      @include base64-image($ico-audio-banking);
+    }
+    &.ico-tooltip-businessinf {
+      @include base64-image($ico-audio-businessinf);
+    }
+    &.ico-tooltip-comtec {
+      @include base64-image($ico-audio-comtec);
+    }
+    &.ico-tooltip-industrial {
+      @include base64-image($ico-audio-industrial);
+    }
+    &.ico-tooltip-insurance {
+      @include base64-image($ico-audio-insurance);
+    }
+    &.ico-tooltip-medinf {
+      @include base64-image($ico-audio-medinf);
+    }
+    &.ico-tooltip-tax {
+      @include base64-image($ico-audio-tax);
+    }
+    &.ico-tooltip-trade {
+      @include base64-image($ico-audio-trade);
+    }
+    &.ico-tooltip-wood {
+      @include base64-image($ico-audio-wood);
+    }
   }
   &.ico-laboratory {
     @include base64-image($ico-laboratory);
+
+    &.ico-tooltip-agrar {
+      @include base64-image($ico-laboratory-agrar);
+    }
+    &.ico-tooltip-banking {
+      @include base64-image($ico-laboratory-banking);
+    }
+    &.ico-tooltip-businessinf {
+      @include base64-image($ico-laboratory-businessinf);
+    }
+    &.ico-tooltip-comtec {
+      @include base64-image($ico-laboratory-comtec);
+    }
+    &.ico-tooltip-industrial {
+      @include base64-image($ico-laboratory-industrial);
+    }
+    &.ico-tooltip-insurance {
+      @include base64-image($ico-laboratory-insurance);
+    }
+    &.ico-tooltip-medinf {
+      @include base64-image($ico-laboratory-medinf);
+    }
+    &.ico-tooltip-tax {
+      @include base64-image($ico-laboratory-tax);
+    }
+    &.ico-tooltip-trade {
+      @include base64-image($ico-laboratory-trade);
+    }
+    &.ico-tooltip-wood {
+      @include base64-image($ico-laboratory-wood);
+    }
   }
   &.ico-language {
     @include base64-image($ico-language);
+
+    &.ico-tooltip-agrar {
+      @include base64-image($ico-language-agrar);
+    }
+    &.ico-tooltip-banking {
+      @include base64-image($ico-language-banking);
+    }
+    &.ico-tooltip-businessinf {
+      @include base64-image($ico-language-businessinf);
+    }
+    &.ico-tooltip-comtec {
+      @include base64-image($ico-language-comtec);
+    }
+    &.ico-tooltip-industrial {
+      @include base64-image($ico-language-industrial);
+    }
+    &.ico-tooltip-insurance {
+      @include base64-image($ico-language-insurance);
+    }
+    &.ico-tooltip-medinf {
+      @include base64-image($ico-language-medinf);
+    }
+    &.ico-tooltip-tax {
+      @include base64-image($ico-language-tax);
+    }
+    &.ico-tooltip-trade {
+      @include base64-image($ico-language-trade);
+    }
+    &.ico-tooltip-wood {
+      @include base64-image($ico-language-wood);
+    }
   }
   &.ico-auditorium {
     @include base64-image($ico-auditorium);
+
+    &.ico-tooltip-agrar {
+      @include base64-image($ico-auditorium-agrar);
+    }
+    &.ico-tooltip-banking {
+      @include base64-image($ico-auditorium-banking);
+    }
+    &.ico-tooltip-businessinf {
+      @include base64-image($ico-auditorium-businessinf);
+    }
+    &.ico-tooltip-comtec {
+      @include base64-image($ico-auditorium-comtec);
+    }
+    &.ico-tooltip-industrial {
+      @include base64-image($ico-auditorium-industrial);
+    }
+    &.ico-tooltip-insurance {
+      @include base64-image($ico-auditorium-insurance);
+    }
+    &.ico-tooltip-medinf {
+      @include base64-image($ico-auditorium-medinf);
+    }
+    &.ico-tooltip-tax {
+      @include base64-image($ico-auditorium-tax);
+    }
+    &.ico-tooltip-trade {
+      @include base64-image($ico-auditorium-trade);
+    }
+    &.ico-tooltip-wood {
+      @include base64-image($ico-auditorium-wood);
+    }
   }
 }
 .ico-tablepos {
