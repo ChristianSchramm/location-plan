@@ -466,7 +466,7 @@ function changeMap(_building, _floor){
   var buildingLength = $(".map."+_building+"."+_floor+".hide").length;
   if(buildingLength > 0){
     //console.log($(".map."+_building+"."+_floor+".hide").length);
-    closeTooltip($(".tooltip.active .close"));
+    //closeTooltip($(".tooltip.active .close"));
     $(".map."+building+"."+floor).addClass("hide");
 
     building = _building;
