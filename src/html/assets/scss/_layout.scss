@@ -365,9 +365,9 @@ p {
 
 .room {
   display: inline-block;
-  height: 40px;
+  height: 5%;
   position: absolute;
-  width: 40px;
+  width: 5%;
   z-index: 0;
 }
 
@@ -489,12 +489,12 @@ p {
 
 .ico {
   background: 0 0 no-repeat;
-  background-size: 40px 40px;
+  background-size: 100% 100%;
   display: block;
-  height: 40px;
+  height: 100%;
   overflow: hidden;
   text-indent: -999em;
-  width: 40px;
+  width: 100%;
 }
 
 .ico-position,

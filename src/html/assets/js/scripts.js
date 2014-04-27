@@ -92,6 +92,11 @@ function jumpToTable(){
 	//console.log(bf);
 }
 
+function jumpToEvent(_B, _F, _room){
+	changeMap(_B,_F);
+	showTooltip($(".map."+_B+'.'+_F+' '+_room+' .ico-tooltip'));
+}
+
 function splitRoomNumber(_number){
     var num = _number;
     //console.log(num);
@@ -138,42 +143,44 @@ function getBranchOfStudy(_branchofstudy){
 		break;
 	case "Industrie": branch = "industrial";
 		break;
+	case "Allgemeine Veranstaltung": branch = "common";
+		break;
 	default : branch = "";
 		break;
 	}
 	return branch;
 }
 
-function getRoomType(_type){
+function getRoomTypeClass(_type){
 var type = "";
 	switch(_type){
-	case "Bibliothek":
+	case "Bibliothek": type = "ico-bibo";
 		break;
-	case "Computerraum":
+	case "Computerraum": type = "ico-pool";
 		break;
-	case "Holztechnik":
+	case "Holztechnik": type = "ico-wood";
 		break;
-	case "Hausmeister":
+	case "Hausmeister": type = "ico-facility";
 		break;
-	case "Hörsaal":
+	case "Hörsaal": type = "ico-auditorium";
 		break;
-	case "Labor":
+	case "Labor": type = "ico-laboratory";
 		break;
-	case "Lagerraum":
+	case "Lagerraum": type = "ico-mensa";
 		break;
-	case "Mensa":
+	case "Mensa": type = "ico-mensa";
 		break;
-	case "Sanitär":
+	case "Sanitär": type = "ico-toilet";
 		break;
-	case "Schnittraum":
+	case "Schnittraum": type = "ico-cut";
 		break;
-	case "Seminarraum":
+	case "Seminarraum": type = "ico-seminar";
 		break;
-	case "Sonstiges":
+	case "Sonstiges": type = "ico-other";
 		break;
-	case "Sprachlabor":
+	case "Sprachlabor": type = "ico-language";
 		break;
-	case "Tonstudio":
+	case "Tonstudio": type = "ico-audio";
 		break;
 	default: type = "";
 		break;
@@ -215,10 +222,10 @@ function generateRooms(_data) {
       </article> <!-- tooltip -->
     </div> <!-- room -->
   */
-	var nr = "", type = "", time = "", dtitle = "", ddesc = "", dassets = "", dperson = "", branch = "", direction = "";
+	var nr = "", type = "", typeClass = "", time = "", dtitle = "", ddesc = "", dassets = "", dperson = "", branch = "", direction = "";
 	nr = _data[i].location.number;
 	type = _data[i].location.type;
-
+	typeClass = getRoomTypeClass(type);
 	if(_data[i].starttime){
 		time += _data[i].starttime;
 	}
@@ -270,7 +277,7 @@ function generateRooms(_data) {
 		}
 
 	$('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).append(''
-	+'<a class="ico ico-tooltip '+branch+' switch-btn" onclick="showTooltip(this)" data-position="'+nr
+	+'<a class="ico ico-tooltip '+branch+' '+typeClass+' switch-btn" onclick="showTooltip(this)" data-position="'+nr
 	+'" href="#">Position Raum '+nr+'</a>'
 	+'<article class="tooltip '+direction+'">'
     +'<a href="#" class="close" onclick="closeTooltip(this)">X</a>'
@@ -305,10 +312,10 @@ function generateUnusedRooms(_data) {
 
     //$('.map.B'+srn[0]+ '.F'+srn[1]).append('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
     //console.log('<div class="room number-'+srn[1]+''+srn[2]+'"></div>');
-	var nr  = "", type = "", dtitle = "", ddesc = "", dassets = "", dperson = "", direction = "";
+	var nr  = "", type = "", typeClass = "", dtitle = "", ddesc = "", dassets = "", dperson = "", direction = "";
 	nr = _data[i].number;
 	type = _data[i].type;
-
+	typeClass = getRoomTypeClass(type);
 	if(_data[i].title != "" && _data[i].title != null){
 	  dtitle = '<h2 class="heading style4">'+_data[i].title+'</h2>';
 	}
@@ -348,7 +355,7 @@ function generateUnusedRooms(_data) {
 
 
 		$('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).append(''
-		+'<a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="'+nr
+		+'<a class="ico ico-tooltip '+typeClass+' switch-btn" onclick="showTooltip(this)" data-position="'+nr
 		+'" href="#">Position Raum '+nr+'</a>'
 		+'<article class="tooltip '+direction+'">'
 		+'<a href="#" class="close" onclick="closeTooltip(this)">X</a>'
@@ -381,19 +388,19 @@ function eventlist(_data){
 		bc = '<span class="course left '+branch+'"></span>';
 	}
 	var time = "";
-	if(item.starttime){
-		time += item.starttime;
+	if(_data[i].starttime){
+		time += _data[i].starttime;
 	}
-	if(item.endtime){
-		time += " - "+item.endtime;
+	if(_data[i].endtime){
+		time += " - "+_data[i].endtime;
 	}
     container.append('<li>'
 	  +bc+'<div class="list-entry"><h2 class="heading style4">'
-      +item.title+'</h2><p>Ort: '
-      +item.location.number+'; <strong>Zeit: '
-      +time+' Uhr</strong></p><a class="location-pointer" onclick="changeMap(\'B'
+      +_data[i].title+'</h2><p>Ort: '
+      +_data[i].location.number+'; <strong>Zeit: '
+      +time+' Uhr</strong></p><a class="location-pointer" onclick="jumpToEvent(\'B'
       +srn[0]+'\',\'F'
-      +srn[1]+'\');" href="#" title="">Gehe zum Ort</a></div></li>');
+      +srn[1]+'\',\'.room.number-'+srn[1]+''+srn[2]+'\');" href="#" title="">Gehe zum Ort</a></div></li>');
   });
 }
 
