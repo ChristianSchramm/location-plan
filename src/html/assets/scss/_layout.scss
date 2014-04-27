@@ -284,7 +284,7 @@ p {
 	opacity: 0;
 	padding: 0;
 	margin-top: -5px;
-	
+
   }
 }
 
@@ -524,9 +524,6 @@ p {
   @include base64-image($ico-position);
 }
 
-.ico-tooltip-grey {
-  @include base64-image($ico-tooltip-grey);
-}
 
 .ico-tooltip {
   @include base64-image($ico-tooltip);
@@ -536,6 +533,10 @@ p {
   &:focus,
   &.active {
     @include base64-image($ico-tooltip-hover);
+  }
+
+  &.ico-tooltip-grey {
+    @include base64-image($ico-tooltip-grey);
   }
 
   &.ico-tooltip-agrar {
