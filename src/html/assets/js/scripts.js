@@ -355,7 +355,7 @@ function generateUnusedRooms(_data) {
 
 
 		$('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).append(''
-		+'<a class="ico ico-tooltip '+typeClass+' switch-btn" onclick="showTooltip(this)" data-position="'+nr
+		+'<a class="ico ico-tooltip ico-tooltip-grey '+typeClass+' switch-btn" onclick="showTooltip(this)" data-position="'+nr
 		+'" href="#">Position Raum '+nr+'</a>'
 		+'<article class="tooltip '+direction+'">'
 		+'<a href="#" class="close" onclick="closeTooltip(this)">X</a>'
