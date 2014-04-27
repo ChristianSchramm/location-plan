@@ -6,7 +6,7 @@ var floor = "F0";
 $( document ).ready(function() {
   init();
   createTableByCookie();
-
+  setInterval(function(){clock();}, 1000);
 });
 
 function init(){
@@ -36,6 +36,23 @@ function init(){
     }
   });
 
+}
+
+function clock(){
+	var now = new Date();
+	var day = now.getDay();
+	var days = new Array("Sonntag", "Montag", "Dienstag", "Mittwoch",
+                          "Donnerstag", "Freitag", "Samstag");
+	var test = "";
+	test += days[day];
+	test += '  '+("0" + now.getDate()).slice(-2);
+	test += '.'+("0" + now.getMonth()).slice(-2);
+	test += '.'+now.getFullYear();
+	test += '  '+("0" + now.getHours()).slice(-2);
+	test += ':'+("0" + now.getMinutes()).slice(-2);
+	test += ':'+("0" + now.getSeconds()).slice(-2);
+	$(".clock").html(test);
+	//console.log(test);
 }
 
 function setTable(){

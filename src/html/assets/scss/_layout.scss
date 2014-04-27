@@ -85,6 +85,10 @@ p {
   .heading {
     display: inline-block;
     margin: 8px 0 0;
+	&.clock{
+	  float: right;
+	  margin: 15px 15px 0 15px;
+	}
   }
 }
 
