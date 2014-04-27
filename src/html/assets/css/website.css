@@ -1079,6 +1079,15 @@ p {
   width: 0;
   z-index: 3;
 }
+.tooltip .heading {
+  color: #006eb6;
+  margin-bottom: 15px;
+}
+.tooltip p + .heading {
+  border-top: 1px solid #FFFFFF;
+  margin-top: 10px;
+  padding-top: 10px;
+}
 .tooltip .tooltipInfo {
   overflow-y: auto;
   max-height: 250px;
@@ -1102,6 +1111,9 @@ p {
   opacity: 0;
 }
 .tooltip .close {
+  display: none;
+  opacity: 0;
+  transition: all 0.01s linear;
   background-color: #006eb6;
   border: 4px solid #fff;
   color: #fff;
@@ -1111,10 +1123,7 @@ p {
   position: absolute;
   right: -15px;
   text-decoration: none;
-  top: -17px;
-  display: none;
-  opacity: 0;
-  transition: all 0.01s linear;
+  top: -25px;
 }
 .tooltip .close.active {
   display: block;

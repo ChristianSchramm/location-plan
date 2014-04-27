@@ -396,15 +396,27 @@ p {
 .tooltip {
   // display: none;
   @extend %round-tooltip;
-
   position: absolute;
   transition: all 0.3s linear;
   width: 0;
   z-index: 3;
+
+  .heading {
+    color: $ba-blue;
+    margin-bottom: 15px;
+  }
+
+  p + .heading {
+    border-top: 1px solid #FFFFFF;
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+
   .tooltipInfo{
 	overflow-y: auto;
 	max-height: 250px;
   }
+
   &.active{
     background: $ba-lightgrey;
     display: block;
@@ -426,6 +438,9 @@ p {
   }
   .close{
     @extend %round-ico;
+    display:none;
+    opacity: 0;
+    transition: all 0.01s linear;
     background-color: $ba-blue;
     border: 4px solid #fff;
     color: #fff;
@@ -435,14 +450,12 @@ p {
     position: absolute;
     right: -15px;
     text-decoration: none;
-    top: -17px;
-	display:none;
-	opacity: 0;
-	transition: all 0.01s linear;
-	&.active{
-		display: block;
-		transition: all 0.2s linear 0.4s;
-	}
+    top: -25px;
+
+    &.active{
+  		display: block;
+  		transition: all 0.2s linear 0.4s;
+  	}
   }
 }
 

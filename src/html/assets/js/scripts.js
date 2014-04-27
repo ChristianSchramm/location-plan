@@ -147,33 +147,33 @@ function getBranchOfStudy(_branchofstudy){
 function getRoomType(_type){
 var type = "";
 	switch(_type){
-	case "Bibliothek": 
+	case "Bibliothek":
 		break;
-	case "Computerraum": 	
+	case "Computerraum":
 		break;
-	case "Holztechnik": 
+	case "Holztechnik":
 		break;
-	case "Hausmeister": 
+	case "Hausmeister":
 		break;
-	case "Hörsaal": 
+	case "Hörsaal":
 		break;
-	case "Labor": 
+	case "Labor":
 		break;
-	case "Lagerraum": 
+	case "Lagerraum":
 		break;
-	case "Mensa": 
+	case "Mensa":
 		break;
-	case "Sanitär": 
+	case "Sanitär":
 		break;
-	case "Schnittraum": 
+	case "Schnittraum":
 		break;
-	case "Seminarraum": 
+	case "Seminarraum":
 		break;
-	case "Sonstiges": 
+	case "Sonstiges":
 		break;
-	case "Sprachlabor": 
+	case "Sprachlabor":
 		break;
-	case "Tonstudio": 
+	case "Tonstudio":
 		break;
 	default: type = "";
 		break;
@@ -218,20 +218,20 @@ function generateRooms(_data) {
 	var nr = "", type = "", time = "", dtitle = "", ddesc = "", dassets = "", dperson = "", branch = "", direction = "";
 	nr = _data[i].location.number;
 	type = _data[i].location.type;
-	
+
 	if(_data[i].starttime){
 		time += _data[i].starttime;
 	}
 	if(_data[i].endtime){
 		time += " - "+_data[i].endtime;
 	}
-	
+
 	if(_data[i].title != "" && _data[i].title != null ){
-	  dtitle = '<h1 class="heading style3">'+_data[i].title+'</h1>';
+	  dtitle = '<h2 class="heading style4">'+_data[i].title+'</h2>';
 	}
 	if(_data[i].description != "" && _data[i].description != null){
 	  ddesc = '<p>'+_data[i].description+'</p>';
-	
+
 	}
 	if(_data[i].personincharge != "" && _data[i].personincharge != null){
 	  dperson = '<p>Verantwortlicher: ' +_data[i].personincharge+'</p>';
@@ -239,7 +239,7 @@ function generateRooms(_data) {
 	if(_data[i].assets.length > 0){
 	//console.log(_data[i].assets.length);
 	  for(var j = 0; j < _data[i].assets.length ; j++){
-	  
+
 		dassets += '<figure class="image">'
 					+'<img src="img/'+_data[i].assets[j].src+'" title="" alt="'+_data[i].assets[j].title+'">'
 					+'<figcaption class="caption">'
@@ -268,7 +268,7 @@ function generateRooms(_data) {
 		}else{
 			direction += "r";
 		}
-	
+
 	$('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).append(''
 	+'<a class="ico ico-tooltip '+branch+' switch-btn" onclick="showTooltip(this)" data-position="'+nr
 	+'" href="#">Position Raum '+nr+'</a>'
@@ -286,7 +286,7 @@ function generateRooms(_data) {
     +ddesc
 	+dassets
 	+dperson);
-	
+
 	console.log($('.map.B'+srn[0]+ '.F'+srn[1]).css("width").split("px")[0]);
 	console.log($('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('left').split("px")[0]);
 	console.log($('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).css('left').split("px")[0]/$('.map.B'+srn[0]+ '.F'+srn[1]).css("width").split("px")[0]*100);
@@ -308,9 +308,9 @@ function generateUnusedRooms(_data) {
 	var nr  = "", type = "", dtitle = "", ddesc = "", dassets = "", dperson = "", direction = "";
 	nr = _data[i].number;
 	type = _data[i].type;
-	
+
 	if(_data[i].title != "" && _data[i].title != null){
-	  dtitle = '<h1 class="heading style3">'+_data[i].title+'</h1>';
+	  dtitle = '<h2 class="heading style4">'+_data[i].title+'</h2>';
 	}
 	if(_data[i].description != "" && _data[i].description != null){
 	  ddesc = '<p>'+_data[i].description+'</p>';
@@ -318,7 +318,7 @@ function generateUnusedRooms(_data) {
 	if(_data[i].personincharge != "" && _data[i].personincharge != null){
 	  dperson = '<p>Verantwortlicher: ' +_data[i].personincharge+'</p>';
 	}
-	
+
 	/*if(_data[i].assets.length > 0){
 	  for(var j = 0; j < _data[i].assets.length ; j++){
 		dassets += '<figure class="image">'
@@ -345,8 +345,8 @@ function generateUnusedRooms(_data) {
 		}else{
 			direction += "r";
 		}
-		
-		
+
+
 		$('.map.B'+srn[0]+ '.F'+srn[1]+' .room.number-'+srn[1]+''+srn[2]).append(''
 		+'<a class="ico ico-tooltip switch-btn" onclick="showTooltip(this)" data-position="'+nr
 		+'" href="#">Position Raum '+nr+'</a>'
