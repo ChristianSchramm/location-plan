@@ -166,7 +166,7 @@ var type = "";
 		break;
 	case "Labor": type = "ico-laboratory";
 		break;
-	case "Lagerraum": type = "ico-mensa";
+	case "Lagerraum": type = "ico-storage";
 		break;
 	case "Mensa": type = "ico-mensa";
 		break;
