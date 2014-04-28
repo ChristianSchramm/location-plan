@@ -491,7 +491,7 @@ function changeMap(_building, _floor){
 	$(".floor").removeClass("active");
 	$(".floor.c"+building).addClass("active");
 	$(".floor.c"+floor).addClass("active");
-	
+
 	if(_building == "B3" || _building == "B1" ){
 	  $(".floor.cF3").addClass("hide");
 	}else{
@@ -505,7 +505,7 @@ function changeMap(_building, _floor){
 	if(_building == "BC"){
 		$(".floor").removeClass("active");
 	}
-	
+
     setTimeout(function(){
       $(".map."+building+"."+floor).removeClass("hide");
     },200);
