@@ -80,6 +80,10 @@ $( window ).resize(function() {
 
 function createTableByCookie(){
 	$(".map").unbind('click');
+	console.log($.cookie('the_cookie'));
+	if(!$.cookie('the_cookie')){
+	  $.cookie('the_cookie', ".map.B2.F1,61.58,89.77" , { expires: 7 });	
+	}
 	var c = $.cookie('the_cookie').split(',');
 	console.log(c);
 
